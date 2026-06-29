@@ -1,6 +1,6 @@
 # Prompt maestro para crear un REA docente
 
-Usa este prompt para replicar la estructura validada en 9.º o para crear desde cero un recurso sobre otra unidad curricular o tema.
+Usa este prompt para replicar la estructura validada en un nuevo módulo, nivel o unidad curricular. El resultado debe cubrir el ciclo completo: análisis del programa, progresión, fichas docentes embebibles, experiencia estudiantil, evaluación, exportación, despliegue y verificación pública.
 
 ---
 
@@ -16,7 +16,7 @@ Antes de implementar, completa o solicita estos datos:
 
 - **Unidad curricular o área:** `[ÁREA]`
 - **Tema general:** `[TEMA]`
-- **Grado o nivel:** `[NIVEL]`
+- **Grado, nivel o rango de niveles:** `[NIVEL O NIVELES]`
 - **Tramo:** `[TRAMO]`
 - **Programa oficial:** `[ARCHIVO, ENLACE O TEXTO]`
 - **Bibliografía sugerida:** `[FUENTES]`
@@ -24,8 +24,14 @@ Antes de implementar, completa o solicita estos datos:
 - **Tecnologías disponibles:** `[TECNOLOGÍAS]`
 - **Contextos institucionales previstos:** `[CONTEXTO]`
 - **Recursos existentes que pueden utilizarse como referencia:** `[PDF, ELP, HTML, IMÁGENES, AUDIOS, ETC.]`
+- **Repositorio y organización de destino:** `[ORGANIZACIÓN/REPOSITORIO]`
+- **URL pública prevista:** `[URL]`
+- **Plataforma de alojamiento:** `[GITHUB PAGES U OTRA]`
+- **Plataforma educativa donde se embeberá:** `[CREA U OTRA]`
 
 No inventes correspondencias curriculares. Extrae propósitos, contenidos, competencias y criterios de logro de los documentos suministrados. Distingue claramente entre formulaciones del programa y sugerencias didácticas del REA.
+
+Antes de diseñar actividades, construye una matriz de cobertura que relacione niveles, contenidos, competencias, prerrequisitos, desempeños, evidencias y fichas. Identifica vacíos, duplicaciones y temas que aparecen de forma implícita pero necesitan tratamiento explícito.
 
 ### 2. Propósito del producto
 
@@ -39,6 +45,8 @@ Construye un entorno docente que permita:
 6. Configurar actividades según contexto y agrupamiento.
 7. Previsualizar exactamente lo que recibirá el estudiante.
 8. Exportar planificación, cuadernillos, instrumentos, secuencias e iframes.
+9. Copiar enlaces públicos estables y utilizables en la plataforma educativa.
+10. Reconocer la progresión entre niveles y los prerrequisitos de cada tema.
 
 La interfaz debe ayudar al docente a tomar decisiones. No debe ser un repositorio extenso de tarjetas ni una copia visual de un material previo.
 
@@ -89,6 +97,23 @@ No presentes DUA como estilos de aprendizaje ni como rutas rígidas.
 - Permite seleccionar una unidad y abrirla en la misma pantalla.
 - Evita columnas laterales que tapen el contenido.
 - Resalta visualmente la sección o unidad seleccionada.
+- Cuando el recurso abarque varios niveles, muestra una progresión diferenciada y evita repetir la misma exigencia con distinto rótulo.
+- Indica qué se introduce, qué se profundiza y qué se consolida en cada nivel.
+
+#### Matriz de progresión
+
+Incluye una vista docente que permita comprobar, por nivel:
+
+- Tema o núcleo conceptual.
+- Propósito curricular.
+- Conocimientos previos.
+- Nivel de profundidad esperado.
+- Evidencia de aprendizaje.
+- Instrumento de evaluación.
+- Ficha y material estudiantil asociados.
+- Continuidad con el nivel anterior y el siguiente.
+
+La matriz debe servir como control de cobertura curricular y como ayuda para planificar, no como una tabla decorativa.
 
 ### 4. Estructura de cada unidad
 
@@ -108,6 +133,23 @@ Cada unidad debe incluir información docente y materiales exportables.
 - Evidencias esperadas.
 - Orientaciones para retroalimentar.
 - Apoyos DUA.
+- Continuidad: qué unidad conviene trabajar antes y cuál puede seguir después.
+- Indicadores observables de logro.
+
+#### Ficha docente embebible por tema
+
+Cada tema debe tener una ficha autónoma, no solamente la unidad general. Incluye:
+
+- Título y referencia exacta al programa.
+- Propósito curricular.
+- Contenidos del programa relacionados.
+- Actividad docente sugerida.
+- Evidencia esperada.
+- Evaluación formativa.
+- Tiempo sugerido.
+- Orientación concreta para embeber y solicitar la entrega en CREA.
+
+La ficha debe poder visualizarse, imprimirse y exportarse como HTML autocontenido. El HTML exportado debe conservar la información curricular y absolutizar correctamente imágenes, audios, enlaces y recursos.
 
 #### Cuatro actividades diferentes como mínimo
 
@@ -171,6 +213,24 @@ Los ejercicios deben:
 - Proponer pistas graduales.
 - Registrar progreso local sin identificar al estudiante.
 - Ser navegables con teclado y compatibles con lectores de pantalla.
+- Mezclar las opciones de forma estable para evitar que la respuesta correcta ocupe siempre la misma posición.
+- Conservar internamente la relación con la respuesta correcta aunque cambie el orden visual.
+- Incluir preguntas de respuesta única y situaciones con varias respuestas correctas.
+- En selección múltiple, indicar “selecciona todas las opciones que correspondan” y validar el conjunto completo.
+- Evitar distractores absurdos o reconocibles solo por su redacción.
+- Distribuir las respuestas correctas entre distintas posiciones y auditar automáticamente ese equilibrio.
+
+Combina distintos formatos cuando sean pertinentes:
+
+- Opción única.
+- Selección múltiple.
+- Completar.
+- Ordenar.
+- Relacionar.
+- Leer o trazar una solución.
+- Detectar un error y justificar una corrección.
+
+No uses únicamente preguntas de reconocimiento. Al menos la mitad debe exigir aplicación, predicción, comparación, depuración o justificación.
 
 ### 7. Evaluación formativa
 
@@ -191,6 +251,8 @@ Organiza la evaluación como un ciclo:
 **criterio → evidencia → retroalimentación → revisión → nueva evidencia**
 
 Incluye ejemplos de errores frecuentes, preguntas para intervenir sin resolver y ejemplos de producciones iniciales y mejoradas.
+
+Cada instrumento debe declarar qué criterio observa y qué evidencia permite tomar una decisión. Evita evaluar contenidos que la secuencia no enseñó o practicó.
 
 ### 8. Constructor de unidad
 
@@ -245,6 +307,15 @@ Cada tema o secuencia estudiantil debe comenzar con un panel **“Cómo quiero t
 Las distintas formas de respuesta deben compartir un mismo objetivo y criterio de evaluación. Incluye controles equivalentes por teclado y una alternativa de archivo cuando el navegador no permita grabar audio.
 
 No debe mostrar fundamentación, referencias curriculares, herramientas de autor ni navegación del portal docente.
+
+La URL del iframe debe:
+
+- Ser pública y estable, nunca apuntar a `localhost`.
+- Codificar nivel, interfaz, sector, tema y configuración mediante parámetros serializables.
+- Abrir directamente la experiencia seleccionada sin pasos intermedios.
+- Mantener la configuración al recargar.
+- Funcionar dentro de CREA y también como enlace en una pestaña independiente.
+- Tener una alternativa visible cuando el contenido externo no pueda cargarse.
 
 ### 10. Tutoría con inteligencia artificial
 
@@ -327,6 +398,8 @@ Muestra o documenta:
 
 No incorpores imágenes, textos o materiales sin comprobar su licencia y atribución.
 
+Si un archivo fuente es demasiado grande para el repositorio o el sitio publicado, consérvalo mediante un mecanismo de descarga apropiado, por ejemplo una Release. No lo elimines silenciosamente ni dejes enlaces relativos rotos.
+
 ### 14. Implementación técnica
 
 - Lee primero el código y reutiliza patrones existentes.
@@ -338,8 +411,55 @@ No incorpores imágenes, textos o materiales sin comprobar su licencia y atribuc
 - Proporciona una alternativa al portapapeles moderno.
 - Detecta ventanas emergentes bloqueadas y muestra un mensaje útil.
 - No rompas los recursos existentes mientras se desarrolla un nivel piloto.
+- Implementa exportación estática cuando el producto no necesite servidor.
+- Si se publica bajo un subdirectorio, configura `basePath` y `assetPrefix`, y ajusta también los recursos de `public/`.
+- Separa la URL pública del entorno local mediante variables de entorno.
+- Asegura que enlaces internos con parámetros funcionen bajo el subdirectorio del repositorio.
+- Absolutiza recursos únicamente al exportar o embeber; evita fijar dominios dentro del contenido pedagógico salvo para fuentes externas estables.
+- Añade una comprobación de integridad que verifique que cada tema de la secuencia tenga recurso, contenido, ficha y ejercicios asociados.
+- Comprueba que no existan identificadores duplicados ni referencias a archivos ausentes.
+- Ignora logs, compilaciones, credenciales y archivos temporales.
 
-### 15. Método de trabajo
+#### Presupuesto de rendimiento
+
+Antes de publicar:
+
+- Mide cantidad y peso total de archivos.
+- Detecta archivos cercanos o superiores a los límites del proveedor.
+- Localiza imágenes, GIF, audios, videos y paquetes duplicados.
+- Convierte animaciones pesadas a formatos más eficientes cuando no se pierda valor didáctico.
+- No cargues medios grandes hasta que sean necesarios.
+- Conserva fuentes editables grandes fuera del artefacto web cuando corresponda.
+- Verifica que el sitio publicado quede dentro de los límites de tamaño y tiempo de despliegue.
+
+No uses Git LFS como solución automática para un sitio estático sin comprobar que el proveedor de Pages pueda servir esos objetos.
+
+### 15. Alojamiento y despliegue
+
+Configura un despliegue automático y reproducible. Para GitHub Pages:
+
+1. Usa exportación estática.
+2. Crea un workflow ejecutado en `main` o `master` y manualmente mediante `workflow_dispatch`.
+3. Instala dependencias con `npm ci`.
+4. Ejecuta lint, comprobación de tipos y build antes de publicar.
+5. Calcula URL pública y subdirectorio desde el repositorio o variables configurables.
+6. Prepara el artefacto excluyendo fuentes grandes y duplicados no utilizados.
+7. Publica con las acciones oficiales de Pages.
+8. Mantén los archivos fuente grandes como Releases cuando resulte pertinente.
+
+Después del despliegue comprueba por HTTP:
+
+- Portada pública.
+- Vista docente.
+- Al menos una ficha estudiantil por nivel con parámetros URL.
+- Scripts y hojas de estilo.
+- Imágenes, audios y recursos integrados.
+- Descargas de archivos fuente.
+- URL que será copiada como iframe para CREA.
+
+No declares terminado el trabajo porque el workflow esté en verde: prueba el sitio servido y registra la URL final.
+
+### 16. Método de trabajo
 
 Sigue estas etapas:
 
@@ -352,25 +472,43 @@ Sigue estas etapas:
 7. Convertir la unidad validada en patrón.
 8. Replicar al resto del nivel.
 9. Adaptar luego a otros niveles.
+10. Ejecutar auditoría de cobertura curricular.
+11. Auditar peso, licencias y enlaces de los recursos.
+12. Configurar despliegue automático.
+13. Probar el sitio público y los iframes dentro de la plataforma educativa.
+14. Etiquetar una primera versión estable y documentar cambios.
 
 No implementes todas las unidades simultáneamente antes de validar el piloto.
 
-### 16. Criterios de aceptación
+### 17. Criterios de aceptación
 
 La entrega se considera completa cuando:
 
 - La portada docente contiene Fundamentación, Programa, Cómo utilizar, DUA y Unidades.
-- Las unidades siguen una progresión curricular clara.
+- Existe una matriz de cobertura por nivel, tema, propósito, prerrequisito, evidencia y ficha.
+- Las unidades siguen una progresión curricular clara y distinguen introducción, profundización y consolidación.
+- Todos los temas básicos exigidos por el programa están cubiertos o marcados explícitamente como ampliación o trabajo futuro.
+- Cada tema de la secuencia tiene recurso, contenido, ficha docente y propuesta de evaluación.
 - La unidad piloto ofrece cuatro actividades cognitivamente diferentes.
 - Todas las actividades tienen alternativas contextuales.
 - Las tecnologías mencionadas cuentan con ejemplos reales.
 - Existe una zona activa con cuatro ejercicios formativos.
+- Las opciones se mezclan de forma estable y la respuesta correcta no ocupa sistemáticamente la primera posición.
+- Existen preguntas de selección múltiple con más de una respuesta correcta y consignas accesibles.
+- Los distractores son plausibles y la retroalimentación explica el razonamiento.
 - El constructor selecciona, ordena y configura actividades.
 - La planificación, cuadernillo, evaluación y secuencia completa se pueden imprimir o guardar como PDF.
 - El iframe representa exactamente la selección docente.
+- Las fichas docentes se exportan como HTML autocontenido con referencia curricular, evidencia y evaluación.
+- Las URLs embebibles son públicas, estables y funcionan dentro de CREA.
 - Los prompts evitan suplantación cognitiva y protegen datos personales.
 - La interfaz no presenta desbordamientos ni superposiciones.
-- Se verificaron escritorio y móvil.
+- Se verificaron escritorio, móvil, teclado, alto contraste, lectura y reducción de movimiento.
+- No existen enlaces, imágenes, audios o descargas rotas en el artefacto publicado.
+- Se auditaron peso total, archivos grandes y duplicaciones.
+- El sitio está dentro de los límites del proveedor de alojamiento.
+- Existe un workflow automático de despliegue y finaliza correctamente.
+- Se comprobaron por HTTP la portada, una ficha por nivel, los assets y las descargas.
 - `lint`, comprobación de tipos y compilación de producción finalizan correctamente.
 
 Al terminar, informa brevemente:
@@ -378,6 +516,8 @@ Al terminar, informa brevemente:
 - Qué se implementó.
 - Qué archivos concentran contenido y comportamiento.
 - Qué validaciones se ejecutaron.
+- URL pública, repositorio, workflow y versión desplegada.
+- Peso final del artefacto y tratamiento de archivos grandes.
 - Qué partes permanecen como piloto antes de replicar.
 
 ---
@@ -397,6 +537,10 @@ UNIDAD PILOTO: [TÍTULO]
 TECNOLOGÍAS: [SCRATCH, MAKECODE, MICRO:BIT, PYTHON, ETC.]
 CONTEXTO: [DISPONIBILIDAD REAL DEL CENTRO]
 RECURSOS EXISTENTES: [ARCHIVOS]
+REPOSITORIO: [ORGANIZACIÓN/NOMBRE]
+URL PÚBLICA: [URL PREVISTA]
+PLATAFORMA EDUCATIVA: [CREA U OTRA]
+ALOJAMIENTO: [GITHUB PAGES U OTRO]
 ```
 
 ## Adaptación rápida para otro tema
@@ -412,4 +556,8 @@ PRODUCTO O DESEMPEÑO ESPERADO: [DESCRIPCIÓN]
 UNIDAD PILOTO: [TÍTULO]
 HERRAMIENTAS O MATERIALES: [LISTA]
 CONTEXTOS DE IMPLEMENTACIÓN: [LISTA]
+REPOSITORIO: [ORGANIZACIÓN/NOMBRE]
+URL PÚBLICA: [URL PREVISTA]
+PLATAFORMA EDUCATIVA: [CREA U OTRA]
+ALOJAMIENTO: [GITHUB PAGES U OTRO]
 ```

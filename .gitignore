@@ -29,6 +29,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+dev-*.log
+
+# Fuentes grandes publicadas como GitHub Release y duplicados no usados por el sitio
+/public/recursos/introduccion-javascript/IntroduccionJavascript.elp
+/public/recursos/recurso-javascript/*/
 
 # env files (can opt-in for committing if needed)
 .env*

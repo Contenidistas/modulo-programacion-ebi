@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modulo Programacion EBI
 
-## Getting Started
+Guia docente curricular para docentes de Ciencias de la Computacion de Uruguay.
 
-First, run the development server:
+El modulo organiza el tema Programacion segun los programas EBI de 7mo, 8vo y 9no. Cada tema cuenta con una ficha docente embebible en CREA, con proposito curricular, contenidos del programa, actividad sugerida, evidencia y evaluacion formativa. Tambien integra materiales de apoyo, desafios interactivos, vista alumno y exportacion de sectores reutilizables.
+
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego abrir:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://127.0.0.1:3000/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ejemplo de ficha por tema para insertar o revisar:
 
-## Learn More
+```text
+http://127.0.0.1:3000/?grado=8vo&interfaz=alumno&sector=recurso&recurso=datos-tipos-operadores
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Desplegar en GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El proyecto esta configurado con `output: "export"`. El workflow `.github/workflows/deploy-pages.yml` ejecuta lint, construye la version estatica y la publica automáticamente al enviar cambios a `master` o `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La URL y el subdirectorio se calculan desde el repositorio. Por ejemplo, un repositorio `Contenidistas/modulo-programacion-ebi` se publica en:
 
-## Deploy on Vercel
+```text
+https://contenidistas.github.io/modulo-programacion-ebi/
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pasos iniciales:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+gh auth login -h github.com
+gh repo create modulo-programacion-ebi --public --source=. --remote=origin --push
+```
+
+En GitHub, abrir `Settings > Pages` y seleccionar `GitHub Actions` como fuente. Los siguientes `push` desplegarán automáticamente.
+
+Para comprobar localmente un despliegue bajo subdirectorio en PowerShell:
+
+```powershell
+$env:NEXT_PUBLIC_REA_BASE_PATH='/modulo-programacion-ebi'
+$env:NEXT_PUBLIC_REA_PUBLIC_URL='https://contenidistas.github.io/modulo-programacion-ebi/'
+npm run build
+```
+
+`NEXT_PUBLIC_REA_PUBLIC_URL` define la URL copiada en los iframes para CREA y `NEXT_PUBLIC_REA_BASE_PATH` ajusta tanto los recursos como los assets internos de Next.js.
+
+## Estructura del recurso
+
+- `src/contenido/escrutinio.json`: contenido pedagogico, grados, actividades, ejercicios y metadatos de portal.
+- `src/contenido/fichasDocentesProgramacion.json`: fichas docentes curriculares por grado y tema, basadas en los programas EBI.
+- `app/page.tsx`: vista principal docente/alumno y generacion de iframe/fichas.
+- `src/componentes/ZonaActiva.tsx`: desafios interactivos.
+- `public/`: imagenes y gifs usados en las guias por nivel.
+- `public/recursos/`: recursos externos integrados como paquetes estaticos, por ejemplo eXeLearning.

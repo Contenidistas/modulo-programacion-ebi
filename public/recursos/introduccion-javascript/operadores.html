@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_effects.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Operadores | Introducción a JavaScript </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Hernández, Santiago." />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_effects.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-6"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Introducción a JavaScript</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Introducción a Javascrip</a></li>
+   <li><a href="dnde_programamos_con_javascript.html" class="no-ch">¿Dónde programamos con Javascript?</a></li>
+   <li><a href="comentarios.html" class="no-ch">Comentarios</a></li>
+   <li><a href="salidas_y_entradas_inputoutput.html" class="no-ch">Salidas y entradas (input-output)</a></li>
+   <li><a href="variables.html" class="no-ch">Variables</a></li>
+   <li><a href="estructuras_de_control.html" class="no-ch">Estructuras de control</a></li>
+   <li id="active"><a href="operadores.html" class="active no-ch">Operadores</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="estructuras_de_control.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="crditos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Operadores</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice" id="id8">
+<div class="iDevice emphasis0" >
+<div id="ta8_120_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-engagement"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Los operadores son elementos imprescindibles en la programación, vitales en el uso de variables, la creación de condiciones, cálculos y operaciones matemáticas simples o complejas. Mediante su utilización permiten al programador construir expresiones lógicas que definan la toma de decisiones por parte del programa o sistema construido.</p>
+<p>A continuación se presentan los principales operadores y su sintaxis en Javascript:</p>
+<div class="exe-fx exe-tabs">
+<h2>Asignación</h2>
+<p>El operador de asignación se asocia al signo de "es igual (=)", cabe destacar que su sintaxis es la siguiente:&nbsp;</p>
+<p>&nbsp;&nbsp;<img src="img2.1.png" width="1100" height="506" alt="Asignación"></p>
+<p>Supongamos que hacemos lo siguiente:</p>
+<p>var num = 0; //la variable num vale cero</p>
+<p>num = 2; //ahora la variable num vale dos</p>
+<p>num = 5 + num; //la variable num ahora vale siete</p>
+<p>Tal como se puede apreciar, para asignar un valor se debe utilizar un signo de es igual, del lado izquierdo del signo debe estar el elemento al que le voy a asignar, del lado derecho el valor o expresión que asignaré.</p>
+<p><span style="color: #ff0000;">Por ende intentar asignar un valor de esta forma es un error :&nbsp; &nbsp;5 = num;&nbsp;</span></p>
+<h2>Comparación</h2>
+<p>Al comparar dos o más elementos podemos decir que son iguales o no son iguales (distintos), en caso de ser distintos podemos decir que uno es mayor o menor que el otro.</p>
+<p>En Javascript al igual que en otros lenguajes de programación la comparación de igualdad se realiza con el doble signo de igual (==), de esta comparación se obtiene un valor booleano (true o false) que será true en el caso que se trate de igualdad o false en caso contrario.</p>
+<p>En caso de ser distintos podremos comparar si uno es mayor que el otro, para esto se utilizan los conocidos signos de mayor y menor (&gt; &lt;), el resultado aquí es el mismo, un booleano. También se pueden combinar el mayor o el menor con el igual(&gt;=, &lt;= ).</p>
+<p>Por último podemos preguntar si dos valores son distintos, esto lo hacemos con el signo de exclamación seguido del signo de igual (!=).</p>
+<p>A continuación se presenta una tabla con diferentes casos:</p>
+<p><img src="img3.2.png" width="1100" height="460" alt="Operadores comparación"></p>
+<h2>Lógicos</h2>
+<p>Los operadores lógicos son AND (y) OR (o) NOT (no). Cada uno tiene una notación específica en Javascript que se detalla en la tabla presentada a continuación, además de un ejemplo de uso.</p>
+<p><img src="img3.1.png" width="1100" height="387" alt="Operadores lógicos"></p>
+<h2>Matemáticos</h2>
+<p>Los operadores cuatro operadores matemáticos básicos nos permiten realizar las operaciones de suma (+), resta (-), multiplicación (*) y división (/). Existen otro operador muy utilizado que es el módulo (%) utiliza el signo del procentaje pero no tiene nada que ver con el cálculo del porcentaje, se refiere al resto de la división. En la siguiente tabla se presentan ejemplos de uso de los distintos operadores matemáticos.</p>
+<p><img src="img3.png" width="1110" height="254" alt="Operadores aritméticos"></p>
+</div>
+<h2></h2></div></div></section></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id18">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Zona activa</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta18_120_2" class="block iDevice_content">
+<div class="exe-text"><hr />
+<p>En este espacio se proponen una serie de actividades con retroalimentaciones que te permiten reafirmar los puntos clave sobre los operadores y su uso en Javascript.</p>
+<hr />
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ClozeIdevice em_iDevice em_iDevice_question" id="id23">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Rellenar huecos</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta23_116" class="block instructions iDevice_content">
+<p>La siguiente tabla presenta valores para las variables a y b y salidas o resultados en función de un operador que tu debes ingresar.</p>
+<p>Te puedes guiar acerca del tipo de operador en cuestión ya que en la columna "Tipo" aparece un descriptor donde se detalla de que familia de operadores se trata ese caso.</p>
+</section>
+
+    <section class="activity" id="activity-23_117"><form name="cloze-form-23_117" action="#" class="activity-form cloze-activity-form"><div id="cloze23_117"><input type="hidden" name="clozeFlag23_117.strictMarking" id="clozeFlag23_117.strictMarking" value="false"/>
+<input type="hidden" name="clozeFlag23_117.checkCaps" id="clozeFlag23_117.checkCaps" value="false"/>
+<input type="hidden" name="clozeFlag23_117.instantMarking" id="clozeFlag23_117.instantMarking" value="false"/>
+<input type="hidden" name="clozeVar23_117.feedbackId" id="clozeVar23_117.feedbackId" value="ta23_118"/>
+<table border="1" style="width: 98.1935%; height: 240px;">
+<tbody>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Tipo</td>
+<td style="width: 20%; height: 20px;">Valor de a</td>
+<td style="width: 20%; height: 20px;">Operador</td>
+<td style="width: 20%; height: 20px;">Valor de b</td>
+<td style="width: 20%; height: 20px;">Salida</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor</td>
+<td style="width: 20%; height: 20px;">5</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.0" class="sr-av">Rellenar huecos (1):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.0" style="width:1ch" /><span style="display:none" id="clozeAnswer23_117.0">JXUwMDY2
+</span> </td>
+<td style="width: 20%; height: 20px;">4</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor</td>
+<td style="width: 20%; height: 20px;">6</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.1" class="sr-av">Rellenar huecos (2):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.1" style="width:1ch" /><span style="display:none" id="clozeAnswer23_117.1">JXUwMDY0
+</span> </td>
+<td style="width: 20%; height: 20px;">9</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor</td>
+<td style="width: 20%; height: 20px;">6</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.2" class="sr-av">Rellenar huecos (3):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.2" style="width:1ch" /><span style="display:none" id="clozeAnswer23_117.2">JXUwMDY2
+</span> </td>
+<td style="width: 20%; height: 20px;">97</td>
+<td style="width: 20%; height: 20px;">False</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor</td>
+<td style="width: 20%; height: 20px;">-5</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.3" class="sr-av">Rellenar huecos (4):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.3" style="width:1ch" /><span style="display:none" id="clozeAnswer23_117.3">JXUwMDY0
+</span> </td>
+<td style="width: 20%; height: 20px;">-6</td>
+<td style="width: 20%; height: 20px;">False</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Igual/distinto</td>
+<td style="width: 20%; height: 20px;">0</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.4" class="sr-av">Rellenar huecos (5):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.4" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.4">JXUwMDY1JXUwMDAw
+</span> </td>
+<td style="width: 20%; height: 20px;">0</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Igual/distinto</td>
+<td style="width: 20%; height: 20px;">0</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.5" class="sr-av">Rellenar huecos (6):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.5" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.5">JXUwMDY1JXUwMDAw
+</span> </td>
+<td style="width: 20%; height: 20px;">12</td>
+<td style="width: 20%; height: 20px;">False</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Igual/distinto</td>
+<td style="width: 20%; height: 20px;">a</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.6" class="sr-av">Rellenar huecos (7):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.6" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.6">JXUwMDc5JXUwMDFj
+</span> </td>
+<td style="width: 20%; height: 20px;">5</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Igual/distinto</td>
+<td style="width: 20%; height: 20px;">4</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.7" class="sr-av">Rellenar huecos (8):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.7" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.7">JXUwMDc5JXUwMDFj
+</span> </td>
+<td style="width: 20%; height: 20px;">4</td>
+<td style="width: 20%; height: 20px;">False</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor o Igual</td>
+<td style="width: 20%; height: 20px;">4</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.8" class="sr-av">Rellenar huecos (9):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.8" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.8">JXUwMDY2JXUwMDAz
+</span> </td>
+<td style="width: 20%; height: 20px;">5</td>
+<td style="width: 20%; height: 20px;">False</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor o Igual</td>
+<td style="width: 20%; height: 20px;">5</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.9" class="sr-av">Rellenar huecos (10):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.9" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.9">JXUwMDY2JXUwMDAz
+</span> </td>
+<td style="width: 20%; height: 20px;">5</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 20%; height: 20px;">Mayor/menor o Igual</td>
+<td style="width: 20%; height: 20px;">0</td>
+<td style="width: 20%; height: 20px;"> <label for="clozeBlank23_117.10" class="sr-av">Rellenar huecos (11):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank23_117.10" style="width:2ch" /><span style="display:none" id="clozeAnswer23_117.10">JXUwMDY0JXUwMDAx
+</span> </td>
+<td style="width: 20%; height: 20px;">1</td>
+<td style="width: 20%; height: 20px;">True</td>
+</tr>
+</tbody>
+</table><div class="block iDevice_buttons"><p><input class="button" type="submit" name="submit23_117" value="Enviar"  id="submit23_117" />
+<input type="button" name="restart23_117" value="Reiniciar" style="display:none" id="restart23_117" onclick="$exe.cloze.restart('23_117')" />
+ <input type="button" name="23_117showAnswersButton" value="Mostrar las respuestas" style="display:none" id="showAnswersButton23_117" onclick="$exe.cloze.fillInputs('23_117')" />
+<span class="js-hidden js-warning">Habilitar JavaScript</span></p></div><div id="clozeScore23_117"></div></div></form></section>
+    <section id="ta23_118" class="feedback js-feedback iDevice_content" style="display:none">
+<p>Recuerda que puedes recurrir a las tablas de ejemplos colocada encima de la actividad.</p>
+</section>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="estructuras_de_control.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="crditos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script><script src="../lector-pagina.js"></script>`r`n</body></html>

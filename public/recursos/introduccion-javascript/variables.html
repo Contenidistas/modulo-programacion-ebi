@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_effects.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Variables | Introducción a JavaScript </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Hernández, Santiago." />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_effects.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<link rel="stylesheet" type="text/css" href="scrambled-list.css" />
+<script type="text/javascript" src="scrambled-list.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-5"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Introducción a JavaScript</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Introducción a Javascrip</a></li>
+   <li><a href="dnde_programamos_con_javascript.html" class="no-ch">¿Dónde programamos con Javascript?</a></li>
+   <li><a href="comentarios.html" class="no-ch">Comentarios</a></li>
+   <li><a href="salidas_y_entradas_inputoutput.html" class="no-ch">Salidas y entradas (input-output)</a></li>
+   <li id="active"><a href="variables.html" class="active no-ch">Variables</a></li>
+   <li><a href="estructuras_de_control.html" class="no-ch">Estructuras de control</a></li>
+   <li><a href="operadores.html" class="no-ch">Operadores</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="salidas_y_entradas_inputoutput.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="estructuras_de_control.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Variables</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice" id="id4">
+<div class="iDevice emphasis0" >
+<div id="ta4_114_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>¿Qué es una variable en programación?</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Este recurso está centralizado en Javascript, en este sentido hablaremos de las variables definidas dentro de este lenguaje. De todas formas el concepto de variable aplica a cualquier tecnología, si deseas profundizar el él puedes <a href="https://view.genial.ly/624f235bfbff3e00195e14ae/guide-variables">acceder a este recurso.</a></p>
+<p>A modo de síntesis, cuando nos referimos a una variable en el mundo de la programación, hablamos de un elemento que sirve para guardar y hacer referencia a un determinado dato o valor, a éstas se accede mediante un nombre que se coloca al momento de su declaración.</p>
+<p>Se debe aclarar que en Javascript los valores tomados desde el teclado son interpretados como texto, es decir el tipo de dato adjudicado por defecto es String (cadena de caracteres), claro que es posible convertir un String a otro tipo de dato, esa técnica se conoce como <a href="#t7f0abcae-58e0-b50e-8741-c670f7aac957" id="link7f0abcae-58e0-b50e-8741-c670f7aac957" class="exe-tooltip definition-tt">casteo</a>.</p>
+<div id="t7f0abcae-58e0-b50e-8741-c670f7aac957" class="exe-tooltip-text">
+<p>Castear es convertir de un tipo de dato a otro. Por ejemplo de String a Int</p>
+</div></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Declaración en Javascript</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Javascrip es un lenguaje muy flexible, esto permite algunas libertades que hacen más sencillo programar, veamos como aplica esto en el tema variables.</p>
+<p>Repasemos algunas características de las variables:</p>
+<ul>
+<li>Deben tener un nombre que las identifique (es conveniente que el nombre haga referencia a la función que cumplirá la variable en el programa).</li>
+<li>Pueden y es aconsejable que sean inicializadas, esto implica que al momento de su declaración o previo a su utilización se les asigne un valor de inicio.</li>
+<li>Sí el valor que tienen se sustituye por otro valor, el valor anterior no se puede recuperar.</li>
+<li>Solo mantienen los valores en tiempo de ejecución del programa, esto implica que al cerrar el programa las variables pierden los datos que tienen, luego al iniciar nuevamente el programa vuelven a tomar el valor de inicialización definido por el programador.<hr><a href="#t809ced73-12e2-4076-88fc-cfdb02d7665e" id="link809ced73-12e2-4076-88fc-cfdb02d7665e" title="Variables | Otras opciones" class="exe-tooltip definition-tt titled-tt"><img src="img0.1.png" width="942" height="455" alt="Declaración de variable"></a></li>
+</ul>
+<p>Algunas cuestiones prácticas:</p>
+<ul>
+<li>Existen otras formas de declarar <a href="#t38050222-5f07-b934-99c3-97a01f3b1745" id="link38050222-5f07-b934-99c3-97a01f3b1745" class="exe-tooltip definition-tt">variables</a>, pero en esta parte del curso utilizaremos esta.</li>
+<li>Javascript acepta que no se inicialice la variable (no aconsejable).</li>
+<li>Asigna un tipo por defecto, esto debido a que no es un lenguaje tipado.</li>
+<li>Acepta que no se coloque palabra reservada "var/let", esto no es aconsejable, pero Javascript lo permite.</li>
+</ul>
+<hr>
+<p>Tal como vimos podemos imprimir el valor de una variable con las salidas vistas anteriormente.</p>
+<div id="t38050222-5f07-b934-99c3-97a01f3b1745" class="exe-tooltip-text">
+<p>También se puede utilizar "let" para definir variables dentro de un determinado bloque (variables locales). Existe la sentencia "const", para valores constantes o sea valores que serán fijos a lo largo de la ejecución del programa.</p>
+</div>
+<div id="t809ced73-12e2-4076-88fc-cfdb02d7665e" class="exe-tooltip-text">
+<p>También se puede utilizar "let" para definir variables dentro de un determinado bloque (variables locales). Existe la sentencia "const", para valores constantes o sea valores que serán fijos a lo largo de la ejecución del programa.</p>
+</div></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Tipos</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Como se mencionó al inicio Javascript <strong>no es un lenguaje tipado</strong>, esto quiere decir que no es requerido definir el <strong>tipo de dato</strong> que podrá almacenar la variable al momento de su definición. En otros lenguajes de programación es condición estricta definir de que tipo es la variable a definir, en consecuencia dicha variable solo admitirá datos de ese tipo, a estos lenguajes se les llama <strong>tipados</strong>.</p>
+<p>Para comprender mejor este tema, se presenta un gif explicativo donde la variable "<em>resultado</em>" se inicializará en cero, luego se le asigna un valor resultante de la suma de dos números enteros (valor numérico), luego se le cargará un valor escrito "Anita" (valor de tipo String o cadena de caracteres) y en la misma ejecución la variable acepta ambos datos de igual forma. Por último se le asignará otro valor numérico resultante de la multiplicación de dos números, y también será admitido.</p>
+<p><img src="ManejoDeVariables.gif" alt="Operar con variables" title="Variables, autodefinición de tipos" width="1020" height="574"></p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Ejemplo de uso</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Se recomienda practicar ejecutando cada una de las situaciones presentadas como ejemplo de esta forma se logra un mayor manejo del tema, luego es recomendable experimentar realizando cambios sobre los ejemplos propuestos y ensayar ejecuciones para comprobar resultados.</p>
+<div class="exe-fx exe-tabs">
+<h2>Sumas de variables con datos predefinidos</h2>
+<p><img src="variablesuma.PNG" alt="Suma" title="Suma variables" width="1223" height="716"></p>
+<p>Notar que en este caso los valores de las variables están definidos por el programador, en cada ejecución del porgrama su valor no cambia. Para que esto sea más eficiente se debe permitir al usuario ingresar los datos (<a href="salidas_y_entradas_inputoutput.html">ver sección Salidas y entradas</a>).&nbsp;</p>
+<h2>Sumas de variables con datos ingresados por usuario</h2>
+<p><img src="VariablesPorTeclado.PNG" alt="Suma de variables ingresadas por teclado" title="Suma de variables" width="1423" height="743"></p>
+<p>Se debe aclarar que si no se hace la conversión indicada en los recuadros verdes, los datos serán tomados como texto, por tal caso no se realizará la suma (Se realiza una <a href="#tf4efe1f7-cc08-1696-dfbf-a1fba0fdfd11" id="linkf4efe1f7-cc08-1696-dfbf-a1fba0fdfd11" class="exe-tooltip definition-tt">concatenación</a>).</p>
+<p>Analicemos esa sentencia de conversión paso a paso:</p>
+<p><img src="img2.png" width="1098" height="533" alt="Sentencia de casteo"></p>
+</div>
+<div id="tf4efe1f7-cc08-1696-dfbf-a1fba0fdfd11" class="exe-tooltip-text">
+<p>La concatenación es la unión de dos o más elementos detipo texto, en programación se realiza ccon el signo de la suma (+).</p>
+</div></div></div></section></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id10">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Zona activa</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta10_120_2" class="block iDevice_content">
+<div class="exe-text"><hr />
+<p>En este espacio se proponen una serie de actividades con retroalimentaciones que te permiten reafirmar los puntos clave sobre <strong>variables</strong> en Javascript.</p>
+<hr />
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ScrambledListIdevice em_iDevice em_iDevice_activity" id="id11">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Lista desordenada</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta11_121_2" class="block iDevice_content">
+<div class="exe-sortableList"><div class="exe-sortableList-instructions"><p>Ordena la secuencia correcta para definir una variable en Javascript.</p></div><ul class="exe-sortableList-list"><li>var</li><li>miVariable</li><li>=</li><li>0</li><li>;</li></ul><div style="display:none"><p class="exe-sortableList-buttonText">Comprobar</p><p class="exe-sortableList-rightText">¡Correcto! Recuerda que puedes utilizar let en lugar de var para declarar variables.</p><p class="exe-sortableList-wrongText">Recuerda que Javascript acepta que no utilices la palabra reservada (var), pero si debes asignar un nombre y luego es conveniente inicializar la variable, por último cerrar con punto y coma.</p></div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper MultichoiceIdevice em_iDevice em_iDevice_question" id="id12">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Pregunta de Elección Múltiple</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-12_86" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion12_86" class="block question iDevice_content">
+<p>Selecciona las palabras reservadas que el lenguaje Javascript acepta para declarar variables.</p>
+</div>
+<section class="iDevice_hint">
+<h1 class="iDevice_hint_title">Sugerencia</h1>
+<div class="iDevice_hint_content js-hidden">
+<div id="tahint12_86" class="block iDevice_content">
+<p>Puedes repasar el espacio de <a href="variables.html">declaración de variables.</a></p>
+</div>
+</div>
+</section>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i12_89" class="sr-av"><a href="#answer-12_89">Opción 1</a></label><input type="radio" name="option12_86" id="i12_89" class="exe-radio-option exe-radio-option-0-3-12_86-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-12_89"><div id="taans12_89" class="block iDevice_content">
+<p>let, var</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i12_92" class="sr-av"><a href="#answer-12_92">Opción 2</a></label><input type="radio" name="option12_86" id="i12_92" class="exe-radio-option exe-radio-option-1-3-12_86-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-12_92"><div id="taans12_92" class="block iDevice_content">
+<p>Let, Var</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i12_431" class="sr-av"><a href="#answer-12_431">Opción 3</a></label><input type="radio" name="option12_86" id="i12_431" class="exe-radio-option exe-radio-option-2-3-12_86-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-12_431"><div id="taans12_431" class="block iDevice_content">
+<p>const</p>
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b12_86" class="feedback js-hidden">
+<div id="taf12_89" class=" iDevice_content">
+<p>Correcto, let es una forma eficiente para declarar variables, las variables declaradas con let limitan su alcance al bloque donde se definen. En cambio con var se definen variables globales, es decir que se mantienen comunes a todo el código de ese programa.</p>
+</div>
+</section>
+<section id="sa1b12_86" class="feedback js-hidden">
+<div id="taf12_92" class=" iDevice_content">
+<p>Las palabras reservadas let y var no se escriben con mayúscula al inicio, ni tampoco todo en mayúscula.</p>
+</div>
+</section>
+<section id="sa2b12_86" class="feedback js-hidden">
+<div id="taf12_431" class=" iDevice_content">
+<p>Con const se definen constantes, esto implica que el valor quede fijado a este elemento a lo largo del programa.</p>
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-12_89">Opción correcta</a><span> (<a href="#sa0b12_86">Retroalimentación</a>)</span></li>
+<li><a href="#answer-12_92">Incorrecto</a><span> (<a href="#sa1b12_86">Retroalimentación</a>)</span></li>
+<li><a href="#answer-12_431">Incorrecto</a><span> (<a href="#sa2b12_86">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+<section class="question">
+<form name="multi-choice-form-12_95" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion12_95" class="block question iDevice_content">
+<p>¿Al definir una variable, debo indicar de que tipo será?</p>
+</div>
+<section class="iDevice_hint">
+<h1 class="iDevice_hint_title">Sugerencia</h1>
+<div class="iDevice_hint_content js-hidden">
+<div id="tahint12_95" class="block iDevice_content">
+<p>Puedes revisar el espacio "Tipos" dentro de este apartado.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i12_98" class="sr-av"><a href="#answer-12_98">Opción 1</a></label><input type="radio" name="option12_95" id="i12_98" class="exe-radio-option exe-radio-option-0-2-12_95-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-12_98"><div id="taans12_98" class="block iDevice_content">
+<p>Si, es requerido se inique el tipo de dato.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i12_101" class="sr-av"><a href="#answer-12_101">Opción 2</a></label><input type="radio" name="option12_95" id="i12_101" class="exe-radio-option exe-radio-option-1-2-12_95-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-12_101"><div id="taans12_101" class="block iDevice_content">
+<p>No es necesario.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b12_95" class="feedback js-hidden">
+<div id="taf12_98" class=" iDevice_content">
+<p>Recuerda que Javascript es levemente tipado, esto hace que sea muy flexible en el manejo de los tipos de datos. Por esa razón no requiere se defina por parte del programador el tipo de dato al declarar una variable.</p>
+</div>
+</section>
+<section id="sa1b12_95" class="feedback js-hidden">
+<div id="taf12_101" class=" iDevice_content">
+<p>Exacto, no se requiere tal restricción.</p>
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-12_98">Incorrecto</a><span> (<a href="#sa0b12_95">Retroalimentación</a>)</span></li>
+<li><a href="#answer-12_101">Opción correcta</a><span> (<a href="#sa1b12_95">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ClozeIdevice em_iDevice em_iDevice_question" id="id13">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Rellenar huecos</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta13_116" class="block instructions iDevice_content">
+<p>Debes completar para cada caso el valor que toma la variable al finalizar el programa.</p>
+</section>
+
+    <section class="activity" id="activity-13_117"><form name="cloze-form-13_117" action="#" class="activity-form cloze-activity-form"><div id="cloze13_117"><input type="hidden" name="clozeFlag13_117.strictMarking" id="clozeFlag13_117.strictMarking" value="false"/>
+<input type="hidden" name="clozeFlag13_117.checkCaps" id="clozeFlag13_117.checkCaps" value="false"/>
+<input type="hidden" name="clozeFlag13_117.instantMarking" id="clozeFlag13_117.instantMarking" value="false"/>
+<input type="hidden" name="clozeVar13_117.feedbackId" id="clozeVar13_117.feedbackId" value="ta13_118"/>
+<p><strong>Primer caso:</strong></p>
+<p>let num = 0;</p>
+<p>num = num + 87;</p>
+<p>num = num + 3;</p>
+<p>Coloque aquí el valor de la variable num al finalizar la ejecución: <label for="clozeBlank13_117.0" class="sr-av">Rellenar huecos (1):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank13_117.0" style="width:2ch" /><span style="display:none" id="clozeAnswer13_117.0">JXUwMDYxJXUwMDA5
+</span></p>
+<p><strong>Veamos otro ejemplo:</strong></p>
+<p>let num2 = 2; // num2 inicializa en dos</p>
+<p>num2++; La variable ahora vale:   <label for="clozeBlank13_117.1" class="sr-av">Rellenar huecos (2):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank13_117.1" style="width:1ch" /><span style="display:none" id="clozeAnswer13_117.1">JXUwMDZi
+</span> <br/>num2+=1; La variable ahora vale: <label for="clozeBlank13_117.2" class="sr-av">Rellenar huecos (3):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank13_117.2" style="width:1ch" /><span style="display:none" id="clozeAnswer13_117.2">JXUwMDZj
+</span> <br/>num2--; La variable ahora vale:    <label for="clozeBlank13_117.3" class="sr-av">Rellenar huecos (4):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank13_117.3" style="width:1ch" /><span style="display:none" id="clozeAnswer13_117.3">JXUwMDZi
+</span> <br/>num2-=1; La variable ahora vale:  <label for="clozeBlank13_117.4" class="sr-av">Rellenar huecos (5):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank13_117.4" style="width:1ch" /><span style="display:none" id="clozeAnswer13_117.4">JXUwMDZh
+</span></p>
+<p> </p><div class="block iDevice_buttons"><p><input class="button" type="submit" name="submit13_117" value="Enviar"  id="submit13_117" />
+<input type="button" name="restart13_117" value="Reiniciar" style="display:none" id="restart13_117" onclick="$exe.cloze.restart('13_117')" />
+ <input type="button" name="13_117showAnswersButton" value="Mostrar las respuestas" style="display:none" id="showAnswersButton13_117" onclick="$exe.cloze.fillInputs('13_117')" />
+<span class="js-hidden js-warning">Habilitar JavaScript</span></p></div><div id="clozeScore13_117"></div></div></form></section>
+    <section id="ta13_118" class="feedback js-feedback iDevice_content" style="display:none">
+<p>let num = 0; // la variable inicia en cero</p>
+<p>num = num + 87; // A lo que contiene (0) se le suman 87, entonce ahora vale 87</p>
+<p>num = num + 3;// A lo que contiene (87) se le suman 3, ahora vale 90</p>
+<hr />
+<p></p>
+<p>let num2 = 2; // num2 inicializa en dos</p>
+<p>num2++; El ++ incrementa en uno a la variable entonces ahora vale: 3<br />num2+=1; El +=1 realiza lo mismo que el ++, por tanto num2 ahora vale 4<br />num2--; Con el mismo criterio el -- decrementa en uno a la variable, entonces ahora vale: 3<br />num2-=1; La variable ahora vale: 2 ya que el -= 1 realiza lo mismo que el -- </p>
+<p></p>
+</section>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="salidas_y_entradas_inputoutput.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="estructuras_de_control.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script><script src="../lector-pagina.js"></script>`r`n</body></html>

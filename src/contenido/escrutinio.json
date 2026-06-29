@@ -1,0 +1,699 @@
+{
+  "unidadId": "prog-escrutinio",
+  "titulo": "Recurso Educativo Abierto para docentes",
+  "subtitulo": "Programación y Pensamiento Computacional EBI",
+  "descripcion": "Material modular para seleccionar, adaptar y reutilizar sectores de una propuesta didáctica sobre un simulador de votación: guía de construcción, desafíos interactivos y orientación técnico-pedagógica por grado.",
+  "portal": {
+    "area": "Ciencias de la Computación",
+    "tema": "Programación",
+    "subtema": "Sistemas de escrutinio automático",
+    "tramo": "Educación Básica Integrada",
+    "niveles": [
+      "7.º Año EBI",
+      "8.º Año EBI",
+      "9.º Año EBI"
+    ],
+    "publico": "Docentes de Ciencias de la Computación de Uruguay",
+    "usoSugerido": "Recurso para adaptar, proyectar, llevar al aula o insertar en CREA mediante iframe."
+  },
+  "pie": "Recurso elaborado por Contenidista de Informática. Prof. Esp. Santiago Hernández.",
+  "bibliografia": [
+    {
+      "titulo": "Programa de Educación Básica Integrada. Unidad curricular Ciencias de la Computación y Tecnología Educativa",
+      "detalle": "Referencia curricular para seleccionar contenidos, procesos de pensamiento computacional, progresiones por tramo y criterios de abordaje didáctico.",
+      "url": "https://www.anep.edu.uy/"
+    },
+    {
+      "titulo": "Scratch. Ideas y guías para educadores",
+      "detalle": "Material de apoyo para trabajar eventos, objetos, secuencias y variables mediante programación visual por bloques.",
+      "url": "https://scratch.mit.edu/educators/"
+    },
+    {
+      "titulo": "micro:bit. Recursos para docentes",
+      "detalle": "Documentación y propuestas para integrar entradas físicas, sensores, botones, variables y decisiones en actividades de aula.",
+      "url": "https://microbit.org/teach/"
+    },
+    {
+      "titulo": "PSeInt. Documentación y pseudocódigo",
+      "detalle": "Referencia para escribir algoritmos con tipos de datos, asignaciones, lectura, escritura y estructuras condicionales.",
+      "url": "https://pseint.sourceforge.net/"
+    },
+    {
+      "titulo": "Uruguay Educa. Recursos educativos abiertos",
+      "detalle": "Portal educativo de ANEP con recursos digitales, propuestas didácticas y materiales para docentes, estudiantes y familias.",
+      "url": "https://uruguayeduca.anep.edu.uy/"
+    }
+  ],
+  "quienesSomos": [
+    {
+      "nombre": "Uruguay Educa",
+      "url": "https://uruguayeduca.anep.edu.uy/",
+      "resena": "Portal educativo de ANEP que ofrece recursos digitales, propuestas didácticas, materiales multimedia y contenidos para docentes, estudiantes y familias de Uruguay."
+    },
+    {
+      "nombre": "EDyTIC",
+      "url": "https://edytic.ces.edu.uy/index.php/quienes-somos2",
+      "resena": "Espacio de Educación y TIC de la DGES que promueve el uso pedagógico de tecnologías para mejorar aprendizajes, con énfasis en equidad, inclusión, calidad e innovación. Coordina acciones vinculadas a recursos educativos abiertos, contenidistas y desarrollo profesional docente."
+    },
+    {
+      "nombre": "Portal de recursos de Ciencias de la Computación",
+      "url": "https://contenidistas.github.io/sitio_principal_ciencias_de_la_computacion/index.html",
+      "resena": "Sitio de organización y acceso a recursos por tema y nivel, pensado como punto de entrada para propuestas de Ciencias de la Computación alojadas en el portal."
+    }
+  ],
+  "recursosIntegrados": [
+    {
+      "id": "estructuras-control",
+      "titulo": "Estructuras de control",
+      "tipo": "Recurso eXeLearning",
+      "tema": "Programación",
+      "conceptos": [
+        "Secuencia",
+        "Condicionales",
+        "Iteraciones",
+        "Expresiones booleanas"
+      ],
+      "nivelesSugeridos": [
+        "8.º Año EBI",
+        "9.º Año EBI"
+      ],
+      "descripcion": "Introducción a estructuras de control en programación, con ejemplos de estructuras secuenciales, selectivas e iterativas en MakeCode, Scratch y Python.",
+      "ruta": "/recursos/estructuras-de-control/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\Estructuras_de_control"
+    },
+    {
+      "id": "introduccion-programacion",
+      "titulo": "Introducción a la programación",
+      "tipo": "Recurso eXeLearning",
+      "tema": "Programación",
+      "conceptos": [
+        "Programa",
+        "Algoritmo",
+        "Instrucciones",
+        "Proceso de creación"
+      ],
+      "nivelesSugeridos": [
+        "7.º Año EBI",
+        "8.º Año EBI"
+      ],
+      "descripcion": "Recurso introductorio sobre conceptos base de programación, el arte de programar y pasos para crear un programa.",
+      "ruta": "/recursos/introduccion-programacion/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\IntroduccionProgramacion"
+    },
+    {
+      "id": "lenguajes-programacion",
+      "titulo": "Lenguajes de programación",
+      "tipo": "Recurso eXeLearning",
+      "tema": "Programación",
+      "conceptos": [
+        "Lenguajes",
+        "Programación educativa",
+        "Tipos de lenguajes",
+        "Glosario"
+      ],
+      "nivelesSugeridos": [
+        "7.º Año EBI",
+        "8.º Año EBI"
+      ],
+      "descripcion": "Síntesis sobre lenguajes de programación, tipos de lenguajes y su uso en contextos educativos.",
+      "ruta": "/recursos/lenguajes-de-programacion/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\Lenguajes_de_programacin"
+    },
+    {
+      "id": "variables",
+      "titulo": "Variables",
+      "tipo": "Recurso eXeLearning",
+      "tema": "Programación",
+      "conceptos": [
+        "Variable",
+        "Nombre",
+        "Tipo",
+        "Valor",
+        "Asignación"
+      ],
+      "nivelesSugeridos": [
+        "7.º Año EBI",
+        "8.º Año EBI",
+        "9.º Año EBI"
+      ],
+      "descripcion": "Introducción al concepto de variable, su nombre, tipo, valor, definición, inicialización y asignación en programación.",
+      "ruta": "/recursos/variables/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\variables"
+    },
+    {
+      "id": "introduccion-javascript",
+      "titulo": "Introducción a JavaScript",
+      "tipo": "Recurso eXeLearning",
+      "tema": "JavaScript",
+      "conceptos": [
+        "JavaScript",
+        "Variables",
+        "Operadores",
+        "Entradas y salidas",
+        "Estructuras de control"
+      ],
+      "nivelesSugeridos": [
+        "8.º Año EBI",
+        "9.º Año EBI"
+      ],
+      "descripcion": "Recurso introductorio para comenzar a programar con JavaScript: entorno, comentarios, variables, operadores, entradas, salidas y estructuras de control.",
+      "ruta": "/recursos/introduccion-javascript/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\IntroduccionJavascript"
+    },
+    {
+      "id": "funciones-javascript",
+      "titulo": "Funciones en JavaScript",
+      "tipo": "Recurso eXeLearning",
+      "tema": "JavaScript",
+      "conceptos": [
+        "Funciones",
+        "Parámetros",
+        "Actividades",
+        "Evaluación formativa"
+      ],
+      "nivelesSugeridos": [
+        "9.º Año EBI"
+      ],
+      "descripcion": "Recurso para docentes de noveno grado sobre funciones en programación mediante JavaScript, con planificación, actividades y evaluación.",
+      "ruta": "/recursos/funciones-en-javascript/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\FuncionesEnJavaScript"
+    },
+    {
+      "id": "modulo-programacion-estudiantes",
+      "titulo": "Módulo programación: versión estudiantes",
+      "tipo": "Recurso eXeLearning",
+      "tema": "Programación",
+      "conceptos": [
+        "Algoritmos",
+        "Variables",
+        "Estructuras de control",
+        "Desafíos"
+      ],
+      "nivelesSugeridos": [
+        "7.º Año EBI",
+        "8.º Año EBI",
+        "9.º Año EBI"
+      ],
+      "descripcion": "Módulo amplio para estudiantes con actividades iniciales, algoritmos, variables, estructuras de control, desafíos y recursos descargables.",
+      "ruta": "/recursos/modulo-programacion-estudiantes/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\ModuloProgVersionEst"
+    },
+    {
+      "id": "recurso-javascript",
+      "titulo": "Recursos JavaScript",
+      "tipo": "Material complementario",
+      "tema": "JavaScript",
+      "conceptos": [
+        "Variables",
+        "Prompt",
+        "Alert",
+        "Ciclo for",
+        "While",
+        "Switch"
+      ],
+      "nivelesSugeridos": [
+        "8.º Año EBI",
+        "9.º Año EBI"
+      ],
+      "descripcion": "Carpeta de capturas, ejemplos y proyectos de apoyo para trabajar entradas, salidas, variables y estructuras de control en JavaScript.",
+      "ruta": "/recursos/recurso-javascript/index.html",
+      "origen": "C:\\Users\\santi\\Desktop\\Exes\\RecursoJavascript"
+    }
+  ],
+  "secuenciaPorGrado": {
+    "7mo": [
+      {
+        "orden": 1,
+        "recursoId": "introduccion-programacion",
+        "titulo": "Primer acercamiento a programar",
+        "proposito": "Reconocer que programar implica organizar instrucciones para resolver una situación.",
+        "usoDocente": "Abrir como introducción común antes de pasar a Scratch, objetos y eventos."
+      },
+      {
+        "orden": 3,
+        "recursoId": "lenguajes-programacion",
+        "titulo": "Lenguajes y formas de programar",
+        "proposito": "Comparar lenguajes visuales y textuales como distintas formas de expresar instrucciones.",
+        "usoDocente": "Usar para conversar sobre Scratch, MakeCode, Python o JavaScript sin centrar la clase en sintaxis."
+      },
+      {
+        "orden": 5,
+        "recursoId": "variables",
+        "titulo": "Variables como memoria del programa",
+        "proposito": "Comprender que una variable guarda un dato que puede cambiar durante la ejecución.",
+        "usoDocente": "Relacionar con contadores simples, puntajes, votos o cantidades acumuladas."
+      },
+      {
+        "orden": 7,
+        "recursoId": "estructuras-control",
+        "titulo": "Secuencia, decisión y repetición",
+        "proposito": "Distinguir instrucciones secuenciales, decisiones y repeticiones en ejemplos visuales.",
+        "usoDocente": "Seleccionar ejemplos de Scratch o MakeCode para anticipar proyectos breves."
+      }
+    ],
+    "8vo": [
+      {
+        "orden": 3,
+        "recursoId": "variables",
+        "titulo": "Variables, tipos y valores",
+        "proposito": "Profundizar en nombre, tipo, valor, definición, inicialización y asignación.",
+        "usoDocente": "Usar antes de actividades con sensores, botones o conteos en micro:bit."
+      },
+      {
+        "orden": 5,
+        "recursoId": "estructuras-control",
+        "titulo": "Condicionales e iteraciones",
+        "proposito": "Comprender que el programa puede tomar caminos distintos o repetir instrucciones.",
+        "usoDocente": "Vincular con decisiones compuestas, comparaciones y pruebas de casos."
+      },
+      {
+        "orden": 6,
+        "recursoId": "introduccion-javascript",
+        "titulo": "Primer recorrido por JavaScript",
+        "proposito": "Presentar variables, operadores, entradas, salidas y estructuras de control en un lenguaje textual.",
+        "usoDocente": "Usar como puente entre programación visual/física y programación textual."
+      },
+      {
+        "orden": 7,
+        "recursoId": "recurso-javascript",
+        "titulo": "Ejemplos de apoyo en JavaScript",
+        "proposito": "Explorar ejemplos de entrada por teclado, salidas y ciclos para reutilizar en actividades.",
+        "usoDocente": "Seleccionar capturas o carpetas de ejemplo para acompañar consignas breves."
+      }
+    ],
+    "9no": [
+      {
+        "orden": 3,
+        "recursoId": "introduccion-javascript",
+        "titulo": "Programación textual con JavaScript",
+        "proposito": "Consolidar variables, operadores, entradas, salidas y estructuras de control en código textual.",
+        "usoDocente": "Presentar como base antes de escribir soluciones propias."
+      },
+      {
+        "orden": 4,
+        "recursoId": "funciones-javascript",
+        "titulo": "Funciones y reutilización",
+        "proposito": "Comprender cómo una función permite encapsular instrucciones y reutilizarlas.",
+        "usoDocente": "Trabajar parámetros, invocación y organización de programas más extensos."
+      },
+      {
+        "orden": 8,
+        "recursoId": "modulo-programacion-estudiantes",
+        "titulo": "Módulo de práctica para estudiantes",
+        "proposito": "Articular algoritmos, variables, estructuras de control y desafíos en una secuencia de trabajo.",
+        "usoDocente": "Usar como recorrido extendido o como repositorio de actividades para CREA."
+      },
+      {
+        "orden": 7,
+        "recursoId": "recurso-javascript",
+        "titulo": "Banco de ejemplos JavaScript",
+        "proposito": "Consultar ejemplos de ciclos, selección múltiple, entradas y salidas.",
+        "usoDocente": "Tomar ejemplos puntuales para depuración, análisis o adaptación."
+      }
+    ]
+  },
+  "grados": {
+    "7mo": {
+      "gradoTexto": "7.º Año EBI",
+      "enfoque": "Scratch: lógica visual, eventos y variables",
+      "preguntaGuia": "¿Cómo puede un programa responder a acciones del usuario y registrar votos sin perder el conteo?",
+      "introduccion": "En este nivel se construye un simulador de votación en Scratch. El foco está en reconocer objetos, eventos, secuencias de instrucciones y variables globales que almacenan datos durante la ejecución.",
+      "producto": "Escenario de Scratch con dos opciones de voto, conteo automático y reinicio mediante bandera verde.",
+      "conceptosClave": [
+        "Objeto",
+        "Evento",
+        "Secuencia",
+        "Variable global",
+        "Incremento"
+      ],
+      "pasos": [
+        {
+          "titulo": "Preparar el escenario y los objetos",
+          "descripcion": "Crea o selecciona dos objetos que representen las opciones de votación. Ubícalos de forma clara en el escenario para que el estudiante pueda identificar dónde hacer clic. Cada objeto debe tener un nombre significativo, por ejemplo OpcionA y OpcionB.",
+          "imagen": "/EstablecerObjetos.gif",
+          "alt": "Objetos ubicados en el escenario de Scratch para representar opciones de votación"
+        },
+        {
+          "titulo": "Crear variables globales para el conteo",
+          "descripcion": "Desde la categoría Variables, crea votosA y votosB para todos los objetos. Al iniciar el programa con la bandera verde, fija votosA en 0 y votosB en 0. Esta inicialización evita que una ejecución anterior contamine los resultados.",
+          "codigo": "al hacer clic en bandera verde\nfijar votosA a 0\nfijar votosB a 0"
+        },
+        {
+          "titulo": "Programar el evento de voto",
+          "descripcion": "En el objeto que representa la primera opción, usa el evento al hacer clic en este objeto y aumenta votosA en 1. Repite la lógica para el segundo objeto aumentando votosB en 1. El programa responde a una acción concreta y actualiza el estado del conteo.",
+          "imagen": "/ProgemarObjetos.gif",
+          "alt": "Bloques de Scratch para programar eventos de clic e incrementar variables"
+        },
+        {
+          "titulo": "Comprobar el funcionamiento",
+          "descripcion": "Presiona la bandera verde, realiza varios clics sobre cada opción y observa si los valores cambian correctamente. Si un voto no se registra, revisa que el evento esté dentro del objeto correcto y que la variable modificada corresponda a esa opción."
+        }
+      ]
+    },
+    "8vo": {
+      "gradoTexto": "8.º Año EBI",
+      "enfoque": "micro:bit: entradas físicas, variables y decisiones compuestas",
+      "preguntaGuia": "¿Cómo se transforma una acción física sobre una placa en una decisión programada?",
+      "introduccion": "En 8.º se traslada la lógica del simulador a una placa micro:bit. Los botones físicos funcionan como entradas, las variables guardan el conteo y el evento A+B permite decidir el resultado con una condición compuesta.",
+      "producto": "Programa para micro:bit que registra votos con los botones A y B y muestra el resultado al presionar A+B.",
+      "conceptosClave": [
+        "Entrada física",
+        "Variable numérica",
+        "Evento de botón",
+        "Comparación",
+        "Condicional compuesto"
+      ],
+      "pasos": [
+        {
+          "titulo": "Definir entradas y propósito de cada botón",
+          "descripcion": "Asigna el Botón A a los votos de la primera opción y el Botón B a los votos de la segunda. El evento A+B se reserva para consultar el resultado, evitando mezclar registro y análisis en la misma entrada.",
+          "imagen": "/DefinirEntradas.gif",
+          "alt": "Entradas físicas de micro:bit asociadas a opciones de voto"
+        },
+        {
+          "titulo": "Inicializar variables al comenzar",
+          "descripcion": "En el bloque al iniciar, crea las variables votosA y votosB y asígnales el valor 0. Esta acción prepara el sistema para una nueva votación cada vez que se reinicia el programa.",
+          "codigo": "al iniciar\nestablecer votosA a 0\nestablecer votosB a 0"
+        },
+        {
+          "titulo": "Registrar votos desde los botones",
+          "descripcion": "En el evento al presionar el Botón A, cambia votosA por 1. En el evento al presionar el Botón B, cambia votosB por 1. Cada pulsación representa un voto válido registrado por la placa.",
+          "imagen": "/ProgramacionBotones.gif",
+          "alt": "Programación de botones A y B en micro:bit para incrementar votos"
+        },
+        {
+          "titulo": "Determinar el resultado con A+B",
+          "descripcion": "Programa el evento al presionar A+B con una estructura condicional. Si votosA > votosB, muestra que gana A. Si no se cumple, compara votosB > votosA. Si ninguna comparación es verdadera, el sistema informa empate.",
+          "codigo": "al presionar A+B\nsi votosA > votosB entonces\n  mostrar \"A\"\nsi no, si votosB > votosA entonces\n  mostrar \"B\"\nsi no\n  mostrar \"=\""
+        }
+      ]
+    },
+    "9no": {
+      "gradoTexto": "9.º Año EBI",
+      "enfoque": "PSeInt: pseudocódigo, tipos de datos y condicionales anidadas",
+      "preguntaGuia": "¿Cómo se expresa un algoritmo de votación de manera formal, legible y verificable?",
+      "introduccion": "En 9.º se formaliza el sistema mediante pseudocódigo textual. Se trabaja con definición de variables Como Entero, asignación mediante el operador <-, lectura o carga de datos y resolución del resultado con estructuras Si / Sino Si / Sino.",
+      "producto": "Algoritmo en PSeInt que declara variables, procesa votos y determina opción ganadora o empate de forma verificable.",
+      "conceptosClave": [
+        "Pseudocódigo",
+        "Tipo Entero",
+        "Asignación",
+        "Operador relacional",
+        "Condicional anidada"
+      ],
+      "pasos": [
+        {
+          "titulo": "Definir variables con tipo de dato",
+          "descripcion": "Antes de operar, declara las variables votosA y votosB Como Entero. El tipo Entero es adecuado porque el conteo de votos se realiza con cantidades completas y no con valores decimales.",
+          "imagen": "/DefinirVariables.gif",
+          "alt": "Declaración de variables enteras en PSeInt"
+        },
+        {
+          "titulo": "Inicializar mediante asignación formal",
+          "descripcion": "Utiliza el operador <- para asignar valores iniciales. En PSeInt, votosA <- 0 expresa que la variable votosA recibe el valor cero antes de comenzar el conteo.",
+          "imagen": "/SolucionInicial.PNG",
+          "alt": "Inicialización formal de variables con operador de asignación en PSeInt",
+          "codigo": "Definir votosA, votosB Como Entero\nvotosA <- 0\nvotosB <- 0"
+        },
+        {
+          "titulo": "Construir una primera solución verificable",
+          "descripcion": "Organiza el algoritmo en pasos claros: definir variables, cargar o incrementar votos, comparar resultados y escribir la salida. La solución debe poder leerse sin depender de bloques visuales.",
+          "imagen": "/primerasolucion.gif",
+          "alt": "Primera solución textual del algoritmo de votación en PSeInt"
+        },
+        {
+          "titulo": "Resolver el empate con condicionales anidadas",
+          "descripcion": "La comparación debe contemplar tres escenarios: gana A, gana B o hay empate. Para ello se usa Si / Sino Si / Sino. El último caso no es un error del sistema, sino una salida válida cuando votosA y votosB tienen el mismo valor.",
+          "imagen": "/BotonResultadoAB.gif",
+          "alt": "Resultado del sistema al comparar votos y resolver empate",
+          "codigo": "Si votosA > votosB Entonces\n  Escribir \"Gana la opción A\"\nSino Si votosB > votosA Entonces\n  Escribir \"Gana la opción B\"\nSino\n  Escribir \"Empate\"\nFinSi"
+        }
+      ]
+    }
+  },
+  "zonaDocente": {
+    "7mo": {
+      "meta": "Propiciar que las y los estudiantes descompongan una interacción en objetos, eventos y secuencias simples, explicitando las decisiones que toman al construir el programa.",
+      "tiempo": "2 semanas sugeridas, con instancias de diseño del escenario, programación guiada, prueba entre pares y revisión de avances.",
+      "evaluacion": "Observar el proceso de construcción: cómo identifica eventos de inicio y clic, cómo inicializa variables, cómo prueba el conteo y cómo ajusta el proyecto a partir de errores o comentarios."
+    },
+    "8vo": {
+      "meta": "Favorecer la relación entre entradas físicas, variables numéricas y decisiones condicionales en un sistema interactivo, promoviendo la explicación de cada decisión programada.",
+      "tiempo": "3 semanas sugeridas, integrando simulación, prueba en placa, discusión colectiva de resultados y mejora progresiva del programa.",
+      "evaluacion": "Priorizar evidencias del proceso: anticipa qué hará cada botón, registra pruebas, identifica desajustes entre lo esperado y lo observado, y reformula el uso de variables y comparaciones."
+    },
+    "9no": {
+      "meta": "Acompañar la formalización de un algoritmo mediante pseudocódigo, tipos de datos, asignaciones y condicionales, cuidando la legibilidad y la argumentación del procedimiento.",
+      "tiempo": "4 semanas sugeridas, con lectura de algoritmos, escritura gradual, depuración textual, revisión entre pares y explicación técnica de casos.",
+      "evaluacion": "Valorar el recorrido de pensamiento: justifica la declaración de variables, revisa asignaciones y condiciones, prueba casos distintos y mejora la claridad del pseudocódigo antes de considerar el resultado final."
+    }
+  },
+  "actividadesPosibles": {
+    "7mo": [
+      {
+        "titulo": "Mapa de eventos del simulador",
+        "proposito": "Identificar qué acción del usuario activa cada parte del programa en Scratch.",
+        "consigna": "El grupo dibuja el escenario con dos opciones de voto y marca, con flechas, qué ocurre cuando se presiona la bandera verde y qué ocurre cuando se hace clic en cada objeto.",
+        "evidencia": "Diagrama con objetos, eventos y variables votosA/votosB correctamente vinculados."
+      },
+      {
+        "titulo": "Construcción guiada del conteo",
+        "proposito": "Programar una secuencia funcional que inicialice y aumente variables.",
+        "consigna": "En Scratch, crear votosA y votosB, fijarlas en 0 al iniciar y aumentar la variable correspondiente al hacer clic en cada objeto.",
+        "evidencia": "Proyecto funcionando con conteo visible y reinicio correcto."
+      },
+      {
+        "titulo": "Prueba entre pares",
+        "proposito": "Verificar el funcionamiento del simulador y comunicar errores detectados.",
+        "consigna": "Un equipo prueba el proyecto de otro equipo, registra tres votos en cada opción y completa una breve lista de comprobación sobre inicio, clics y conteo.",
+        "evidencia": "Lista de comprobación con observaciones y correcciones realizadas."
+      }
+    ],
+    "8vo": [
+      {
+        "titulo": "Diseño de entradas físicas",
+        "proposito": "Relacionar botones de micro:bit con acciones del sistema.",
+        "consigna": "Definir qué representa el Botón A, qué representa el Botón B y qué debe suceder al presionar A+B. Justificar por qué la consulta del resultado se separa del registro de votos.",
+        "evidencia": "Tabla de entradas, acciones y variables asociadas."
+      },
+      {
+        "titulo": "Programa de registro en micro:bit",
+        "proposito": "Implementar variables y eventos de botones en un dispositivo físico o simulador.",
+        "consigna": "Crear votosA y votosB, inicializarlas en 0 al iniciar y aumentar la variable correspondiente con los botones A y B.",
+        "evidencia": "Programa probado en simulador o placa con incremento correcto."
+      },
+      {
+        "titulo": "Resultado con decisión compuesta",
+        "proposito": "Aplicar comparaciones para determinar ganador o empate.",
+        "consigna": "Programar el evento A+B para comparar votosA y votosB, mostrando A, B o empate según corresponda. Probar tres casos: gana A, gana B y empate.",
+        "evidencia": "Registro de pruebas con valores usados y salida observada."
+      }
+    ],
+    "9no": [
+      {
+        "titulo": "Lectura técnica de pseudocódigo",
+        "proposito": "Reconocer declaración de variables, asignaciones y salidas en PSeInt.",
+        "consigna": "Subrayar en un algoritmo las líneas de definición Como Entero, las asignaciones con <- y las estructuras condicionales que determinan el resultado.",
+        "evidencia": "Algoritmo anotado con explicación breve de cada bloque."
+      },
+      {
+        "titulo": "Escritura formal del algoritmo",
+        "proposito": "Construir una solución textual legible y verificable.",
+        "consigna": "Redactar en PSeInt un algoritmo que defina votosA y votosB Como Entero, asigne valores iniciales y compare resultados con Si / Sino Si / Sino.",
+        "evidencia": "Código de PSeInt con sintaxis consistente y tres salidas posibles."
+      },
+      {
+        "titulo": "Análisis del caso empate",
+        "proposito": "Comprender el empate como un caso lógico válido, no como una falla.",
+        "consigna": "Probar valores donde votosA y votosB sean iguales, explicar por qué no se cumple ninguna comparación de mayoría y justificar la rama Sino.",
+        "evidencia": "Explicación escrita del flujo de decisión para el caso de empate."
+      }
+    ]
+  },
+  "ejercicios": [
+    {
+      "id": "7mo-1",
+      "grado": "7mo",
+      "tipo": "opcion_multiple",
+      "enunciado": "En Scratch, ¿qué evento corresponde usar para registrar un voto cuando el estudiante selecciona una opción directamente en pantalla?",
+      "opciones": [
+        "al hacer clic en este objeto",
+        "por siempre",
+        "esperar 1 segundos"
+      ],
+      "correcta": 0,
+      "feedback": "Correcto: el evento al hacer clic en este objeto vincula la acción del usuario con el objeto que representa la opción de voto."
+    },
+    {
+      "id": "7mo-2",
+      "grado": "7mo",
+      "tipo": "completar",
+      "enunciado": "Completa la instrucción de inicialización para comenzar una nueva votación en Scratch.",
+      "plantilla": "fijar votosA a [HUECO]",
+      "respuestas": [
+        "0",
+        "cero"
+      ],
+      "feedback": "Bien: iniciar votosA en 0 permite que cada ejecución comience sin datos acumulados de una prueba anterior."
+    },
+    {
+      "id": "8vo-1",
+      "grado": "8vo",
+      "tipo": "opcion_multiple",
+      "enunciado": "En micro:bit, si el Botón A representa votos para la opción A, ¿qué acción debe ejecutarse al presionarlo?",
+      "opciones": [
+        "Cambiar votosA por 1",
+        "Establecer votosA a 0",
+        "Mostrar siempre el resultado"
+      ],
+      "correcta": 0,
+      "feedback": "Exacto: cada pulsación del Botón A registra un voto nuevo incrementando la variable votosA."
+    },
+    {
+      "id": "8vo-2",
+      "grado": "8vo",
+      "tipo": "completar",
+      "enunciado": "Completa la comparación que permite identificar si la opción A tiene más votos que la opción B.",
+      "plantilla": "si [HUECO] entonces mostrar \"A\"",
+      "respuestas": [
+        "votosA > votosB",
+        "votosa > votosb"
+      ],
+      "feedback": "Muy bien: la comparación votosA > votosB evalúa una relación entre dos variables numéricas."
+    },
+    {
+      "id": "9no-1",
+      "grado": "9no",
+      "tipo": "opcion_multiple",
+      "enunciado": "En PSeInt, ¿qué declaración es formalmente adecuada para dos contadores de votos?",
+      "opciones": [
+        "Definir votosA, votosB Como Entero",
+        "Definir votosA, votosB Como Texto",
+        "Mostrar votosA, votosB Como Entero"
+      ],
+      "correcta": 0,
+      "feedback": "Correcto: los contadores se declaran Como Entero porque almacenan cantidades completas de votos."
+    },
+    {
+      "id": "9no-2",
+      "grado": "9no",
+      "tipo": "completar",
+      "enunciado": "Completa la asignación formal para reiniciar el conteo de votos de la opción A en PSeInt.",
+      "plantilla": "votosA [HUECO] 0",
+      "respuestas": [
+        "<-"
+      ],
+      "feedback": "Correcto: en PSeInt el operador <- asigna a la variable el valor ubicado a la derecha."
+    },
+    {
+      "id": "8vo-variables-1",
+      "grado": "8vo",
+      "temaId": "variables",
+      "tipo": "opcion_multiple",
+      "enunciado": "¿Qué representa una variable durante la ejecución de un programa?",
+      "opciones": [
+        "Un espacio de memoria que almacena un dato que puede cambiar",
+        "Una imagen fija del programa",
+        "Una instrucción que siempre termina el programa"
+      ],
+      "correcta": 0,
+      "feedback": "Bien: una variable permite guardar un dato durante la ejecución, y ese valor puede modificarse si el programa lo necesita."
+    },
+    {
+      "id": "8vo-variables-2",
+      "grado": "8vo",
+      "temaId": "variables",
+      "tipo": "completar",
+      "enunciado": "Completa la idea: al comienzo de un programa, guardar un valor inicial en una variable se llama...",
+      "plantilla": "[HUECO] de variable",
+      "respuestas": [
+        "inicialización",
+        "inicializacion"
+      ],
+      "feedback": "Exacto: inicializar una variable ayuda a que el programa comience con un estado conocido y comprobable."
+    },
+    {
+      "id": "8vo-estructuras-1",
+      "grado": "8vo",
+      "temaId": "estructuras-de-control",
+      "tipo": "opcion_multiple",
+      "enunciado": "¿Para qué se usa una sentencia condicional?",
+      "opciones": [
+        "Para que el programa tome un camino u otro según una expresión lógica",
+        "Para repetir siempre la misma pantalla sin evaluar nada",
+        "Para nombrar una variable"
+      ],
+      "correcta": 0,
+      "feedback": "Correcto: una condicional permite decidir qué instrucciones ejecutar según si una condición resulta verdadera o falsa."
+    },
+    {
+      "id": "8vo-estructuras-2",
+      "grado": "8vo",
+      "temaId": "estructuras-de-control",
+      "tipo": "completar",
+      "enunciado": "Completa el tipo de dato que solo puede tomar los valores verdadero o falso.",
+      "plantilla": "dato [HUECO]",
+      "respuestas": [
+        "booleano",
+        "lógico",
+        "logico"
+      ],
+      "feedback": "Muy bien: los datos lógicos o booleanos son fundamentales para construir condiciones y comparaciones."
+    },
+    {
+      "id": "9no-js-1",
+      "grado": "9no",
+      "temaId": "introduccion-javascript",
+      "tipo": "opcion_multiple",
+      "enunciado": "En JavaScript, ¿qué operador se usa habitualmente para asignar un valor a una variable?",
+      "opciones": [
+        "=",
+        "==",
+        "!="
+      ],
+      "correcta": 0,
+      "feedback": "Correcto: el signo = asigna un valor. En cambio, == se usa para comparar igualdad."
+    },
+    {
+      "id": "9no-js-2",
+      "grado": "9no",
+      "temaId": "introduccion-javascript",
+      "tipo": "completar",
+      "enunciado": "Completa el nombre del tipo de expresiones que permiten decidir si una condición se cumple o no.",
+      "plantilla": "expresiones [HUECO]",
+      "respuestas": [
+        "lógicas",
+        "logicas",
+        "booleanas"
+      ],
+      "feedback": "Bien: las expresiones lógicas o booleanas permiten evaluar condiciones y tomar decisiones en el programa."
+    },
+    {
+      "id": "9no-funciones-1",
+      "grado": "9no",
+      "temaId": "funciones-javascript",
+      "tipo": "opcion_multiple",
+      "enunciado": "¿Cuál es una razón para usar funciones en un programa?",
+      "opciones": [
+        "Encapsular instrucciones y reutilizarlas cuando se necesiten",
+        "Evitar que el programa tenga variables",
+        "Hacer que todas las instrucciones se ejecuten al mismo tiempo"
+      ],
+      "correcta": 0,
+      "feedback": "Correcto: una función permite agrupar instrucciones, nombrarlas y reutilizarlas, haciendo el programa más claro."
+    },
+    {
+      "id": "9no-funciones-2",
+      "grado": "9no",
+      "temaId": "funciones-javascript",
+      "tipo": "completar",
+      "enunciado": "Completa la idea: los datos que una función recibe para trabajar se llaman...",
+      "plantilla": "[HUECO] de la función",
+      "respuestas": [
+        "parámetros",
+        "parametros"
+      ],
+      "feedback": "Exacto: los parámetros permiten que una función reciba datos y pueda operar con distintos valores."
+    }
+  ]
+}

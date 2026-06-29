@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Estructuras de control | Introducción a JavaScript </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Hernández, Santiago." />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<link rel="stylesheet" type="text/css" href="gameqp-activity.css" />
+<script type="text/javascript" src="selecciona-activity.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-4"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Introducción a JavaScript</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Introducción a Javascrip</a></li>
+   <li><a href="dnde_programamos_con_javascript.html" class="no-ch">¿Dónde programamos con Javascript?</a></li>
+   <li><a href="comentarios.html" class="no-ch">Comentarios</a></li>
+   <li><a href="salidas_y_entradas_inputoutput.html" class="no-ch">Salidas y entradas (input-output)</a></li>
+   <li><a href="variables.html" class="no-ch">Variables</a></li>
+   <li id="active"><a href="estructuras_de_control.html" class="active no-ch">Estructuras de control</a></li>
+   <li><a href="operadores.html" class="no-ch">Operadores</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="variables.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="operadores.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Estructuras de control</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice" id="id7">
+<div class="iDevice emphasis0" >
+<div id="ta7_114_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>¿Qué son las estructuras de control?</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>En este recurso no se profundizará sobre lo conceptual de las estructuras de control, el foco estará en su utilización en Javascript. De todas formas, si necesitas repasar sobre este tema haz <a href="https://contenidistasinformatica.on.drv.tw/ExeEstructurasDeControl/EstructurasDeControl/actividades_de_clasificacin.html">clic aquí</a>.</p>
+<p>A continuación, se presentan diferentes variantes de estructuras de control en Javascrip donde se detalla su sintaxis y se explica la lógica operativa con ejemplos sencillos.</p>
+<hr>
+<p><em> Se recomienda practicar, es la forma de aprender a programar, puedes partir de los ejemplos y luego probar diferentes opciones.</em></p>
+<hr>
+<p><strong></strong></p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Estructura selectiva if else</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Es una estructura de control de tipo selectiva o condicional, esto implica que se evalúe una expresión que puede ser verdadera o falsa, a esta expresión se la conoce como <strong>condición</strong> o <strong>expresión lógica</strong>.<br>La estructura básica tiene la siguiente forma:</p>
+<p>if (condición)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;sentencias o instrucciones a ejecutar si se cumple condición</p>
+<p>&nbsp; &nbsp;}</p>
+<p><img src="img0.3.png" width="972" height="676" alt="Estructura if simple"></p>
+<p>Lo que sucede con la siguiente estructura es que sí no se cumple la condición establecida, el programa no presenta ninguna salida. En ocasiones puede ser útil, pero la mayor parte de las veces se utiliza la extensión de la estructura que establece acciones para cuando la condición evaluada sea falsa.</p>
+<p>if (condición){</p>
+<p>sentencias o instrucciones a ejecutar si se cumple condición</p>
+<p>} else {</p>
+<p>sentencias o instrucciones a ejecutar si no se cumple condición</p>
+<p>}</p>
+<p><img src="img1.1.png" width="1004" height="707" alt="Estructura if else"></p>
+<p>Su utilización no se limita a la expresión if... else, se puede crear estructuras con muchos if dentro de otros if, a esta forma se la conoce como if anidados.</p>
+<p>Sería algo así:</p>
+<p>if (condición 1 ){</p>
+<p>sentencias o instrucciones a ejecutar si se cumple condición 1</p>
+<p>} else if (condición 2) {</p>
+<p>sentencias o instrucciones a ejecutar si se cumple condición 2</p>
+<p>} else {</p>
+<p>sentencias o instrucciones a ejecutar si no se cumplen las condiciones anteriores</p>
+<p>}</p>
+<p>Para explicar mejor esto y repasar los elementos mencionados anteriormente, se deja una imagen interactiva con la representación de una estructura de control if... else if ... else...</p>
+<div style="width: 100%;">
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="if else if" frameborder="0" src="https://view.genial.ly/6398728919a1da0017a7bb24" type="text/html" allowscriptaccess="always" allowfullscreen="allowfullscreen" scrolling="yes" allownetworking="all" data-mce-fragment="1"></iframe></div>
+</div></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Estructura selectiva switch</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Esta estructura de selección es muy utilizada para los casos en que nos interese brindar varias opciones, un ejmeplo clásico es para programar un menú de opciones.</p>
+<p>Basicamente se establece una variable de entrada y en función del valor que toma dicha variable se ejecuta una o varias sentencias. También se define un valor por defecto para el caso que no se ingrese una opción válida.</p>
+<p>A continuación un ejemplo:</p>
+<div style="width: 100%;">
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Switch" frameborder="0" src="https://view.genial.ly/6398835e8aa54d001022a449" type="text/html" allowscriptaccess="always" allowfullscreen="allowfullscreen" scrolling="yes" allownetworking="all" data-mce-fragment="1"></iframe></div>
+</div>
+<p>Ahora veamos la ejección del mismo ejemplo de la imagen:</p>
+<p><img src="Switch.gif" alt="Ejecución de switch" title="Switch en Javascript" width="1020" height="574"></p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Estructura repetitiva for</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Los ciclos for son estructuras iterativas o repetitivas, existen algunas variantes en su declaración, pero en esencia son ciclos que permiten que se ejecuten las sentencias declaradas en su interior un número finito de veces.<br>Su estructura básica es la siguiente:</p>
+<p style="padding-left: 30px;">&nbsp;<em>for (Partida o inicio; condición de finalización; incremento o decremento) {sentencia o sentencias a ejecutar en cada iteración}</em></p>
+<p>Vale la pena aclarar que existen variantes del for como el <strong>for/each</strong> o el <strong>for/in,&nbsp;</strong>en este recurso introductorio no serán abordadas ya que para ello resulta necesario conocer estructuras de datos como arreglos también conocidos como vectores.</p>
+<div style="width: 100%;">
+<div style="position: relative; padding-bottom: 34.92%; padding-top: 0; height: 0;"><iframe width="1028" height="359" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Ciclo For" frameborder="0" src="https://view.genial.ly/63ad83dba9be3a00104dc64c" type="text/html" allowscriptaccess="always" allowfullscreen="allowfullscreen" scrolling="yes" allownetworking="all" data-mce-fragment="1"></iframe></div>
+<div style="position: relative; padding-bottom: 34.92%; padding-top: 0; height: 0;"><hr>En la imagen interactiva se muestra un detalle de cada elemento de la estructura for.A continuación se muestra un gif con la ejecución del ciclo for con algunas variantes:</div>
+<div style="position: relative; padding-bottom: 34.92%; padding-top: 0; height: 0;"><hr><img src="ciclo_for.gif" alt="Ciclo for" title="Ciclo for" width="1020" height="574"></div>
+<div style="position: relative; padding-bottom: 34.92%; padding-top: 0; height: 0;">dfgfghfghdfgh</div>
+</div></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Estructura repetitiva while</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Es una estructura muy utilizada, su traducción al español es "<em>mientras</em>", ya que mientras se valide determinada condición se ejecutarán una o más sentencias declaradas dentro de las llaves que delimitan la estructura.</p>
+<p style="padding-left: 30px;">Su forma básica es:&nbsp; <em>mientras (condición) { Sentencia o sentencias a ejecutar}</em></p>
+<div style="width: 100%;">
+<div style="position: relative; padding-bottom: 26.77%; padding-top: 0; height: 0;"><iframe width="945" height="253" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="while" frameborder="0" src="https://view.genial.ly/63ada17598428f0017e33279" type="text/html" allowscriptaccess="always" allowfullscreen="allowfullscreen" scrolling="yes" allownetworking="all" data-mce-fragment="1"></iframe><hr></div>
+</div>
+<hr>
+<p>La imagen interactiva muestra los elementos que conforman un caso de ejemplo de la estructura while.</p>
+<p>A continuación se presenta un gif que complementa la explicación con la ejecución del código fuente.</p>
+<hr>
+<p><img src="While.gif" alt="While" title="While" width="1020" height="574"></p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>Estructura repetitiva do while</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>La estructura de control do while es similar a la estructura while, la diferencia radica en la primera iteración, mientras que el while antes de ejecutar las sentencias definidas en su interior debe validar una condición, el do while realiza siempre la primera iteración, luego de evalúa la condición y en caso de ser falsa saldrá de la iteración.</p>
+<p>Su forma es la siguiente:<em> do {Sentencia o sentencias a ejecutar} while (condición)</em></p>
+<p>Vemos la siguiente imagen para detallar su funcionamiento.</p>
+<div style="width: 100%;">
+<div style="position: relative; padding-bottom: 19.64%; padding-top: 0; height: 0;"><iframe width="1120" height="220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="do-while" frameborder="0" src="https://view.genial.ly/63adb4a1a9be3a00104de6f4" type="text/html" allowscriptaccess="always" allowfullscreen="allowfullscreen" scrolling="yes" allownetworking="all" data-mce-fragment="1"></iframe></div>
+<div style="position: relative; padding-bottom: 19.64%; padding-top: 0; height: 0;"><hr>En la imagen interactiva se puede visualizar la lógica de esta estructura.</div>
+<div style="position: relative; padding-bottom: 19.64%; padding-top: 0; height: 0;"></div>
+</div></div></div></section></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id14">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Zona activa</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta14_120_2" class="block iDevice_content">
+<div class="exe-text"><hr />
+<p>En este espacio se proponen una serie de actividades con retroalimentaciones que te permiten reafirmar los puntos clave sobre estructuras de control en Javascript.</p>
+<hr />
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper SeleccionaIdevice em_iDevice" id="id16">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Selecciona</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta16_122_2" class="block iDevice_content">
+<div class="selecciona-IDevice"><div class="selecciona-instructions gameQP-instructions"><p>Selecciona las respuestas correctas y pulsa sobre el botón "responder"</p></div><div class="selecciona-version js-hidden">undefined</div><div class="selecciona-feedback-game"></div><div class="selecciona-DataGame js-hidden" >%E9%B0%F3%E1%FB%F5%FC%F3%E6%E7%E0%F3%B0%A8%B0%B0%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%E7%E6%FA%FD%E0%C4%FB%F6%F7%FD%B0%A8%B0%B0%BE%B0%E6%EB%E2%F7%D5%F3%FF%F7%B0%A8%B0%C1%F7%FE%F7%F1%F1%FB%FD%FC%F3%B0%BE%B0%F7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%FB%F6%C4%FB%F6%F7%FD%B0%A8%B0%B0%BE%B0%E1%E6%F3%E0%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%FB%FC%E1%E6%E0%E7%F1%E6%FB%FD%FC%E1%D7%EA%F7%B0%A8%B0%B7%A1%D1%E2%B7%A1%D7%C1%F7%FE%F7%F1%F1%FB%FD%FC%F3%B7%A0%A2%FE%F3%E1%B7%A0%A2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B7%A0%A2%F1%FD%E0%E0%F7%F1%E6%F3%E1%B7%A0%A2%EB%B7%A0%A2%E2%E7%FE%E1%F3%B7%A0%A2%E1%FD%F0%E0%F7%B7%A0%A2%F7%FE%B7%A0%A2%F0%FD%E6%B7%D4%A1%FC%B7%A0%A2%B7%A0%A0%E0%F7%E1%E2%FD%FC%F6%F7%E0%B7%A0%A0%B7%A1%D1%BD%E2%B7%A1%D7%B0%BE%B0%FB%FC%E1%E6%E0%E7%F1%E6%FB%FD%FC%E1%B0%A8%B0%C1%F7%FE%F7%F1%F1%FB%FD%FC%F3%B2%FE%F3%E1%B2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B2%F1%FD%E0%E0%F7%F1%E6%F3%E1%B2%EB%B2%E2%E7%FE%E1%F3%B2%E1%FD%F0%E0%F7%B2%F7%FE%B2%F0%FD%E6a%FC%B2%CE%B0%E0%F7%E1%E2%FD%FC%F6%F7%E0%CE%B0%B2%B0%BE%B0%E1%FA%FD%E5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%FD%E2%E6%FB%FD%FC%E1%C0%F3%FF%F6%FD%FC%B0%A8%F4%F3%FE%E1%F7%BE%B0%F3%FC%E1%E5%F7%E0%E1%C0%F3%FF%F6%FD%FC%B0%A8%F4%F3%FE%E1%F7%BE%B0%E1%FA%FD%E5%C1%FD%FE%E7%E6%FB%FD%FC%B0%A8%E6%E0%E7%F7%BE%B0%E6%FB%FF%F7%C1%FA%FD%E5%C1%FD%FE%E7%E6%FB%FD%FC%B0%A8%A1%BE%B0%E7%E1%F7%DE%FB%E4%F7%E1%B0%A8%E6%E0%E7%F7%BE%B0%FC%E7%FF%F0%F7%E0%DE%FB%E4%F7%E1%B0%A8%A1%BE%B0%FB%E6%FB%FC%F7%E0%F3%E0%EB%B0%A8%E9%B0%E1%FA%FD%E5%D1%FE%E7%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FE%E7%F7%D5%F3%FF%F7%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%D1%FE%E7%F7%B0%A8%A6%A2%BE%B0%E1%FA%FD%E5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%BE%B0%FF%F7%E1%E1%F3%F5%F7%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%EF%BE%B0%E1%F7%FE%F7%F1%E6%E1%D5%F3%FF%F7%B0%A8%C9%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A3%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A2%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%DE%F3%E1%B2%F7%E1%E6%E0%E7%F1%E6%E7%E0%F3%E1%B2%F6%F7%B2%F1%FD%FC%E6%E0%FD%FE%B2%E1%FD%FC%B2%E4%FB%E6%F3%FE%F7%E1%B2%F7%FC%B2%E2%E0%FD%F5%E0%F3%FF%F3%F1%FBa%FC%B2%F6%F7%F0%FB%F6%FD%B2%F3%B2%E3%E7%F7%A8%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%C1%FD%FC%B2%F4s%F1%FB%FE%F7%E1%B2%F6%F7%B2%E7%E1%F3%E0%B0%BE%B0%D6%F7%F4%FB%FC%F7%FC%B2%F7%FE%B2%F4%FE%E7%F8%FD%B2%F6%F7%B2%F7%F8%F7%F1%E7%F1%FBa%FC%B2%F6%F7%FE%B2%E2%E0%FD%F5%E0%F3%FF%F3%B0%BE%B0%D1%FD%FC%E6%E0%FD%FE%F3%FC%B2%FE%F3%E1%B2%E4%F3%E0%FB%F3%F0%FE%F7%E1%B0%BE%B0%D7%E1%E6%E0%E7%F1%E6%E7%E0%F3%FC%B2%F7%FE%B2%F1a%F6%FB%F5%FD%B2%F4%E7%F7%FC%E6%F7%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A3%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%DE%F3%B2%F7%E1%E6%E0%E7%F1%E6%E7%E0%F3%B2%F6%F7%B2%F1%FD%FC%E6%E0%FD%FE%B2%FB%F4%BC%BC%BC%F7%FE%E1%F7%B2%E6%FB%F7%FC%F7%B2%F6%F7%E6%F7%E0%FF%FB%FC%F3%F6%FD%E1%B2%F7%FE%F7%FF%F7%FC%E6%FD%E1%BE%B2%FD%E0%F6%F7%FC%F7%B2%FE%FD%E1%B2%FF%FB%E1%FF%FD%E1%B2%FA%F3%F1%FB%F7%FC%F6%FD%B2%F1%FE%FB%F1%B2%F7%FC%B2%F7%FE%B2%FD%E0%F6%F7%FC%B2%F1%FD%E0%E0%F7%F1%E6%FD%B2%F7%FC%B2%F4%E7%FC%F1%FBa%FC%B2%F6%F7%B2%E1%E7%B2%E1%FB%FC%E6%F3%EA%FB%E1%BC%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%C1%F7%FC%E6%F7%FC%F1%FB%F3%E1%B2%F7%FC%B2%F1%F3%E1%FD%B2%F6%F7%B2%F1%FD%FC%F6%FB%F1%FBa%FC%B2%E4%F7%E0%F6%F3%F6%F7%E0%F3%B0%BE%B0%F7%FE%E1%F7%B2%EB%B2%E1%F7%FC%E6%F7%FC%F1%FB%F3%E1%B2%F7%FC%B2%F1%F3%E1%FD%B2%F6%F7%B2%F1%FD%FC%F6%FB%F1%FBa%FC%B2%F4%F3%FE%E1%F3%B0%BE%B0%FB%F4%B0%BE%B0%BA%F1%FD%FC%F6%FB%F1%FBa%FC%BB%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D1%D6%D3%D0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A3%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A1%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A3%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%C1%F7%FE%F7%F1%F1%FB%FD%FC%F7%B2%F7%FE%B2%FD%E0%F6%F7%FC%B2%F6%F7%B2%FE%FD%E1%B2%F7%FE%F7%FF%F7%FC%E6%FD%E1%B2%E3%E7%F7%B2%F1%FD%FF%E2%FD%FC%F7%FC%B2%F3%B2%FE%F3%B2%F7%E1%E6%E0%E7%F1%E6%E7%E0%F3%B2%F6%F7%B2%F1%FD%FC%E6%E0%FD%FE%B2%F6%FD%B2%E5%FA%FB%FE%F7%BC%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%BA%F1%FD%FC%F6%FB%F1%FBa%FC%BB%B0%BE%B0%C1%F7%FC%E6%F7%FC%F1%FB%F3%E1%B0%BE%B0%F6%FD%B0%BE%B0%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D1%D0%D3%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A3%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%D7%E1%E6%E0%E7%F1%E6%E7%E0%F3%B2%F6%F7%B2%F1%FD%FC%E6%E0%FD%FE%B2%FB%E6%F7%E0%F3%E6%FB%E4%F3%B2%E3%E7%F7%B2%F6%F7%F4%FB%FC%F7%B2%E7%FC%B2%F1%FB%F1%FE%FD%B2%F6%F7%B2%E0%F7%E2%F7%E6%FB%F1%FBa%FC%BC%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%B0%BE%B0%B0%BE%B0%B0%BE%B0%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%F4%FD%E0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%D7%E1%B2%E7%FC%F3%B2%F7%E1%E6%E0%E7%F1%E6%E7%E0%F3%B2%E1%FB%FF%FB%FE%F3%E0%B2%F3%FE%B2%F6%FD%B2%E5%FA%FB%FE%F7%BE%B2%FE%F3%B2%F6%FB%F4%F7%E0%F7%FC%F1%FB%F3%B2%E0%F3%F6%FB%F1%F3%B2%F7%FC%B2%E3%E7%F7%B2%F7%FC%B2%F7%E1%E6%F3%B2%F7%E1%E6%E0%E7%F1%E6%E0%F3%B2%FE%F3%B2%F1%FD%FC%F6%FB%F1%FBa%FC%B2%F7%E1%B2%F7%E4%F3%FE%E7%F3%F6%F3%B2%E2%E0%F7%E4%FB%FD%B2%F3%B2%FE%F3%B2%F7%F8%F7%F1%E7%F1%FBa%FC%B2%F6%F7%B2%FE%F3%E1%B2%E1%F7%FC%E6%F7%FC%F1%FB%F3%E1%B2%FB%FC%E6%F7%E0%FC%F3%E1%BE%B2%E1%7F%B2%F7%E1%B2%F4%F3%FE%E1%F3%B2%FC%FD%B2%E1%F7%B2%F7%F8%F7%F1%E7%E6%F3%E0s%B2%FC%FB%B2%E7%FC%F3%B2%E1%FD%FE%F3%B2%E4%F7%E8%B2%FE%FD%B2%F6%F7%F4%FB%FC%FB%F6%FD%B2%F7%FC%B2%E1%E7%B2%FB%FC%E6%F7%E0%FB%FD%E0%BC%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%B0%BE%B0%B0%BE%B0%B0%BE%B0%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%E5%FA%FB%FE%F7%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A3%BE%B0%E6%FB%FF%F7%B0%A8%A3%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%C1%F3%FC%E6%FB%F3%F5%FD%B2%DA%F7%E0%FCs%FC%F6%F7%E8%B0%BE%B0%F3%FE%E6%B0%A8%B0%D7%E1%E6%E0%E7%F1%E6%E7%E0%F3%B2%F6%F7%B2%F1%FD%FC%E6%E0%FD%FE%B2%E1%E5%FB%E6%F1%FA%B2%F1%F3%E1%F7%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%BD%E2%E0%F7%E4%FB%F7%E5%E1%BD%D1%CD%CD%C7%E1%F7%E0%E1%CD%E1%F3%FC%E6%EB%CD%D6%F7%E1%F9%E6%FD%E2%CD%C0%F7%F1%E7%E0%E1%FD%D8%F3%E4%F3%E1%F1%E0%FB%E2%E6%CD%C1%E5%FB%E6%F1%FA%CD%C1%E5%FB%E6%F1%FA%BC%F5%FB%F4%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%D7%E1%E6%F3%B2%E2%F3%FE%F3%F0%E0%F3%B2%E0%F7%E1%F7%E0%E4%F3%F6%F3%B2%E1%F7%B2%F6%F7%F0%F7%B2%F1%FD%FE%FD%F1%F3%E0%B2%F6%F7%E1%E2%E7%7B%E1%B2%F6%F7%B2%F1%F3%F6%F3%B2%F1%F3%E1%F7%BE%B2%E1%E7%B2%FF%FB%E1%FBa%FC%B2%F7%E1%B2%F1%FD%E0%E6%F3%E0%B2%F7%FE%B2%F4%FE%E7%FD%B2%F6%F7%B2%F7%F8%F7%F1%E7%F1%FBa%FC%B2%E7%FC%F3%B2%E4%F7%E8%B2%F7%F8%F7%F1%E7%E6%F3%F6%F3%E1%B2%E6%FD%F6%F3%E1%B2%FE%F3%E1%B2%E1%F7%FC%E6%F7%FC%F1%FB%F3%E1%B2%F6%F7%FE%B2%F1%F3%E1%F7%B2%E1%F7%FE%F7%F1%F1%FB%FD%FC%F3%F6%FD%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%B0%BE%B0%B0%BE%B0%B0%BE%B0%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%F0%E0%F7%F3%F9%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%CF%BE%B0%FB%E1%C1%F1%FD%E0%FF%B0%A8%A2%BE%B0%E6%F7%EA%E6%D0%E7%E6%E6%FD%FC%C1%F1%FD%E0%FF%B0%A8%B0%D5%E7%F3%E0%F6%F3%E0%B2%FE%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B0%BE%B0%E0%F7%E2%F7%F3%E6%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%F4%F3%FE%E1%F7%BE%B0%E6%FB%E6%FE%F7%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%E6%F7%EA%E6%D3%F4%E6%F7%E0%B0%A8%B0%B7%A1%D1%E2%B7%A1%D7%C0%F7%F1%E7%F7%E0%F6%F3%B7%A0%A2%E0%F7%E2%F3%E1%F3%E0%B7%A0%D1%B7%A0%A2%F6%F7%FC%E6%E0%FD%B7%A0%A2%F6%F7%B7%A0%A2%F7%E1%E6%F3%B7%A0%A2%FF%FB%E1%FF%F3%B7%A0%A2%E1%F7%F1%F1%FB%B7%D4%A1%FC%B7%A0%D1%B7%A0%A2%FF%B7%D7%A3%E1%B7%A0%A2%F3%E0%E0%FB%F0%F3%B7%A0%A2%E6%FB%F7%FC%F7%E1%B7%A0%A2%F7%FE%B7%A0%A2%FF%F3%E6%F7%E0%FB%F3%FE%B7%A0%A2%E3%E7%F7%B7%A0%A2%E6%F7%B7%A0%A2%F3%EB%E7%F6%F3%E0%B7%D7%A3%B7%A0%A2%F1%FD%FC%B7%A0%A2%F7%E1%E6%FD%BC%B7%A1%D1%BD%E2%B7%A1%D7%B0%BE%B0%E6%F7%EA%E6%D4%F7%F7%F6%D0%F3%F1%F9%B0%A8%B0%B0%BE%B0%F5%F3%FF%F7%DF%FD%F6%F7%B0%A8%A3%BE%B0%F4%F7%F7%F6%D0%F3%F1%F9%B0%A8%F4%F3%FE%E1%F7%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%D4%D0%B0%A8%A3%A2%A2%BE%B0%FD%E0%F6%F7%E0%B0%A8%A2%BE%B0%F1%E7%E1%E6%FD%FF%DF%F7%E1%E1%F3%F5%F7%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%E4%F7%E0%E1%FB%FD%FC%B0%A8%A1%BC%A3%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%A3%A2%A2%BE%B0%F3%E7%F6%FB%FD%D4%F7%F7%F6%D0%F3%F1%FA%B0%A8%F4%F3%FE%E1%F7%BE%B0%FF%FD%F6%F7%D0%FD%F3%E0%F6%B0%A8%F4%F3%FE%E1%F7%BE%B0%FF%E1%F5%E1%B0%A8%E9%B0%FF%E1%F5%C0%F7%F3%F6%EB%B0%A8%B0-%C2%E0%F7%E2%F3%E0%F3%F6%FD%AD%B0%BE%B0%FF%E1%F5%C1%E6%F3%E0%E6%D5%F3%FF%F7%B0%A8%B0%C2%E7%FE%E1%F7%B2%F3%E3%E7%7F%B2%E2%F3%E0%F3%B2%F7%FF%E2%F7%E8%F3%E0%B0%BE%B0%FF%E1%F5%C1%E7%F0%FF%FB%E6%B0%A8%B0%D7%FC%E4%FB%F3%E0%B0%BE%B0%FF%E1%F5%D7%FC%E6%F7%E0%D1%FD%F6%F7%B0%A8%B0%DB%FC%E6%E0%FD%F6%E7%E8%F1%F3%B2%F7%FE%B2%F1a%F6%FB%F5%FD%B2%F6%F7%B2%F3%F1%F1%F7%E1%FD%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%D1%FD%F6%F7%B0%A8%B0%D7%FE%B2%F1a%F6%FB%F5%FD%B2%F6%F7%B2%F3%F1%F1%F7%E1%FD%B2%FC%FD%B2%F7%E1%B2%F1%FD%E0%E0%F7%F1%E6%FD%B0%BE%B0%FF%E1%F5%D5%F3%FF%F7%DD%E4%F7%E0%B0%A8%B03%D4%FB%FC%B2%F6%F7%B2%FE%F3%B2%E2%F3%E0%E6%FB%F6%F3%B3%B0%BE%B0%FF%E1%F5%D1%FE%E7%F7%B0%A8%B03%D5%F7%FC%FB%F3%FE%B3%B2%DE%F3%B2%E2%FB%E1%E6%F3%B2%F7%E1%A8%B0%BE%B0%FF%E1%F5%DC%F7%E5%D5%F3%FF%F7%B0%A8%B0%C2%E7%FE%E1%F7%B2%F3%E3%E7%7F%B2%E2%F3%E0%F3%B2%F7%FF%E2%F7%E8%F3%E0%B2%FD%E6%E0%F3%B2%E2%F3%E0%E6%FB%F6%F3%B0%BE%B0%FF%E1%F5%CB%FD%E7%DA%F3%E1%B0%A8%B0%C6%FB%F7%FC%F7%B2%B7%A3%B2%F3%F1%FB%F7%E0%E6%FD%E1%B2%EB%B2%B7%A0%B2%F4%F3%FE%FE%FD%E1%B0%BE%B0%FF%E1%F5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%D1a%F6%FB%F5%FD%B2%F6%F7%B2%F3%F1%F1%F7%E1%FD%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%D3%F5%F3%FB%FC%B0%A8%B0%D8%E7%F5%F3%E0%B2%FD%E6%E0%F3%B2%E4%F7%E8%B0%BE%B0%FF%E1%F5%C0%F7%E3%E7%FB%E0%F7%F6%D3%F1%F1%F7%E1%E1%D9%F7%EB%B0%A8%B0%D7%E1%B2%FC%F7%F1%F7%E1%F3%E0%FB%FD%B2%F7%FE%B2%F1a%F6%FB%F5%FD%B2%F6%F7%B2%F3%F1%F1%F7%E1%FD%B0%BE%B0%FF%E1%F5%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%DE%FD%FD%F9%FB%FC%F5%B0%A8%B03%D5%F7%FC%FB%F3%FE%B3%B2%DE%F3%B2%FB%FC%F4%FD%E0%FF%F3%F1%FBa%FC%B2%E3%E7%F7%B2%F7%E1%E6%F3%F0%F3%B2%F0%E7%E1%F1%F3%FC%F6%FD%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%E6%F3%E0%E6%B0%A8%B0%C2%E7%FE%E1%F7%B2%F3%E3%E7%7F%B2%E2%F3%E0%F3%B2%F8%E7%F5%F3%E0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%E1%B0%A8%B0%D7%E0%E0%FD%E0%F7%E1%B0%BE%B0%FF%E1%F5%DA%FB%E6%E1%B0%A8%B0%D3%F1%FB%F7%E0%E6%FD%E1%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%B0%A8%B0%C2%E7%FC%E6%E7%F3%F1%FBa%FC%B0%BE%B0%FF%E1%F5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%B0%DF%FB%FC%FB%FF%FB%E8%F3%E0%B0%BE%B0%FF%E1%F5%DF%F3%EA%FB%FF%FB%E8%F7%B0%A8%B0%DF%F3%EA%FB%FF%FB%E8%F3%E0%B0%BE%B0%FF%E1%F5%C6%FB%FF%F7%B0%A8%B0%C6%FB%F7%FF%E2%FD%B2%E2%FD%E0%B2%E2%E0%F7%F5%E7%FC%E6%F3%B0%BE%B0%FF%E1%F5%DE%FB%E4%F7%B0%A8%B0%C4%FB%F6%F3%B0%BE%B0%FF%E1%F5%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%C2%F3%FC%E6%F3%FE%FE%F3%B2%D1%FD%FF%E2%FE%F7%E6%F3%B0%BE%B0%FF%E1%F5%D7%EA%FB%E6%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%C1%F3%FE%FB%E0%B2%F6%F7%FE%B2%FF%FD%F6%FD%B2%E2%F3%FC%E6%F3%FE%FE%F3%B2%F1%FD%FF%E2%FE%F7%E6%F3%B0%BE%B0%FF%E1%F5%DC%E7%FF%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%B0%DCh%FF%F7%E0%FD%B2%F6%F7%B2%E2%E0%F7%F5%E7%FC%E6%F3%E1%B0%BE%B0%FF%E1%F5%DC%FD%DB%FF%F3%F5%F7%B0%A8%B0%C2%E0%F7%F5%E7%FC%E6%F3%B2%E1%FB%FC%B2%FB%FFs%F5%F7%FC%F7%E1%B0%BE%B0%FF%E1%F5%D1%FD%FD%FE%B0%A8%B03%D0%FB%F7%FC%B3%B0%BE%B0%FF%E1%F5%DE%FD%E1%F7%C6%B0%A8%B0%DA%F3%B2%E2%F7%E0%F6%FB%F6%FD%B2%A1%A1%A2%B2%E2%E7%FC%E6%FD%E1%B0%BE%B0%FF%E1%F5%DE%FD%E1%F7%DE%FB%E4%F7%B0%A8%B0%DA%F3%B2%E2%F7%E0%F6%FB%F6%FD%B2%E7%FC%F3%B2%E4%FB%F6%F3%B0%BE%B0%FF%E1%F5%DE%FD%E1%E6%DE%FB%E4%F7%E1%B0%A8%B03%DA%F3%B2%E2%F7%E0%F6%FB%F6%FD%B2%E6%FD%F6%F3%E1%B2%E1%E7%E1%B2%E4%FB%F6%F3%E1%B3%B0%BE%B0%FF%E1%F5%D3%FE%FE%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%B03%D1%FD%FF%E2%FE%F7%E6%F3%F6%F3%E1%B2%FE%F3%E1%B2%E2%E0%F7%F5%E7%FC%E6%F3%E1%B3%B0%BE%B0%FF%E1%F5%C1%E7%F1%F1%F7%E1%E1%F7%E1%B0%A8%B03%D1%FD%E0%E0%F7%F1%E6%FD%B3%B2%EE%B23%D7%EA%F1%F7%FE%F7%FC%E6%F7%B3%B2%EE%B23%D5%F7%FC%FB%F3%FE%B3%B2%EE%B23%DF%E7%EB%B2%F0%FB%F7%FC%B3%B2%EE%B23%C2%F7%E0%F4%F7%F1%E6%FD%B3%B0%BE%B0%FF%E1%F5%D4%F3%FB%FE%E7%E0%F7%E1%B0%A8%B03%DC%FD%B2%F7%E0%F3%B2%F7%E1%FD%B3%B2%EE%B23%DB%FC%F1%FD%E0%E0%F7%F1%E6%FD%B3%B2%EE%B23%DC%FD%B2%F7%E1%B2%F1%FD%E0%E0%F7%F1%E6%FD%B3%B2%EE%B23%DE%FD%B2%E1%F7%FC%E6%FB%FF%FD%E1%B3%B2%EE%B23%D7%E0%E0%FD%E0%B3%B0%BE%B0%FF%E1%F5%DC%FD%E6%DC%F7%E6%E5%FD%E0%F9%B0%A8%B0%D3%B2%F7%E1%E6%F7%B2%F8%E7%F7%F5%FD%B2%E1a%FE%FD%B2%E1%F7%B2%E2%E7%F7%F6%F7%B2%F8%E7%F5%F3%E0%B2%F1%FD%FC%B2%F1%FD%FC%F7%EA%FBa%FC%B2%F3%B2%FB%FC%E6%F7%E0%FC%F7%E6%BC%B0%BE%B0%FF%E1%F5%D7%FC%F6%D5%F3%FF%F7%C1%F1%FD%E0%F7%B0%A8%B0%DB%FC%FB%F1%FB%F3%B2%F7%FE%B2%F8%E7%F7%F5%FD%BC%BC%BC%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%C1%F1%FD%E0%FF%B0%A8%B0%DE%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%FC%FD%B2%E1%F7%B2%E2%E7%F7%F6%F7%B2%F5%E7%F3%E0%F6%F3%E0%B2%E2%FD%E0%E3%E7%F7%B2%F7%E1%E6%F3%B2%E2s%F5%FB%FC%F3%B2%FC%FD%B2%F4%FD%E0%FF%F3%B2%E2%F3%E0%E6%F7%B2%B2%F6%F7%B2%E7%FC%B2%E2%F3%E3%E7%F7%E6%F7%B2%C1%D1%DD%C0%DF%BC%B0%BE%B0%FF%E1%F5%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%C2%E0%F7%F5%E7%FC%E6%F3%B0%BE%B0%FF%E1%F5%D3%FC%E1%E5%F7%E0%B0%A8%B0%D1%FD%FF%E2%E0%FD%F0%F3%E0%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%C1%F1%FD%E0%F7%B0%A8%B03%C1a%FE%FD%B2%E2%E7%F7%F6%F7%B2%F5%E7%F3%E0%F6%F3%E0%B2%FE%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%E7%FC%F3%B2%E4%F7%E8%B3%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%B0%A8%B0%C1a%FE%FD%B2%E2%E7%F7%F6%F7%B2%F5%E7%F3%E0%F6%F3%E0%B2%E7%FC%F3%B2%E4%F7%E8%B0%BE%B0%FF%E1%F5%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%A8%B0%DB%FC%F4%FD%E0%FF%F3%F1%FBa%FC%B0%BE%B0%FF%E1%F5%CB%FD%E7%C1%F1%FD%E0%F7%B0%A8%B0%C1%E7%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B0%BE%B0%FF%E1%F5%D3%E7%E6%FA%FD%E0%B0%A8%B0%D3%E7%E6%FD%E0%7F%F3%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%C1%E7%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%E1%F7%B2%F5%E7%F3%E0%F6%F3%E0s%B2%F6%F7%E1%E2%E7%7B%E1%B2%F6%F7%B2%F1%F3%F6%F3%B2%E2%E0%F7%F5%E7%FC%E6%F3%BC%B2%C1a%FE%FD%B2%E2%E7%F7%F6%F7%B2%F8%E7%F5%F3%E0%B2%E7%FC%F3%B2%E4%F7%E8%BC%B0%BE%B0%FF%E1%F5%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%C1%E7%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%E1%F7%B2%F5%E7%F3%E0%F6%F3%E0s%B2%F3%E7%E6%FD%FFs%E6%FB%F1%F3%FF%F7%FC%E6%F7%B2%F6%F7%E1%E2%E7%7B%E1%B2%F6%F7%B2%F1%F3%F6%F3%B2%E2%E0%F7%F5%E7%FC%E6%F3%BC%B0%BE%B0%FF%E1%F5%C1%F7%E4%F7%E0%F3%FE%C1%F1%FD%E0%F7%B0%A8%B0%C2%E7%F7%F6%F7%B2%F5%E7%F3%E0%F6%F3%E0%B2%FE%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%E6%F3%FC%E6%F3%E1%B2%E4%F7%F1%F7%E1%B2%F1%FD%FF%FD%B2%E3%E7%FB%F7%E0%F3%B0%BE%B0%FF%E1%F5%CB%FD%E7%DE%F3%E1%E6%C1%F1%FD%E0%F7%B0%A8%B0%DE%F3%B2h%FE%E6%FB%FF%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B2%F5%E7%F3%E0%F6%F3%F6%F3%B2%F7%E1%B0%BE%B0%FF%E1%F5%D3%F1%E6%FB%E6%EB%D1%FD%FF%E2%FE%EB%B0%A8%B0%CB%F3%B2%FA%F3%B2%E0%F7%F3%FE%FB%E8%F3%F6%FD%B2%F7%E1%E6%F3%B2%F3%F1%E6%FB%E4%FB%F6%F3%F6%BC%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%F7%E4%F7%E0%F3%FE%C6%FB%FF%F7%E1%B0%A8%B0%C2%E7%F7%F6%F7%B2%E0%F7%F3%FE%FB%E8%F3%E0%B2%F7%E1%E6%F3%B2%F3%F1%E6%FB%E4%FB%F6%F3%F6%B2%F1%E7%F3%FC%E6%F3%E1%B2%E4%F7%F1%F7%E1%B2%E3%E7%FB%F7%E0%F3%B0%BE%B0%FF%E1%F5%C6%E0%EB%D3%F5%F3%FB%FC%B0%A8%B0%DC%F7%F1%F7%E1%FB%E6%F3%B2%F3%FE%B2%FF%F7%FC%FD%E1%B2%E7%FC%B2%B7%E1%B7%B2%F6%F7%B2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B2%F1%FD%E0%E0%F7%F1%E6%F3%E1%B2%E2%F3%E0%F3%B2%F1%FD%FC%E1%F7%F5%E7%FB%E0%B2%FE%F3%B2%FB%FC%F4%FD%E0%FF%F3%F1%FBa%FC%BC%B2%C4%E7%F7%FE%E4%F3%B2%F3%B2%FB%FC%E6%F7%FC%E6%F3%E0%FE%FD%BC%B0%BE%B0%FF%E1%F5%C4%FB%F6%F7%FD%DB%FC%E6%E0%FD%B0%A8%B0%C4%7F%F6%F7%FD%B2%F6%F7%B2%FB%FC%E6%E0%FD%F6%E7%F1%F1%FBa%FC%B0%BE%B0%FF%E1%F5%D1%FE%FD%E1%F7%B0%A8%B0%D1%F7%E0%E0%F3%E0%B0%BE%B0%FF%E1%F5%DD%E2%E6%FB%FD%FC%B0%A8%B0%DD%E2%F1%FBa%FC%B0%BE%B0%FF%E1%F5%C0%FB%F1%F9%C6%F7%EA%E6%B0%A8%B0%C6%F7%EA%E6%FD%B2%F7%FC%E0%FB%E3%E7%F7%F1%FB%F6%FD%B0%BE%B0%FF%E1%F5%C7%E1%F7%D4%E7%FE%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%A8%B0%F7%B2%FB%FC%F4%FD%E0%FF%F3%F1%FBa%FC%B2%E3%E7%F7%B2%E1%F7%E0s%B2%FF%E7%EB%B2h%E6%FB%FE%B0%BE%B0%FF%E1%F5%DE%FD%F3%F6%FB%FC%F5%B0%A8%B0%D1%F3%E0%F5%F3%FC%F6%FD%BC%B2%D7%E1%E2%F7%E0%F7%BE%B2%E2%FD%E0%B2%F4%F3%E4%FD%E0%BC%BC%BC%B0%BE%B0%FF%E1%F5%DD%E0%F6%F7%E0%E1%B0%A8%B0%DD%E0%F6%F7%FC%F3%B2%E6%FD%F6%F3%E1%B2%FE%F3%E1%B2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B0%BE%B0%FF%E1%F5%DB%FC%F6%FB%F1%F3%E6%F7%C5%FD%E0%F6%B0%A8%B0%C2%E0%FD%E2%FD%E0%F1%FB%FD%FC%F7%B2%E7%FC%F3%B2%E2%F3%FE%F3%F0%E0%F3%B2%FD%B2%F7%EA%E2%E0%F7%E1%FBa%FC%B0%BE%B0%FF%E1%F5%DF%FD%E4%F7%DD%FC%F7%B0%A8%B0%C2%F3%E1%F3%E0%B0%BE%B0%FF%E1%F5%C2%FD%FB%FC%E6%E1%B0%A8%B0%E2%E7%FC%E6%FD%E1%B0%BE%B0%FF%E1%F5%D3%E7%F6%FB%FD%B0%A8%B0%D3%E7%F6%FB%FD%B0%BE%B0%FF%E1%F5%D1%FD%E0%E0%F7%F1%E6%B0%A8%B0%D1%FD%E0%E0%F7%F1%E6%FD%B0%BE%B0%FF%E1%F5%DB%FC%F1%FD%E0%E0%F7%F1%E6%B0%A8%B0%DB%FC%F1%FD%E0%E0%F7%F1%E6%FD%B0%EF%EF</div><a href="Switch.gif" class="js-hidden selecciona-LinkImages">5</a><div class="selecciona-extra-content"><p>Recuerda repasar, dentro de esta misma sección, más arriba tienes el material que te ayudará con esto.</p></div><div class="selecciona-bns js-hidden">Su navegador no es compatible con esta herramienta.</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ClozeIdevice em_iDevice em_iDevice_question" id="id17">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Rellenar huecos</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta17_116" class="block instructions iDevice_content">
+<p>La siguiente estructura de control arroja como salida la siguiente expresión: </p>
+<p>"Felicitaciones aprobaste el examen" o "No aprobado, debes estudiar más para la próxima" dependiendo del valor que asume la variable "nota".</p>
+<p><strong>Se debe tener en cuenta que:</strong></p>
+<p>La nota del examen es un dato aleatorio sorteado entre 1 y 12, al iniciar el programa y guardado en la variable llamada "nota".</p>
+<p>El examen se aprueba con notas iguales o mayores a 6.</p>
+<p>Usted debe completar el fragmento de código presentado de forma que el algoritmo funcione.</p>
+<hr />
+<p></p>
+<p></p>
+</section>
+
+    <section class="activity" id="activity-17_117"><form name="cloze-form-17_117" action="#" class="activity-form cloze-activity-form"><div id="cloze17_117"><input type="hidden" name="clozeFlag17_117.strictMarking" id="clozeFlag17_117.strictMarking" value="false"/>
+<input type="hidden" name="clozeFlag17_117.checkCaps" id="clozeFlag17_117.checkCaps" value="false"/>
+<input type="hidden" name="clozeFlag17_117.instantMarking" id="clozeFlag17_117.instantMarking" value="false"/>
+<input type="hidden" name="clozeVar17_117.feedbackId" id="clozeVar17_117.feedbackId" value="ta17_118"/>
+<p>if ( <label for="clozeBlank17_117.0" class="sr-av">Rellenar huecos (1):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.0" style="width:4ch" /><span style="display:none" id="clozeAnswer17_117.0">JXUwMDM2JXUwMDAxJXUwMDFiJXUwMDE1
+</span> < <label for="clozeBlank17_117.1" class="sr-av">Rellenar huecos (2):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.1" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.1">JXUwMDZl
+</span> ) { alert ("No aprobado, debes estudiar más para la próxima"); }</p>
+<p>    <label for="clozeBlank17_117.2" class="sr-av">Rellenar huecos (3):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.2" style="width:4ch" /><span style="display:none" id="clozeAnswer17_117.2">JXUwMDNkJXUwMDA5JXUwMDFmJXUwMDE2
+</span> {  alert ("Felicitaciones aprobaste el examen") } ; </p>
+<hr></hr>
+<p>Ahora pinesa cómo deberías armar la condición si se cambian las salidas posibles:</p>
+<hr></hr>
+<p><label for="clozeBlank17_117.3" class="sr-av">Rellenar huecos (4):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.3" style="width:2ch" /><span style="display:none" id="clozeAnswer17_117.3">JXUwMDMxJXUwMDBm
+</span> ( <label for="clozeBlank17_117.4" class="sr-av">Rellenar huecos (5):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.4" style="width:6ch" /><span style="display:none" id="clozeAnswer17_117.4">JXUwMDM2JXUwMDAxJXUwMDFiJXUwMDE1JXUwMDQxJXUwMDFl
+</span> <label for="clozeBlank17_117.5" class="sr-av">Rellenar huecos (6):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.5" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.5">JXUwMDZk
+</span> ) {</p>
+<p>alert ("Felicitaciones aprobaste el examen"); </p>
+<p>} else {</p>
+<p>alert ("No aprobado, debes estudiar más para la próxima")}; </p>
+<hr></hr>
+<p>Se presenta un ejemplo con la sentencia do while, complete la condición sabiendo que la sentencia interna se ejecuta sólo una vez.</p>
+<hr></hr>
+<p>var cantidad = 0;<br/>do{<br/><br/>document.write("La variable cantidad ahora vale:" + cantidad);<br/><br/>}while( <label for="clozeBlank17_117.6" class="sr-av">Rellenar huecos (7):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.6" style="width:8ch" /><span style="display:none" id="clozeAnswer17_117.6">JXUwMDNiJXUwMDAyJXUwMDBmJXUwMDFhJXUwMDFkJXUwMDBkJXUwMDA1JXUwMDA1
+</span> > <label for="clozeBlank17_117.7" class="sr-av">Rellenar huecos (8):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.7" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.7">JXUwMDY4
+</span> );</p>
+<hr></hr>
+<p>Utilizando la misma variable del código anterior pero ahora en una estructura while responda cuántas veces se ejecuta la sentencia interna.</p>
+<hr></hr>
+<p>while(cantidad > 0){<br/><br/>document.write("La variable cantidad ahora vale:" + cantidad +"");<br/>}</p>
+<p>Indique la cantidad de veces que se ejecuta la instrucción contenida dentro del while.</p>
+<p><label for="clozeBlank17_117.8" class="sr-av">Rellenar huecos (9):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.8" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.8">JXUwMDY4
+</span> veces.</p>
+<hr></hr>
+<p>En caso de que cantidad ahora valga 3, y tenemos el siguiente código:</p>
+<hr></hr>
+<p>while(cantidad > 0){<br/><br/>document.write( " La variable cantidad ahora vale: " + cantidad );<br/>cantidad --;<br/>}</p>
+<p>Indique la cantidad de veces que se ejecuta la instrucción contenida dentro del while.</p>
+<p><label for="clozeBlank17_117.9" class="sr-av">Rellenar huecos (10):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.9" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.9">JXUwMDZi
+</span> veces.</p>
+<hr></hr>
+<p>Supongamos que el segmento de código anterior no  tiene la siguiente instrucción ( <strong>cantidad -- ; </strong>), contesta con "verdadero" en las que consideres opción correcta y "falso" en el caso de que sea incorrecta.</p>
+<p>Se muestra por pantalla "La variable cantidad ahora vale:3" y se repite tres veces. <label for="clozeBlank17_117.10" class="sr-av">Rellenar huecos (11):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.10" style="width:5ch" /><span style="display:none" id="clozeAnswer17_117.10">JXUwMDNlJXUwMDA3JXUwMDBkJXUwMDFmJXUwMDFj
+</span></p>
+<p>Se muestra por pantalla "La variable cantidad ahora vale:3" y se repite una vez. <label for="clozeBlank17_117.11" class="sr-av">Rellenar huecos (12):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.11" style="width:5ch" /><span style="display:none" id="clozeAnswer17_117.11">JXUwMDNlJXUwMDA3JXUwMDBkJXUwMDFmJXUwMDFj
+</span></p>
+<p>El programa entra en un bucle perpetuo ya que la condición será siempre verdadera. <label for="clozeBlank17_117.12" class="sr-av">Rellenar huecos (13):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.12" style="width:9ch" /><span style="display:none" id="clozeAnswer17_117.12">JXUwMDJlJXUwMDEzJXUwMDE3JXUwMDE2JXUwMDA1JXUwMDA1JXUwMDAxJXUwMDE3JXUwMDFk
+</span></p>
+<hr></hr>
+<p>En el caso de una estructura iterativa for. El siguiente bloque de código imprime en orden descendente los valores que asume la variable "contador", de 10 a 0 imprimiendo por pantalla el valor correspondiente en cada iteración:</p>
+<hr></hr>
+<p>var contador;<br/><br/>for (contador = 10; contador >= 0 ; contador--){<br/><br/>document.write( " contador ahora vale " + contador);<br/>}</p>
+<hr></hr>
+<p>Complete los campos para realizar la salida anterior pero en orden ascendente, o sea, que se imprima de 0 a 10.</p>
+<hr></hr>
+<p>for (contador = <label for="clozeBlank17_117.13" class="sr-av">Rellenar huecos (14):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.13" style="width:1ch" /><span style="display:none" id="clozeAnswer17_117.13">JXUwMDY4
+</span> ; contador <label for="clozeBlank17_117.14" class="sr-av">Rellenar huecos (15):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.14" style="width:2ch" /><span style="display:none" id="clozeAnswer17_117.14">JXUwMDY0JXUwMDAx
+</span> <label for="clozeBlank17_117.15" class="sr-av">Rellenar huecos (16):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.15" style="width:2ch" /><span style="display:none" id="clozeAnswer17_117.15">JXUwMDY5JXUwMDAx
+</span> ; contador <label for="clozeBlank17_117.16" class="sr-av">Rellenar huecos (17):</label><input class="autocomplete-off" type="text" value="" id="clozeBlank17_117.16" style="width:2ch" /><span style="display:none" id="clozeAnswer17_117.16">JXUwMDczJXUwMDAw
+</span> ){<br/><br/>document.write( " contador ahora vale " + contador);<br/>}</p><div class="block iDevice_buttons"><p><input class="button" type="submit" name="submit17_117" value="Enviar"  id="submit17_117" />
+<input type="button" name="restart17_117" value="Reiniciar" style="display:none" id="restart17_117" onclick="$exe.cloze.restart('17_117')" />
+ <input type="button" name="17_117showAnswersButton" value="Mostrar las respuestas" style="display:none" id="showAnswersButton17_117" onclick="$exe.cloze.fillInputs('17_117')" />
+<span class="js-hidden js-warning">Habilitar JavaScript</span></p></div><div id="clozeScore17_117"></div></div></form></section>
+    <section id="ta17_118" class="feedback js-feedback iDevice_content" style="display:none">
+<p>Recuerda que las condiciones o expresiones lógicas pueden ser verdaderas o falsas.</p>
+<p>Si la salida del programa coindice con la salida correspondiente al else, la condición evaluada no se cumple.</p>
+</section>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="variables.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="operadores.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script><script src="../lector-pagina.js"></script>`r`n</body></html>

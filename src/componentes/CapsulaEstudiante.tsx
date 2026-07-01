@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, CheckCircle2, CheckSquare2, Eye, FileText, Printer, RotateCcw, Square, Type, Volume2, Wrench, XCircle } from 'lucide-react';
+import { BookOpen, CheckCircle2, CheckSquare2, ChevronLeft, ChevronRight, Eye, FileText, Printer, RotateCcw, Square, Type, Volume2, Wrench, XCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { CapsulaNoveno } from '@/contenido/capsulasNoveno';
 import { variantesTecnologicasNoveno } from '@/contenido/variantesTecnologicasNoveno';
@@ -9,6 +9,7 @@ import ZonaActiva from '@/componentes/ZonaActiva';
 import ControlesAccesibilidad from '@/componentes/ControlesAccesibilidad';
 import PanelDuaEstudiante from '@/componentes/PanelDuaEstudiante';
 import { mezclarOpciones } from '@/utilidades/opciones';
+import { glosarioProgramacion } from '@/contenido/glosarioProgramacion';
 
 type SeccionCapsula = 'propuesta' | 'informacion' | 'ejemplos' | 'actividad' | 'verificacion';
 
@@ -26,6 +27,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
   const [verificada, setVerificada] = useState(false);
   const [lecturaActiva, setLecturaActiva] = useState(false);
   const [textoGrande, setTextoGrande] = useState(false);
+  const [glosarioAbierto, setGlosarioAbierto] = useState(false);
 
   useEffect(() => {
     const imprimirAlAbrir = new URLSearchParams(window.location.search).get('imprimir') === '1';
@@ -91,6 +93,12 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
     window.speechSynthesis?.cancel();
     setLecturaActiva(false);
     setSeccion(destino);
+  };
+  const indiceSeccion = secciones.findIndex((item) => item.id === seccion);
+  const cambiarSeccion = (direccion: -1 | 1) => {
+    const destino = secciones[Math.min(secciones.length - 1, Math.max(0, indiceSeccion + direccion))];
+    seleccionarSeccion(destino.id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const correctas = capsula.autoevaluacion.reduce(
@@ -186,6 +194,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
       />
 
       <div className="mx-auto max-w-4xl px-4 py-5 sm:px-6">
+        <div className="mb-3 flex items-center gap-3 print:hidden"><div className="h-1.5 flex-1 overflow-hidden rounded-full bg-sky-100"><div className="h-full bg-emerald-600 transition-all" style={{ width: `${((indiceSeccion + 1) / secciones.length) * 100}%` }} /></div><button type="button" onClick={() => setGlosarioAbierto((valor) => !valor)} aria-expanded={glosarioAbierto} aria-controls="glosario-programacion" className={`inline-flex shrink-0 items-center gap-2 rounded-md border px-3 py-2 text-xs font-black ${glosarioAbierto ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-sky-200 bg-white text-[#0069aa]'}`}><BookOpen size={15} />Glosario</button></div>
         <nav className="flex gap-2 overflow-x-auto pb-2 print:hidden" aria-label="Recorrido de la cápsula" role="tablist">
           {secciones.map((item, index) => {
             const Icono = item.icono;
@@ -208,6 +217,8 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
             );
           })}
         </nav>
+
+        {glosarioAbierto && <aside id="glosario-programacion" className="mt-4 max-h-[70vh] overflow-y-auto rounded-lg border border-sky-200 bg-white p-5 shadow-lg shadow-sky-950/10 print:hidden" aria-labelledby="titulo-glosario-programacion"><div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-sky-100 bg-white pb-4"><div><p className="text-xs font-black uppercase text-[#c66b00]">Consulta rápida · {glosarioProgramacion.length} términos</p><h2 id="titulo-glosario-programacion" className="mt-1 text-xl font-black text-[#0069aa]">Glosario de programación</h2><p className="mt-1 text-sm leading-6 text-slate-600">Definiciones breves para consultar sin abandonar la actividad.</p></div><button type="button" onClick={() => setGlosarioAbierto(false)} className="shrink-0 rounded-md border border-sky-200 px-3 py-2 text-xs font-black text-[#0069aa]">Cerrar</button></div><dl className="mt-5 grid gap-4 sm:grid-cols-2">{glosarioProgramacion.map((entrada) => <div key={entrada.termino} className="border-l-4 border-emerald-500 pl-3"><dt className="text-sm font-black text-slate-950">{entrada.termino}</dt><dd className="mt-1 text-sm leading-6 text-slate-600">{entrada.definicion}</dd></div>)}</dl></aside>}
 
         <section className={`${seccion === 'propuesta' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-propuesta">
           <div className="border-b border-sky-100 pb-4">
@@ -415,9 +426,8 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
           </div>
         </section>
 
-        <footer className="mt-8 border-t border-sky-100 py-4 text-center text-xs font-semibold text-slate-500">
-          Recurso educativo abierto · Programación · {capsula.gradoTexto ?? '9.º año'}
-        </footer>
+        <nav className="mt-8 flex items-center justify-between gap-3 border-t border-sky-200 pt-5 print:hidden" aria-label="Cambiar paso"><button type="button" onClick={() => cambiarSeccion(-1)} disabled={indiceSeccion === 0} className="inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-white px-4 py-2 text-sm font-bold text-[#0069aa] disabled:opacity-40"><ChevronLeft size={17} />Anterior</button><p className="text-center text-xs font-bold text-slate-500">Paso {indiceSeccion + 1} de {secciones.length}</p><button type="button" onClick={() => cambiarSeccion(1)} disabled={indiceSeccion === secciones.length - 1} className="inline-flex items-center gap-2 rounded-lg bg-[#0069aa] px-4 py-2 text-sm font-bold text-white disabled:opacity-40">Siguiente<ChevronRight size={17} /></button></nav>
+        <footer className="mt-8 border-t border-sky-100 py-4 text-center text-xs font-semibold text-slate-500">Recurso Educativo Abierto para estudiantes · Programación EBI · {capsula.gradoTexto ?? '9.º año'} · CC BY-SA 4.0</footer>
       </div>
     </main>
   );

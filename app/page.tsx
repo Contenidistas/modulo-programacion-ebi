@@ -1965,9 +1965,7 @@ Autoevaluación
           </div>
         </section>
       )}
-      <footer data-print-hidden className="border-t border-sky-100 bg-white px-4 py-4 text-center text-xs font-semibold text-slate-600">
-        {recurso.pie}
-      </footer>
+      <footer data-print-hidden className="border-t border-sky-100 bg-white px-4 py-4 text-center text-xs font-semibold text-slate-600">Recurso Educativo Abierto para docentes · Programación EBI · {infoEstudiante.gradoTexto} · CC BY-SA 4.0</footer>
       {ayudaEstudiante && (
         <div
           ref={dialogoConceptoRef}

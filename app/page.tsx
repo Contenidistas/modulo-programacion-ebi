@@ -27,6 +27,7 @@ import { actividadesPensamientoSeptimo, ejerciciosPensamientoSeptimo, evaluacion
 import { generarActividadesCapsula, generarEjerciciosCapsula, generarEvaluacionCapsula } from '@/contenido/unidadCompleta';
 import { arquitecturaDua, ayudaGenerica, conceptosApoyo, dimensionesRubrica, pedagogiaPorRecurso, perfilesCapsulaPorGrado, procesosPensamiento, rutasEstudiante, terminosCurriculares } from '@/contenido/capaPedagogica';
 import type { ConceptoApoyo, Grado, PreferenciaTexto, RutaEstudiante } from '@/contenido/capaPedagogica';
+import { normalizarContenidoExterno } from '@/utilidades/normalizarContenidoExterno';
 
 type Paso = {
   titulo: string;
@@ -173,7 +174,7 @@ const modosVista: { id: ModoVista; etiqueta: string }[] = [
 
 const urlPublicaRea =
   process.env.NEXT_PUBLIC_REA_PUBLIC_URL ??
-  'https://contenidistas.github.io/sitio_principal_ciencias_de_la_computacion/modulos/programacion-ebi/';
+  'https://contenidistas.github.io/modulo-programacion-ebi/';
 const baseAssets = process.env.NEXT_PUBLIC_REA_BASE_PATH ?? '';
 
 const iconosPorGrado = {
@@ -217,7 +218,7 @@ const esGrado = (valor: string | null): valor is Grado => valor === '7mo' || val
 const esModoVista = (valor: string | null): valor is ModoVista =>
   valor === 'todo' || valor === 'guia' || valor === 'desafios' || valor === 'orientacion' || valor === 'recurso';
 const esInterfaz = (valor: string | null): valor is Interfaz => valor === 'docente' || valor === 'alumno';
-const assetPath = (src: string) => `${baseAssets}${src}`;
+const assetPath = (src: string) => (/^(https?:|data:|blob:)/i.test(src) ? src : `${baseAssets}${src}`);
 const limpiarHtml = (valor: string) =>
   valor
     .replace(/&/g, '&amp;')
@@ -343,11 +344,12 @@ export default function Home() {
     : [];
   const ejerciciosZonaActiva = modoVistaEfectivo === 'desafios' && recursoSeleccionado ? ejerciciosDelTema : ejerciciosDelGrado;
   const IconoGrado = iconosPorGrado[grado];
-  const mostrarGuia = modoVistaEfectivo === 'todo' || modoVistaEfectivo === 'guia';
-  const mostrarDesafios = modoVistaEfectivo === 'todo' || modoVistaEfectivo === 'desafios';
+  const mostrarGuia = modoVistaEfectivo === 'guia';
+  const mostrarDesafios = modoVistaEfectivo === 'desafios';
   const mostrarOrientacion = !esVistaAlumno && modoVistaEfectivo === 'orientacion';
-  const mostrarSecuencia = modoVistaEfectivo === 'todo' || modoVistaEfectivo === 'recurso';
-  const mostrarArquitecturaDua = !esVistaAlumno && (modoVistaEfectivo === 'todo' || modoVistaEfectivo === 'orientacion');
+  const mostrarSecuencia = modoVistaEfectivo === 'recurso';
+  const mostrarArquitecturaDua = !esVistaAlumno && modoVistaEfectivo === 'orientacion';
+  const mostrarSintesisDocente = !esVistaAlumno && modoVistaEfectivo === 'todo';
   const pedagogiaTema = recursoSeleccionado ? pedagogiaPorRecurso[recursoSeleccionado.id] : undefined;
   const conceptosTema = recursoSeleccionado?.conceptos ?? infoEstudiante.conceptosClave;
   const textoTerminologicoBase = normalizarTermino(
@@ -575,6 +577,9 @@ Autoevaluación
       .replace(/src="recursos\//g, `src="${baseLimpia}/recursos/`)
       .replace(/href="recursos\//g, `href="${baseLimpia}/recursos/`);
   };
+  const htmlPaginaSeleccionada = paginaSeleccionada
+    ? absolutizarHtmlTema(normalizarContenidoExterno(paginaSeleccionada.html, paginaSeleccionada.id))
+    : '';
 
   const crearHtmlTema = (tema: TemaSecuencia & { recurso: RecursoIntegrado }, contenido: ContenidoTema) => {
     const ficha = fichasDocentes[grado][tema.recurso.id];
@@ -609,7 +614,7 @@ Autoevaluación
         (pagina) => `
           <section class="pagina">
             <h2>${limpiarHtml(pagina.titulo)}</h2>
-            <div class="contenido">${absolutizarHtmlTema(pagina.html)}</div>
+            <div class="contenido">${absolutizarHtmlTema(normalizarContenidoExterno(pagina.html, pagina.id))}</div>
           </section>`,
       )
       .join('');
@@ -819,10 +824,10 @@ Autoevaluación
 
     event.preventDefault();
 
-    if (!esVistaAlumno && recursoSeleccionado) {
+    if (recursoSeleccionado) {
       const paginaDestino = obtenerPaginaDesdeHref(href);
       if (paginaDestino) {
-        window.location.assign(crearHrefTema(recursoSeleccionado.id, interfaz, paginaDestino.id));
+        seleccionarPaginaTema(paginaDestino.id);
         return;
       }
     }
@@ -1311,7 +1316,7 @@ Autoevaluación
               </div>
             </section>
           )}
-          {!esVistaAlumno && modoVistaEfectivo === 'todo' && (
+          {mostrarSintesisDocente && (
             <section className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
               <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
                 <div>
@@ -1382,6 +1387,7 @@ Autoevaluación
           </section>
           )}
 
+          {mostrarSintesisDocente && (
           <div className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div className="space-y-3">
@@ -1398,7 +1404,9 @@ Autoevaluación
               </div>
             </div>
           </div>
+          )}
 
+          {mostrarSintesisDocente && (
           <section className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
             <div className="flex items-center gap-2">
               <Route className="text-[#f7941d]" size={20} />
@@ -1419,6 +1427,7 @@ Autoevaluación
               ))}
             </div>
           </section>
+          )}
 
           {mostrarArquitecturaDua && (
             <section className="rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm">
@@ -1727,7 +1736,7 @@ Autoevaluación
                         ref={contenidoTemaRef}
                         className="contenido-tema mt-4"
                         onClick={manejarClickContenidoTema}
-                        dangerouslySetInnerHTML={{ __html: paginaSeleccionada.html }}
+                        dangerouslySetInnerHTML={{ __html: htmlPaginaSeleccionada }}
                       />
                       {esVistaAlumno && (
                         <section className="mt-5 rounded-xl border border-sky-100 bg-sky-50 p-4">
@@ -1872,7 +1881,7 @@ Autoevaluación
 
       </div>
 
-      {!esVistaAlumno && (
+      {mostrarSintesisDocente && (
         <section data-print-hidden className="border-t border-sky-100 bg-white/70">
           <div className="mx-auto grid max-w-6xl gap-4 px-4 py-6 md:px-8 lg:grid-cols-3">
             <section className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">

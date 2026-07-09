@@ -1,6 +1,8 @@
-# Prompt maestro para crear un REA docente
+# Prompt maestro consolidado para crear un REA docente
 
-Usa este prompt para replicar la estructura validada en un nuevo módulo, nivel o unidad curricular. El resultado debe cubrir el ciclo completo: análisis del programa, progresión, fichas docentes embebibles, experiencia estudiantil, evaluación, exportación, despliegue y verificación pública.
+**Versión 2.0 · julio de 2026**
+
+Usa este prompt para replicar la estructura validada en los módulos de Programación EBI y Ciberseguridad EBI. El resultado debe cubrir el ciclo completo: análisis del programa, progresión, metodología basada en casos cuando corresponda, fichas y cápsulas embebibles, experiencia estudiantil, DUA, glosario, evaluación, exportación, revisión local, control de versiones, despliegue y verificación pública.
 
 ---
 
@@ -28,6 +30,11 @@ Antes de implementar, completa o solicita estos datos:
 - **URL pública prevista:** `[URL]`
 - **Plataforma de alojamiento:** `[GITHUB PAGES U OTRA]`
 - **Plataforma educativa donde se embeberá:** `[CREA U OTRA]`
+- **Autoría:** `[NOMBRE Y FORMACIÓN]`
+- **Cargo o pertenencia institucional:** `[CARGO E INSTITUCIÓN]`
+- **Validación institucional:** `[ÁREA, INSPECCIÓN O EQUIPO QUE VALIDA]`
+- **Año y versión inicial:** `[AÑO Y VERSIÓN]`
+- **Licencia abierta:** `[POR DEFECTO, CC BY-SA 4.0]`
 
 No inventes correspondencias curriculares. Extrae propósitos, contenidos, competencias y criterios de logro de los documentos suministrados. Distingue claramente entre formulaciones del programa y sugerencias didácticas del REA.
 
@@ -48,11 +55,11 @@ Construye un entorno docente que permita:
 9. Copiar enlaces públicos estables y utilizables en la plataforma educativa.
 10. Reconocer la progresión entre niveles y los prerrequisitos de cada tema.
 
-La interfaz debe ayudar al docente a tomar decisiones. No debe ser un repositorio extenso de tarjetas ni una copia visual de un material previo.
+La interfaz debe ayudar al docente a tomar decisiones. No debe ser un repositorio extenso de tarjetas ni una copia visual de un material previo. Todos los módulos de una misma colección deben conservar el mismo encabezado, controles, orden de navegación, pie institucional y comportamiento de las cápsulas: una vez aprendido un modo de uso, debe poder transferirse a los demás recursos.
 
 ### 3. Arquitectura de la portada docente
 
-Organiza la pantalla principal en cinco secciones limpias y claramente diferenciadas:
+Organiza la pantalla principal en cinco secciones limpias y claramente diferenciadas. Deben funcionar como pestañas o vistas exclusivas: al seleccionar una sección se muestra solamente su contenido. No renderices toda la guía debajo del botón activo. Conserva el estado de nivel y unidad cuando el docente cambia de sección.
 
 #### Fundamentación
 
@@ -60,6 +67,8 @@ Organiza la pantalla principal en cinco secciones limpias y claramente diferenci
 - Relaciona conocimiento conceptual, práctica, resolución de problemas y reflexión.
 - Presenta el error como evidencia para revisar estrategias.
 - Considera autonomía, colaboración y diversidad de formas de participación.
+- Sustenta el enfoque con el programa oficial y al menos una fuente institucional o autor pertinente.
+- Incluye enlaces directos a las fuentes empleadas y distingue con claridad la evidencia de la interpretación didáctica.
 
 #### Parte del programa
 
@@ -77,6 +86,8 @@ Presenta una guía breve:
 3. Adaptar actividades, tiempos, tecnologías y apoyos.
 4. Previsualizar el material estudiantil.
 5. Exportar a PDF o copiar el iframe para CREA.
+
+Redacta esta sección con lenguaje orientador: “se sugiere”, “la idea es”, “conviene” y “puede adaptarse”. Explica brevemente cómo presentar el caso o problema, recoger decisiones iniciales, graduar apoyos, recuperar evidencias y planificar la continuidad. Evita instrucciones telegráficas o lenguaje excesivamente técnico.
 
 Los materiales heredados de eXeLearning u otras plataformas deben aparecer únicamente como **ejemplos de secuencias desarrolladas**. Si se reutilizan, extrae su contenido y reconstrúyelo con la tecnología y los estilos actuales; no abras la interfaz original como experiencia principal.
 
@@ -99,6 +110,35 @@ No presentes DUA como estilos de aprendizaje ni como rutas rígidas.
 - Resalta visualmente la sección o unidad seleccionada.
 - Cuando el recurso abarque varios niveles, muestra una progresión diferenciada y evita repetir la misma exigencia con distinto rótulo.
 - Indica qué se introduce, qué se profundiza y qué se consolida en cada nivel.
+- Presenta una única unidad seleccionada por vez y conserva su selección en la URL.
+- Incluye controles de carrusel con ancho estable cuando existan varios casos o ejemplos; ninguna tarjeta debe quedar cortada lateralmente.
+- Asegura que todas las unidades tengan una propuesta didáctica completa, no solamente la unidad piloto.
+
+#### Encabezado y pie comunes
+
+El encabezado debe incluir:
+
+- Identidad visual de la colección.
+- Nombre literal del recurso, área y nivel.
+- Controles de contraste, tamaño de texto y lectura.
+- Selector de nivel.
+- Impresión o PDF.
+- Pestañas docentes con estado activo claramente visible.
+
+El pie debe incluir, en una sección titulada **“Información del Recurso Educativo Abierto”**:
+
+- Autoría personal completa.
+- Cargo o pertenencia institucional.
+- Declaración de validación institucional, únicamente si fue confirmada.
+- Año.
+- Licencia con enlace.
+- Número y fecha de versión.
+- Fuentes editables disponibles.
+- Bibliografía curricular con enlace al programa oficial.
+- Atribuciones y límites de reutilización de materiales externos.
+- Una línea final que identifique el recurso, el área y el nivel.
+
+No uses textos genéricos como “autoría institucional editable” cuando la autoría real fue proporcionada.
 
 #### Matriz de progresión
 
@@ -135,6 +175,44 @@ Cada unidad debe incluir información docente y materiales exportables.
 - Apoyos DUA.
 - Continuidad: qué unidad conviene trabajar antes y cuál puede seguir después.
 - Indicadores observables de logro.
+
+#### Desarrollo conceptual y multimodal
+
+No presentes solamente una definición y una consigna. Cada unidad debe ofrecer evidencia teórica suficiente para que el estudiante pueda aprender dentro de la propia cápsula:
+
+- Idea central redactada en lenguaje claro.
+- Explicación conceptual graduada.
+- Mapa visual, secuencia, diagrama o representación equivalente.
+- Al menos tres ejemplos próximos a la experiencia del nivel.
+- Contraejemplos o errores frecuentes cuando ayuden a comprender.
+- Explicación en audio mediante controles de iniciar y detener.
+- Imágenes pertinentes con texto alternativo y licencia comprobada.
+- Apartado opcional de profundización para conceptos cotidianos o técnicos relacionados.
+
+Cada ejemplo debe distinguir situación, qué conviene observar, interpretación o procedimiento y decisión o solución fundamentada.
+
+#### Metodología basada en casos
+
+Cuando el tema lo permita, incorpora casos como estrategia transversal en todas las unidades, no solo en la piloto. Pueden ser:
+
+- Casos reales sustentados en noticias o publicaciones institucionales.
+- Casos didácticos ficticios, próximos y verosímiles.
+- Problemas, programas, errores, decisiones o producciones para analizar.
+
+Cada caso debe incluir:
+
+- Título y breve reseña.
+- Fuente, institución y fecha cuando sea real.
+- Situación para presentar sin anticipar la respuesta.
+- Evidencias o elementos observables.
+- Conceptos que permite recuperar.
+- Preguntas para mediación docente.
+- Decisión, explicación o solución fundamentada.
+- Actividad práctica posterior.
+
+En la experiencia estudiantil presenta un caso por vez mediante navegación horizontal estable. En la zona docente agrega sugerencias desplegadas para activar ideas previas, distinguir evidencia de inferencia, comparar alternativas y transferir el criterio a otra situación.
+
+No conviertas noticias en meras tarjetas de enlaces. Resume el caso dentro de la cápsula y conserva el enlace directo a la publicación original. No reproduzcas textos completos protegidos ni inventes fechas, instituciones o hechos.
 
 #### Ficha docente embebible por tema
 
@@ -174,6 +252,8 @@ Para cada actividad define:
 
 Evita actividades que solo cambien el texto superficialmente. Cada una debe movilizar una acción cognitiva distinta.
 
+La Zona Activa debe ampliar esta secuencia con al menos cinco o seis ejercicios variados por unidad cuando la densidad conceptual lo justifique. Los ejercicios no sustituyen las cuatro actividades: sirven para practicar y comprobar saberes específicos.
+
 ### 5. Alternativas según el contexto
 
 Cada actividad debe ofrecer una adaptación real para:
@@ -198,7 +278,7 @@ Explica qué permanece en la lógica cuando cambia la representación. No presen
 
 ### 6. Zona activa
 
-Cada unidad debe ofrecer al menos cuatro ejercicios interactivos y formativos:
+Cada unidad debe ofrecer como base al menos cuatro ejercicios interactivos y formativos, y preferentemente cinco o seis en las unidades con varios conceptos:
 
 1. Reconocer o clasificar conceptos.
 2. Ordenar o completar una solución.
@@ -292,6 +372,18 @@ El iframe debe mostrar solamente la experiencia estudiantil:
 - Lectura en voz alta cuando sea pertinente.
 - Impresión accesible.
 
+Organiza cada cápsula en un recorrido progresivo visible. Usa barra de avance, pestañas con desplazamiento horizontal seguro y controles **Anterior/Siguiente**. Como patrón inicial, adopta estos siete pasos y adapta sus nombres solo si el área lo exige:
+
+1. **Me ubico:** propósito, producto, tiempo y opciones DUA.
+2. **Identifico lo que sé:** decisión, explicación o producción diagnóstica no calificada.
+3. **Aprendo:** teoría, ejemplos, mapa visual, audio y vocabulario.
+4. **Comprendo el desafío:** situación, consigna, producto y criterio de logro.
+5. **Practico con apoyo:** actividades graduadas, andamiajes y revisión.
+6. **Consulto herramientas y fuentes:** apoyos externos pertinentes y reglas de cuidado.
+7. **Compruebo y cierro:** Zona Activa, retroalimentación, producto final y reflexión metacognitiva.
+
+Muestra una sola etapa por vez en pantalla, pero imprime todas las etapas en orden. El estudiante debe comprender en todo momento dónde está, qué debe hacer, qué evidencia producirá y cómo continuar.
+
 Cada tema o secuencia estudiantil debe comenzar con un panel **“Cómo quiero trabajar”** que permita:
 
 - Leer o escuchar la propuesta.
@@ -307,6 +399,32 @@ Cada tema o secuencia estudiantil debe comenzar con un panel **“Cómo quiero t
 Las distintas formas de respuesta deben compartir un mismo objetivo y criterio de evaluación. Incluye controles equivalentes por teclado y una alternativa de archivo cuando el navegador no permita grabar audio.
 
 No debe mostrar fundamentación, referencias curriculares, herramientas de autor ni navegación del portal docente.
+
+#### Glosario transversal
+
+Incluye un glosario completo del tema como herramienta permanente de la cápsula:
+
+- Accesible desde cualquier paso mediante un botón visible junto al recorrido.
+- Presentado en un panel con desplazamiento interno que no desarme la página.
+- Con todos los términos fundamentales del módulo, no solo los detectados en la unidad actual.
+- Con los términos propios de la unidad destacados y ubicados primero.
+- Con definiciones breves, sencillas y adecuadas a la edad.
+- Con ayuda contextual al pasar el puntero, enfocar con teclado o activar mediante toque sobre palabras técnicas subrayadas.
+- Compatible con teclado, lectores de pantalla y dispositivos táctiles.
+
+Incluye términos que suelen darse por supuestos. Revisa sustantivos técnicos, verbos disciplinares y palabras académicas que el estudiantado puede no utilizar cotidianamente. No uses el glosario como excusa para mantener una redacción innecesariamente compleja: primero simplifica el texto y luego explica el vocabulario imprescindible.
+
+#### Herramientas y fuentes externas
+
+Si existen herramientas públicas que aportan una evidencia útil, incorpóralas en situaciones didácticas concretas. Para cada herramienta indica:
+
+- Qué permite comprobar o producir.
+- En qué momento de la actividad conviene usarla.
+- Qué dato puede ingresarse y cuál no.
+- Qué limitaciones tiene y cómo interpretar su resultado.
+- Enlace oficial y alternativa si no está disponible.
+
+Prioriza herramientas oficiales, educativas, de código abierto o ampliamente reconocidas. Nunca solicites credenciales, datos personales reales ni acciones sobre sistemas ajenos. En temas de seguridad, utiliza cuentas ficticias, URLs preparadas, maquetas y entornos autorizados; no conviertas una herramienta defensiva en una guía operativa para causar daño.
 
 La URL del iframe debe:
 
@@ -366,6 +484,11 @@ Incluye además una **declaratoria institucional de uso de IA** visible en el po
 - Implementa transiciones suaves y respeta `prefers-reduced-motion`.
 - Resalta la sección y unidad seleccionadas.
 - En alto contraste, garantiza que ningún texto oscuro permanezca sobre fondo oscuro.
+- Usa una estructura visual compartida entre todos los módulos de la colección: logo, encabezado, pestañas, controles, selector de nivel, pie, colores funcionales y comportamiento de navegación.
+- Mantén una sola tarjeta visible por vez en carruseles de casos; usa `width: 100%`, `shrink: 0`, ajuste por puntos y botones con nombres accesibles.
+- Evita que barras de navegación o pestañas queden cortadas: permite desplazamiento horizontal y deja visible el control activo.
+- Usa fondos temáticos suaves y de bajo contraste únicamente como apoyo ambiental. No deben competir con el texto, simular una interfaz peligrosa ni afectar legibilidad e impresión.
+- Verifica que la navegación docente muestre exclusivamente la sección seleccionada y que la navegación estudiantil muestre exclusivamente el paso activo.
 
 ### 12. Accesibilidad
 
@@ -419,6 +542,13 @@ Si un archivo fuente es demasiado grande para el repositorio o el sitio publicad
 - Añade una comprobación de integridad que verifique que cada tema de la secuencia tenga recurso, contenido, ficha y ejercicios asociados.
 - Comprueba que no existan identificadores duplicados ni referencias a archivos ausentes.
 - Ignora logs, compilaciones, credenciales y archivos temporales.
+- Mantén el glosario en datos estructurados y usa un componente reutilizable para las ayudas contextuales.
+- Calcula los términos destacados de cada unidad sin ocultar el vocabulario general.
+- Mantén preguntas, opciones, respuestas y retroalimentaciones en estructuras de datos auditables.
+- Separa los casos reales de los casos didácticos e identifica explícitamente la naturaleza de cada uno.
+- Conserva parámetros DUA en la URL del iframe: nivel, unidad, agrupamiento, desafío y andamiaje.
+- Si existe una URL pública configurada, úsala al copiar el iframe; nunca copies `localhost`.
+- Asegura que los botones de pestañas, grado, unidad, glosario, audio, carrusel y navegación modifiquen realmente la vista y conserven estados coherentes.
 
 #### Presupuesto de rendimiento
 
@@ -474,22 +604,32 @@ Sigue estas etapas:
 9. Adaptar luego a otros niveles.
 10. Ejecutar auditoría de cobertura curricular.
 11. Auditar peso, licencias y enlaces de los recursos.
-12. Configurar despliegue automático.
-13. Probar el sitio público y los iframes dentro de la plataforma educativa.
-14. Etiquetar una primera versión estable y documentar cambios.
+12. Ejecutar `lint`, comprobación de tipos y compilación de producción.
+13. Levantar el servidor local y revisar cada pestaña, unidad, paso, carrusel, ejercicio, audio, glosario, impresión e iframe.
+14. Corregir junto con el docente usuario hasta obtener aprobación local explícita.
+15. Crear el commit únicamente después de esa aprobación.
+16. Publicar el commit con `push` únicamente cuando se solicite.
+17. Configurar o ejecutar el despliegue automático.
+18. Probar el sitio público y los iframes dentro de la plataforma educativa.
+19. Etiquetar una primera versión estable y documentar cambios.
 
-No implementes todas las unidades simultáneamente antes de validar el piloto.
+No implementes todas las unidades simultáneamente antes de validar el piloto. No confundas guardar archivos, crear un commit, hacer `push` y desplegar: son etapas diferentes y deben informarse como tales. Durante la fase de revisión, trabaja en `localhost`; no hagas commits, pushes ni despliegues anticipados.
 
 ### 17. Criterios de aceptación
 
 La entrega se considera completa cuando:
 
 - La portada docente contiene Fundamentación, Programa, Cómo utilizar, DUA y Unidades.
+- Cada pestaña docente muestra solamente su sección y conserva nivel y unidad seleccionados.
 - Existe una matriz de cobertura por nivel, tema, propósito, prerrequisito, evidencia y ficha.
 - Las unidades siguen una progresión curricular clara y distinguen introducción, profundización y consolidación.
 - Todos los temas básicos exigidos por el programa están cubiertos o marcados explícitamente como ampliación o trabajo futuro.
 - Cada tema de la secuencia tiene recurso, contenido, ficha docente y propuesta de evaluación.
 - La unidad piloto ofrece cuatro actividades cognitivamente diferentes.
+- Todas las unidades ofrecen teoría suficiente, ejemplos, casos o situaciones y una secuencia estudiantil clara.
+- Las cápsulas muestran una etapa por vez, barra de progreso y controles Anterior/Siguiente.
+- Existe un glosario general accesible desde cualquier etapa, con términos de la unidad destacados y ayudas contextuales.
+- Las herramientas externas declaran propósito, situación de uso, límites y reglas de cuidado.
 - Todas las actividades tienen alternativas contextuales.
 - Las tecnologías mencionadas cuentan con ejemplos reales.
 - Existe una zona activa con cuatro ejercicios formativos.
@@ -504,12 +644,17 @@ La entrega se considera completa cuando:
 - Los prompts evitan suplantación cognitiva y protegen datos personales.
 - La interfaz no presenta desbordamientos ni superposiciones.
 - Se verificaron escritorio, móvil, teclado, alto contraste, lectura y reducción de movimiento.
+- Se verificó que las pestañas y carruseles no queden cortados ni presenten contenido lateral incoherente.
+- El encabezado, la navegación y el pie mantienen el patrón compartido de la colección.
+- El pie incluye autoría, cargo, validación confirmada, año, licencia, versión, fuentes, bibliografía y atribuciones.
 - No existen enlaces, imágenes, audios o descargas rotas en el artefacto publicado.
 - Se auditaron peso total, archivos grandes y duplicaciones.
 - El sitio está dentro de los límites del proveedor de alojamiento.
 - Existe un workflow automático de despliegue y finaliza correctamente.
 - Se comprobaron por HTTP la portada, una ficha por nivel, los assets y las descargas.
 - `lint`, comprobación de tipos y compilación de producción finalizan correctamente.
+- La versión fue revisada en localhost y aprobada antes del commit.
+- Se informó por separado el estado de commit, push y despliegue.
 
 Al terminar, informa brevemente:
 
@@ -541,6 +686,11 @@ REPOSITORIO: [ORGANIZACIÓN/NOMBRE]
 URL PÚBLICA: [URL PREVISTA]
 PLATAFORMA EDUCATIVA: [CREA U OTRA]
 ALOJAMIENTO: [GITHUB PAGES U OTRO]
+AUTORÍA: [NOMBRE Y FORMACIÓN]
+CARGO: [CARGO E INSTITUCIÓN]
+VALIDACIÓN: [ÁREA O INSPECCIÓN, SI FUE CONFIRMADA]
+AÑO Y VERSIÓN: [COMPLETAR]
+LICENCIA: CC BY-SA 4.0
 ```
 
 ## Adaptación rápida para otro tema
@@ -560,4 +710,9 @@ REPOSITORIO: [ORGANIZACIÓN/NOMBRE]
 URL PÚBLICA: [URL PREVISTA]
 PLATAFORMA EDUCATIVA: [CREA U OTRA]
 ALOJAMIENTO: [GITHUB PAGES U OTRO]
+AUTORÍA: [NOMBRE Y FORMACIÓN]
+CARGO: [CARGO E INSTITUCIÓN]
+VALIDACIÓN: [ÁREA O INSPECCIÓN, SI FUE CONFIRMADA]
+AÑO Y VERSIÓN: [COMPLETAR]
+LICENCIA: CC BY-SA 4.0
 ```

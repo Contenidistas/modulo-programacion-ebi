@@ -162,6 +162,109 @@ html[data-alto-contraste="true"] .fondo-programacion-educativa {
   animation: secuencia-entrada 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.portal-docente-panel {
+  animation: portal-panel-entrada 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(240, 249, 255, 0.82)),
+    radial-gradient(circle at top right, rgba(0, 105, 170, 0.1), transparent 34%);
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+  min-height: clamp(430px, 58vh, 680px);
+  overflow: hidden;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.portal-docente-panel::before {
+  background: linear-gradient(180deg, #0069aa, #f7941d);
+  border-radius: 999px;
+  content: "";
+  display: block;
+  height: 4px;
+  margin-bottom: 1.5rem;
+  width: 72px;
+}
+
+.portal-docente-shell {
+  perspective: 1200px;
+}
+
+.portal-docente-tabs {
+  scrollbar-width: thin;
+}
+
+.portal-docente-tab {
+  position: relative;
+}
+
+.portal-docente-tab[aria-pressed="true"]::after {
+  background: #f7941d;
+  border-radius: 999px;
+  bottom: -0.45rem;
+  content: "";
+  height: 3px;
+  left: 0.8rem;
+  position: absolute;
+  right: 0.8rem;
+}
+
+.capsula-hero {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 255, 0.98)),
+    radial-gradient(circle at 85% 15%, rgba(0, 105, 170, 0.12), transparent 28%);
+}
+
+.capsula-panel {
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.07);
+}
+
+.capsula-seccion {
+  animation: capsula-seccion-entrada 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.06);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.capsula-step {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.capsula-step[data-activo="true"] {
+  background: #eff6ff;
+  border-color: #0069aa;
+  box-shadow: inset 4px 0 0 #0069aa;
+}
+
+@keyframes capsula-seccion-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes portal-panel-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotateX(2deg) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
 @keyframes secuencia-entrada {
   from {
     opacity: 0;

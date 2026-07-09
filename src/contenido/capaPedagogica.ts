@@ -60,14 +60,14 @@ export const conceptosApoyo: Record<string, ConceptoApoyo> = {
     termino: 'Expresiones booleanas',
     descripcion: 'Expresiones que solo pueden tomar dos valores: verdadero o falso. Son la base de muchas decisiones en un programa.',
     ejemplo: 'votosA > votosB se evalúa como verdadero o falso según el conteo.',
-    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Boolean_operations.svg?width=512',
+    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Venn0111.svg?width=512',
     alt: 'Diagrama de operaciones booleanas',
   },
   booleana: {
     termino: 'Expresión booleana',
     descripcion: 'Pregunta lógica que un programa puede evaluar como verdadera o falsa.',
     ejemplo: 'botonA_presionado == verdadero permite decidir si se registra un voto.',
-    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Boolean_operations.svg?width=512',
+    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Venn0111.svg?width=512',
     alt: 'Diagrama de operaciones booleanas',
   },
   hardware: {
@@ -110,7 +110,7 @@ export const conceptosApoyo: Record<string, ConceptoApoyo> = {
     termino: 'Lógica',
     descripcion: 'Forma de razonar con condiciones, comparaciones y valores verdadero o falso.',
     ejemplo: 'Si votosA y votosB son iguales, entonces el resultado debe ser empate.',
-    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Boolean_operations.svg?width=512',
+    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Venn0111.svg?width=512',
     alt: 'Diagrama de operaciones lógicas',
   },
   makecode: {
@@ -118,7 +118,7 @@ export const conceptosApoyo: Record<string, ConceptoApoyo> = {
     descripcion: 'Entorno de programación por bloques usado para crear programas interactivos, especialmente con micro:bit.',
     ejemplo: 'Permite asociar el botón A de la micro:bit con el aumento de una variable.',
     enlaceDocente: 'https://microbit.org/teach/',
-    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/BBC_micro_bit_(20794440656).jpg?width=512',
+    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Microbit-logo-stacked.png?width=512',
     alt: 'Placa micro:bit',
   },
   programa: {
@@ -157,7 +157,7 @@ export const conceptosApoyo: Record<string, ConceptoApoyo> = {
     termino: 'Software',
     descripcion: 'Conjunto de programas y datos que permiten que un dispositivo realice tareas.',
     ejemplo: 'El proyecto de Scratch o el script de JavaScript son software.',
-    imagen: 'https://commons.wikimedia.org/wiki/Special:FilePath/Software_Code.jpg?width=512',
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Javascript.jpg',
     alt: 'Código de software en pantalla',
   },
   variable: {

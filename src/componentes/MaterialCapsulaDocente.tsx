@@ -4,6 +4,7 @@ import { Copy, Download, Eye, FileText, Lightbulb, Printer, RotateCcw } from 'lu
 import { useEffect, useState } from 'react';
 import type { CapsulaNoveno } from '@/contenido/capsulasNoveno';
 import { crearPromptTutorCapsula } from '@/contenido/capsulasNoveno';
+import type { NivelComplejidadId } from '@/contenido/nivelesComplejidadNoveno';
 import { construirUrlRea } from '@/utilidades/urlPublicaRea';
 
 const copiarTexto = async (texto: string) => {
@@ -20,7 +21,7 @@ const copiarTexto = async (texto: string) => {
   if (!resultado) throw new Error('No se pudo copiar');
 };
 
-export default function MaterialCapsulaDocente({ capsula, grado }: { capsula: CapsulaNoveno; grado: '7mo' | '8vo' }) {
+export default function MaterialCapsulaDocente({ capsula, grado, complejidad }: { capsula: CapsulaNoveno; grado: '7mo' | '8vo'; complejidad?: NivelComplejidadId }) {
   const [estado, setEstado] = useState<string | null>(null);
   const promptOriginal = crearPromptTutorCapsula(capsula);
   const [prompt, setPrompt] = useState(promptOriginal);
@@ -35,6 +36,7 @@ export default function MaterialCapsulaDocente({ capsula, grado }: { capsula: Ca
   }, [clavePrompt, prompt]);
   const url = (imprimir = false, publica = false) => {
     const parametros = new URLSearchParams({ grado, interfaz: 'alumno', capsula: capsula.id });
+    if (complejidad) parametros.set('complejidad', complejidad);
     if (imprimir) parametros.set('imprimir', '1');
     return construirUrlRea(parametros, publica);
   };

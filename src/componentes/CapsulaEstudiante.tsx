@@ -8,8 +8,11 @@ import { generarEjerciciosCapsula } from '@/contenido/unidadCompleta';
 import ZonaActiva from '@/componentes/ZonaActiva';
 import ControlesAccesibilidad from '@/componentes/ControlesAccesibilidad';
 import PanelDuaEstudiante from '@/componentes/PanelDuaEstudiante';
+import RubricaAnaliticaNoveno from '@/componentes/RubricaAnaliticaNoveno';
 import { mezclarOpciones } from '@/utilidades/opciones';
 import { glosarioProgramacion } from '@/contenido/glosarioProgramacion';
+import { obtenerRubricaNoveno } from '@/contenido/rubricasNoveno';
+import { esNivelComplejidad, obtenerNivelComplejidad } from '@/contenido/nivelesComplejidadNoveno';
 
 type SeccionCapsula = 'propuesta' | 'informacion' | 'ejemplos' | 'actividad' | 'verificacion';
 
@@ -28,6 +31,9 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
   const [lecturaActiva, setLecturaActiva] = useState(false);
   const [textoGrande, setTextoGrande] = useState(false);
   const [glosarioAbierto, setGlosarioAbierto] = useState(false);
+  const parametros = typeof window === 'undefined' ? new URLSearchParams() : new URLSearchParams(window.location.search);
+  const complejidadUrl = parametros.get('complejidad');
+  const nivelComplejidad = obtenerNivelComplejidad(capsula, esNivelComplejidad(complejidadUrl) ? complejidadUrl : 'base');
 
   useEffect(() => {
     const imprimirAlAbrir = new URLSearchParams(window.location.search).get('imprimir') === '1';
@@ -52,11 +58,11 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
 
   const textoLectura = () => {
     if (seccion === 'propuesta') {
-      return `${capsula.preguntaGuia}. ${capsula.practica.situacion}. Consigna: ${capsula.practica.consigna}.`;
+      return `${capsula.preguntaGuia}. ${capsula.practica.situacion}. Nivel ${nivelComplejidad.etiqueta}. Consigna: ${nivelComplejidad.consigna}.`;
     }
 
     if (seccion === 'actividad') {
-      return `${capsula.practica.titulo}. ${capsula.practica.situacion}. Consigna: ${capsula.practica.consigna}. Pasos: ${capsula.practica.pasos.join('. ')}.`;
+      return `${capsula.practica.titulo}. ${capsula.practica.situacion}. Nivel ${nivelComplejidad.etiqueta}. Consigna: ${nivelComplejidad.consigna}. Pasos: ${capsula.practica.pasos.join('. ')}.`;
     }
 
     if (seccion === 'ejemplos') {
@@ -108,6 +114,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
   const todasRespondidas = capsula.autoevaluacion.every((_, index) => respuestas[index] !== undefined);
   const ejerciciosZonaActiva = generarEjerciciosCapsula(capsula);
   const criterioDua = capsula.criteriosVerificacion?.[0] ?? capsula.practica.evidencia;
+  const rubrica = obtenerRubricaNoveno(capsula.id);
   const estructuraParcialDua = [
     `Propósito: ${capsula.practica.titulo}`,
     'Datos, materiales o elementos necesarios: ...',
@@ -124,8 +131,8 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
 
   return (
     <main className={`min-h-screen bg-[#f7fbff] text-slate-900 ${textoGrande ? 'text-[1.08rem]' : ''}`}>
-      <header className="border-b-4 border-[#0069aa] bg-white">
-        <div className="mx-auto max-w-4xl px-4 py-5 sm:px-6">
+      <header className="capsula-hero border-b border-sky-100">
+        <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0">
               <p className="text-xs font-black uppercase text-[#c66b00]">Cápsula de aprendizaje · {capsula.gradoTexto ?? '9.º año'} · Unidad {capsula.orden}</p>
@@ -163,7 +170,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 border-t border-sky-100 pt-4 sm:grid-cols-[1fr_auto]">
+          <div className="mt-4 grid gap-3 rounded-lg border border-sky-100 bg-white/80 p-4 shadow-sm sm:grid-cols-[1fr_auto]">
             <div>
               <p className="text-xs font-bold uppercase text-slate-500">Pregunta guía</p>
               <p className="mt-1 font-semibold leading-6 text-slate-800">{capsula.preguntaGuia}</p>
@@ -186,16 +193,17 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
         preguntaOrientadora={capsula.preguntaGuia}
         ejemploAnalogo={capsula.teoria.ejemplo}
         estructuraParcial={estructuraParcialDua}
-        desafioBasico={capsula.practica.consigna}
-        desafioAmpliado={`${capsula.practica.consigna} Agrega un caso diferente, registra una prueba que produzca un resultado inesperado y explica cómo mejorarías la solución.`}
+        desafioBasico={nivelComplejidad.consigna}
+        desafioAmpliado={nivelComplejidad.id === 'extendido' ? nivelComplejidad.consigna : `${nivelComplejidad.consigna} Agrega una variante y explica una mejora posible.`}
         conDispositivo={`Puedes utilizar ${capsula.tecnologias.join(', ')} o una herramienta equivalente para construir y probar.`}
         sinDispositivo="Representa la solución con tarjetas, dibujos, una tabla o una simulación corporal; otra persona debe poder seguirla y comprobarla."
         criterio={criterioDua}
+        nivelFijado={nivelComplejidad.id === 'acompanado' ? 'basico' : nivelComplejidad.id === 'extendido' ? 'ampliado' : undefined}
       />
 
-      <div className="mx-auto max-w-4xl px-4 py-5 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6">
         <div className="mb-3 flex items-center gap-3 print:hidden"><div className="h-1.5 flex-1 overflow-hidden rounded-full bg-sky-100"><div className="h-full bg-emerald-600 transition-all" style={{ width: `${((indiceSeccion + 1) / secciones.length) * 100}%` }} /></div><button type="button" onClick={() => setGlosarioAbierto((valor) => !valor)} aria-expanded={glosarioAbierto} aria-controls="glosario-programacion" className={`inline-flex shrink-0 items-center gap-2 rounded-md border px-3 py-2 text-xs font-black ${glosarioAbierto ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-sky-200 bg-white text-[#0069aa]'}`}><BookOpen size={15} />Glosario</button></div>
-        <nav className="flex gap-2 overflow-x-auto pb-2 print:hidden" aria-label="Recorrido de la cápsula" role="tablist">
+        <nav className="grid gap-2 pb-2 print:hidden sm:grid-cols-2 lg:grid-cols-5" aria-label="Recorrido de la cápsula" role="tablist">
           {secciones.map((item, index) => {
             const Icono = item.icono;
             const activa = seccion === item.id;
@@ -206,8 +214,8 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
                 role="tab"
                 aria-selected={activa}
                 onClick={() => seleccionarSeccion(item.id)}
-                className={`flex min-h-16 min-w-36 flex-1 items-center justify-center gap-2 rounded-lg border px-3 py-3 text-left text-xs font-black transition sm:text-sm ${
-                  activa ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300'
+                className={`flex min-h-16 items-center justify-center gap-2 rounded-lg border px-3 py-3 text-left text-xs font-black transition sm:text-sm ${
+                  activa ? 'border-[#0069aa] bg-[#0069aa] text-white shadow-sm' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50'
                 }`}
               >
                 <span className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs ${activa ? 'bg-white text-[#0069aa]' : 'bg-sky-50 text-[#0069aa]'}`}>{index + 1}</span>
@@ -220,20 +228,23 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
 
         {glosarioAbierto && <aside id="glosario-programacion" className="mt-4 max-h-[70vh] overflow-y-auto rounded-lg border border-sky-200 bg-white p-5 shadow-lg shadow-sky-950/10 print:hidden" aria-labelledby="titulo-glosario-programacion"><div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-sky-100 bg-white pb-4"><div><p className="text-xs font-black uppercase text-[#c66b00]">Consulta rápida · {glosarioProgramacion.length} términos</p><h2 id="titulo-glosario-programacion" className="mt-1 text-xl font-black text-[#0069aa]">Glosario de programación</h2><p className="mt-1 text-sm leading-6 text-slate-600">Definiciones breves para consultar sin abandonar la actividad.</p></div><button type="button" onClick={() => setGlosarioAbierto(false)} className="shrink-0 rounded-md border border-sky-200 px-3 py-2 text-xs font-black text-[#0069aa]">Cerrar</button></div><dl className="mt-5 grid gap-4 sm:grid-cols-2">{glosarioProgramacion.map((entrada) => <div key={entrada.termino} className="border-l-4 border-emerald-500 pl-3"><dt className="text-sm font-black text-slate-950">{entrada.termino}</dt><dd className="mt-1 text-sm leading-6 text-slate-600">{entrada.definicion}</dd></div>)}</dl></aside>}
 
-        <section className={`${seccion === 'propuesta' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-propuesta">
+        <section className={`${seccion === 'propuesta' ? 'capsula-seccion' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-propuesta">
           <div className="border-b border-sky-100 pb-4">
             <p className="text-xs font-black uppercase text-[#c66b00]">1 · Leo la propuesta</p>
             <h2 id="titulo-propuesta" className="mt-1 text-xl font-black text-[#0069aa]">{capsula.practica.titulo}</h2>
             <p className="mt-3 leading-7 text-slate-700">{capsula.practica.situacion}</p>
           </div>
-          <div className="border-l-4 border-[#f7941d] bg-orange-50 p-4 mt-5">
+          <div className="mt-5 rounded-lg border border-orange-100 bg-orange-50 p-4">
             <h3 className="font-black text-[#9a4f00]">Desafío</h3>
-            <p className="mt-2 font-semibold leading-7 text-slate-800">{capsula.practica.consigna}</p>
+            <p className="mt-2 font-semibold leading-7 text-slate-800">{nivelComplejidad.consigna}</p>
+            <p className="mt-3 rounded-lg border border-sky-100 bg-sky-50 p-3 text-sm leading-6 text-[#0069aa]">
+              <strong>Nivel {nivelComplejidad.etiqueta}:</strong> {nivelComplejidad.foco}
+            </p>
           </div>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div>
               <h3 className="text-sm font-black text-slate-950">Evidencia esperada</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{capsula.practica.evidencia}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-700">{nivelComplejidad.evidencia}</p>
             </div>
             <div>
               <h3 className="text-sm font-black text-slate-950">Pensamiento computacional</h3>
@@ -246,7 +257,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
           </div>
         </section>
 
-        <section className={`${seccion === 'informacion' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-teoria">
+        <section className={`${seccion === 'informacion' ? 'capsula-seccion' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-teoria">
           <div className="border-b border-sky-100 pb-4">
             <p className="text-xs font-black uppercase text-[#c66b00]">2 · Consulto información</p>
             <h2 id="titulo-teoria" className="mt-1 text-xl font-black text-[#0069aa]">{capsula.concepto}</h2>
@@ -268,7 +279,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
           </div>
         </section>
 
-        <section className={`${seccion === 'ejemplos' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-ejemplos">
+        <section className={`${seccion === 'ejemplos' ? 'capsula-seccion' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-ejemplos">
           <div className="border-b border-sky-100 pb-4">
             <p className="text-xs font-black uppercase text-[#c66b00]">3 · Miro ejemplos</p>
             <h2 id="titulo-ejemplos" className="mt-1 text-xl font-black text-[#0069aa]">La misma situación en distintas tecnologías</h2>
@@ -295,7 +306,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
           </div>
         </section>
 
-        <section className={`${seccion === 'actividad' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-practica">
+        <section className={`${seccion === 'actividad' ? 'capsula-seccion' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-practica">
           <div className="border-b border-sky-100 pb-4">
             <p className="text-xs font-black uppercase text-[#c66b00]">4 · Realizo actividades</p>
             <h2 id="titulo-practica" className="mt-1 text-xl font-black text-[#0069aa]">{capsula.practica.titulo}</h2>
@@ -304,7 +315,7 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
 
           <div className="border-b border-sky-100 py-5">
             <h3 className="font-black text-slate-950">Consigna</h3>
-            <p className="mt-2 text-base font-semibold leading-7 text-slate-800">{capsula.practica.consigna}</p>
+            <p className="mt-2 text-base font-semibold leading-7 text-slate-800">{nivelComplejidad.consigna}</p>
             <span className="mt-3 inline-flex rounded-full border border-violet-100 bg-violet-50 px-3 py-1 text-xs font-bold text-violet-800">
               {capsula.practica.metodologia}
             </span>
@@ -325,18 +336,18 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
             <div>
               <h3 className="font-black text-slate-950">Apoyos disponibles</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                {capsula.practica.apoyos.map((apoyo) => <li key={apoyo}>• {apoyo}</li>)}
+                {nivelComplejidad.apoyos.map((apoyo) => <li key={apoyo}>• {apoyo}</li>)}
               </ul>
             </div>
           </div>
 
           <div className="border-l-4 border-emerald-500 bg-emerald-50 p-4">
             <h3 className="font-black text-emerald-900">Evidencia de aprendizaje</h3>
-            <p className="mt-2 text-sm leading-6 text-emerald-900">{capsula.practica.evidencia}</p>
+            <p className="mt-2 text-sm leading-6 text-emerald-900">{nivelComplejidad.evidencia}</p>
           </div>
         </section>
 
-        <section className={`${seccion === 'verificacion' ? 'block' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-autoevaluacion">
+        <section className={`${seccion === 'verificacion' ? 'capsula-seccion' : 'hidden print:block'} mt-5`} aria-labelledby="titulo-autoevaluacion">
           <div className="border-b border-sky-100 pb-4">
             <p className="text-xs font-black uppercase text-[#c66b00]">5 · Verifico salidas</p>
             <h2 id="titulo-autoevaluacion" className="mt-1 text-xl font-black text-[#0069aa]">Pruebo, comparo y reviso</h2>
@@ -354,6 +365,12 @@ export default function CapsulaEstudiante({ capsula }: { capsula: CapsulaNoveno 
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {rubrica && (
+            <div className="mt-5">
+              <RubricaAnaliticaNoveno rubrica={rubrica} />
             </div>
           )}
 

@@ -7,7 +7,10 @@ import ControlesAccesibilidad from '@/componentes/ControlesAccesibilidad';
 import UnidadCompletaDocente from '@/componentes/UnidadCompletaDocente';
 import MetadatosRea from '@/componentes/MetadatosRea';
 import DeclaratoriaUsoIA from '@/componentes/DeclaratoriaUsoIA';
+import RubricaAnaliticaNoveno from '@/componentes/RubricaAnaliticaNoveno';
 import { capsulasNovenoPorId, crearPromptTutorCapsula } from '@/contenido/capsulasNoveno';
+import { obtenerRubricaNoveno } from '@/contenido/rubricasNoveno';
+import { crearNivelesComplejidad, etiquetasNivelComplejidad, type NivelComplejidadId } from '@/contenido/nivelesComplejidadNoveno';
 import { variantesTecnologicasNoveno } from '@/contenido/variantesTecnologicasNoveno';
 import { construirUrlRea } from '@/utilidades/urlPublicaRea';
 
@@ -37,13 +40,27 @@ const referenciaPrograma = [
   'Fases del desarrollo de software, validación, pruebas, documentación y trabajo colaborativo.',
 ];
 
+const seccionesPortal = [
+  ['fundamentacion', 'Fundamentación'],
+  ['programa', 'Programa'],
+  ['uso', 'Cómo utilizarlo'],
+  ['dua', 'DUA'],
+  ['ia', 'IA y ética'],
+  ['unidades', 'Unidades'],
+] as const;
+
 export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
   const [unidadId, setUnidadId] = useState(unidades[0].id);
   const [copiado, setCopiado] = useState<string | null>(null);
   const [promptsEditados, setPromptsEditados] = useState<Record<string, string>>({});
+  const [complejidadPorCapsula, setComplejidadPorCapsula] = useState<Record<string, NivelComplejidadId>>({});
   const [seccionActiva, setSeccionActiva] = useState('fundamentacion');
   const unidad = unidades.find((item) => item.id === unidadId) ?? unidades[0];
   const materiales = unidad.capsulas.map((id) => capsulasNovenoPorId.get(id)).filter(Boolean);
+  const indiceSeccion = Math.max(0, seccionesPortal.findIndex(([id]) => id === seccionActiva));
+  const seccionAnterior = seccionesPortal[Math.max(0, indiceSeccion - 1)];
+  const seccionSiguiente = seccionesPortal[Math.min(seccionesPortal.length - 1, indiceSeccion + 1)];
+  const porcentajeAvance = ((indiceSeccion + 1) / seccionesPortal.length) * 100;
 
   useEffect(() => {
     let guardados: Record<string, string> = {};
@@ -60,8 +77,11 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
     window.localStorage.setItem('rea-prompts-9no', JSON.stringify(promptsEditados));
   }, [promptsEditados]);
 
-  const urlCapsula = (id: string, imprimir = false, publica = false) => {
+  const obtenerComplejidadCapsula = (id: string) => complejidadPorCapsula[id] ?? 'base';
+
+  const urlCapsula = (id: string, imprimir = false, publica = false, complejidad: NivelComplejidadId = obtenerComplejidadCapsula(id)) => {
     const parametros = new URLSearchParams({ grado: '9no', interfaz: 'alumno', capsula: id });
+    parametros.set('complejidad', complejidad);
     if (imprimir) parametros.set('imprimir', '1');
     return construirUrlRea(parametros, publica);
   };
@@ -81,13 +101,9 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
 
   const irASeccion = (id: string) => {
     setSeccionActiva(id);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const claseSeccion = (id: string) =>
-    `scroll-mt-4 border-b border-sky-100 py-8 transition ${
-      seccionActiva === id ? 'rounded-lg bg-white outline outline-2 outline-offset-4 outline-sky-200' : ''
-    }`;
+  const claseSeccion = (id: string) => (seccionActiva === id ? 'portal-docente-panel' : 'hidden');
 
   return (
     <main className="fondo-programacion-educativa min-h-screen text-slate-900">
@@ -113,32 +129,35 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
               </button>
             </div>
           </div>
-          <nav className="flex gap-2 overflow-x-auto pb-1 text-sm font-bold print:hidden" aria-label="Secciones del recurso">
-            {[
-              ['fundamentacion', 'Fundamentación'],
-              ['programa', 'Programa'],
-              ['uso', 'Cómo utilizarlo'],
-              ['dua', 'DUA'],
-              ['ia', 'IA y ética'],
-              ['unidades', 'Unidades'],
-            ].map(([id, etiqueta]) => (
+          <nav className="portal-docente-tabs flex gap-2 overflow-x-auto pb-2 text-sm font-bold print:hidden" aria-label="Secciones del recurso">
+            {seccionesPortal.map(([id, etiqueta]) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => irASeccion(id)}
                 aria-pressed={seccionActiva === id}
-                className={`whitespace-nowrap rounded-lg border px-3 py-2 transition ${
-                  seccionActiva === id ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300'
+                className={`portal-docente-tab whitespace-nowrap rounded-lg border px-3 py-2 transition ${
+                  seccionActiva === id ? 'border-[#0069aa] bg-[#0069aa] text-white shadow-sm' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50'
                 }`}
               >
                 {etiqueta}
               </button>
             ))}
           </nav>
+          <div className="print:hidden">
+            <div className="h-1 overflow-hidden rounded-full bg-sky-50">
+              <div className="h-full rounded-full bg-[#0069aa] transition-all duration-300" style={{ width: `${porcentajeAvance}%` }} />
+            </div>
+          </div>
         </div>
       </header>
 
-      <div className="mx-auto max-w-6xl px-4 py-2 md:px-8">
+      <div className="portal-docente-shell mx-auto max-w-6xl px-4 py-6 md:px-8">
+        <div className="mb-4 flex items-center justify-between gap-3 print:hidden">
+          <button type="button" onClick={() => irASeccion(seccionAnterior[0])} disabled={indiceSeccion === 0} className="rounded-lg border border-sky-100 bg-white px-3 py-2 text-sm font-bold text-[#0069aa] shadow-sm transition hover:bg-sky-50 disabled:opacity-40">Anterior</button>
+          <p className="text-center text-xs font-black uppercase tracking-wide text-[#c66b00]">{indiceSeccion + 1} de {seccionesPortal.length} · {seccionesPortal[indiceSeccion][1]}</p>
+          <button type="button" onClick={() => irASeccion(seccionSiguiente[0])} disabled={indiceSeccion === seccionesPortal.length - 1} className="rounded-lg bg-[#0069aa] px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#005487] disabled:opacity-40">Siguiente</button>
+        </div>
         <section id="fundamentacion" className={claseSeccion('fundamentacion')}>
           <div className="grid gap-6 lg:grid-cols-[0.35fr_1fr]">
             <div>
@@ -247,6 +266,10 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
                 if (!capsula) return null;
                 const variantes = variantesTecnologicasNoveno[capsula.id] ?? [];
                 const prompt = promptsEditados[capsula.id] ?? crearPromptTutorCapsula(capsula);
+                const rubrica = obtenerRubricaNoveno(capsula.id);
+                const complejidad = obtenerComplejidadCapsula(capsula.id);
+                const nivelesComplejidad = crearNivelesComplejidad(capsula);
+                const nivelSeleccionado = nivelesComplejidad.find((nivel) => nivel.id === complejidad) ?? nivelesComplejidad[1];
 
                 return (
                   <article key={capsula.id} className="border-t border-slate-200 py-5">
@@ -255,7 +278,7 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
                         <p className="text-xs font-bold uppercase text-emerald-700">{capsula.concepto}</p>
                         <h5 className="mt-1 font-black text-slate-950">{capsula.titulo}</h5>
                         <p className="mt-1 text-sm leading-6 text-slate-600">{capsula.sintesis}</p>
-                        <p className="mt-2 text-sm font-semibold text-slate-700">Consigna: {capsula.practica.consigna}</p>
+                        <p className="mt-2 text-sm font-semibold text-slate-700">Consigna: {nivelSeleccionado.consigna}</p>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <a href={urlCapsula(capsula.id)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-sky-100 bg-white px-3 py-2 text-xs font-bold text-[#0069aa]"><Eye size={14} />Previsualizar</a>
@@ -263,6 +286,40 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
                         <a href={urlCapsula(capsula.id, true)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-orange-100 bg-white px-3 py-2 text-xs font-bold text-[#a65300]"><Printer size={14} />PDF</a>
                       </div>
                     </div>
+
+                    <section className="mt-4 rounded-lg border border-emerald-100 bg-emerald-50 p-3">
+                      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                        <div>
+                          <p className="text-xs font-black uppercase text-emerald-700">Complejidad para CREA</p>
+                          <h6 className="mt-1 font-black text-emerald-950">Selecciona qué versión compartirá esta cápsula</h6>
+                          <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.foco}</p>
+                        </div>
+                        <div className="grid gap-2 sm:grid-cols-3 lg:min-w-[420px]">
+                          {nivelesComplejidad.map((nivel) => (
+                            <button
+                              key={nivel.id}
+                              type="button"
+                              onClick={() => setComplejidadPorCapsula((actuales) => ({ ...actuales, [capsula.id]: nivel.id }))}
+                              className={`rounded-lg border px-3 py-2 text-left text-xs font-bold transition ${
+                                complejidad === nivel.id
+                                  ? 'border-emerald-700 bg-emerald-700 text-white'
+                                  : 'border-emerald-100 bg-white text-emerald-900 hover:border-emerald-300'
+                              }`}
+                              aria-pressed={complejidad === nivel.id}
+                            >
+                              {nivel.etiqueta}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_0.8fr]">
+                        <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Consigna:</strong> {nivelSeleccionado.consigna}</p>
+                        <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Evidencia:</strong> {nivelSeleccionado.evidencia}</p>
+                      </div>
+                      <p className="mt-2 text-xs font-semibold text-emerald-900">
+                        Los botones Previsualizar, Iframe y PDF usan ahora el nivel {etiquetasNivelComplejidad[complejidad].toLowerCase()}.
+                      </p>
+                    </section>
 
                     <div className="mt-4 grid gap-3 lg:grid-cols-2">
                       <details className="rounded-lg border border-sky-100 bg-sky-50 p-3">
@@ -289,6 +346,11 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
                         </button>
                       </details>
                     </div>
+                    {rubrica && (
+                      <div className="mt-4">
+                        <RubricaAnaliticaNoveno rubrica={rubrica} compacta editable />
+                      </div>
+                    )}
                   </article>
                 );
               })}

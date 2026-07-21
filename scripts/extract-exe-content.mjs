@@ -57,6 +57,15 @@ const extractNavOrder = (html) => {
 
 const cleanMainHtml = (html, slug) => {
   let main = getMatch(html, /<section id="main">([\s\S]*?)<\/section>/i);
+  if (!main) {
+    main = getMatch(html, /<main>([\s\S]*?)<\/main>/i);
+  }
+  if (!main) {
+    main = getMatch(html, /<body>([\s\S]*?)<\/body>/i);
+  }
+  if (!main) {
+    main = html;
+  }
 
   main = main
     .replace(/<header id="nodeDecoration">[\s\S]*?<\/header>/gi, '')

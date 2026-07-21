@@ -1,12 +1,13 @@
 'use client';
 
 /* eslint-disable @next/next/no-img-element */
-import { CheckCircle2, Copy, ExternalLink, Eye, Lightbulb, Printer } from 'lucide-react';
+import { CheckCircle2, Copy, ExternalLink, Eye, Lightbulb, Printer, Info } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ControlesAccesibilidad from '@/componentes/ControlesAccesibilidad';
 import UnidadCompletaDocente from '@/componentes/UnidadCompletaDocente';
 import MetadatosRea from '@/componentes/MetadatosRea';
 import DeclaratoriaUsoIA from '@/componentes/DeclaratoriaUsoIA';
+import TourDocente from '@/componentes/TourDocente';
 import RubricaAnaliticaNoveno from '@/componentes/RubricaAnaliticaNoveno';
 import { capsulasNovenoPorId, crearPromptTutorCapsula } from '@/contenido/capsulasNoveno';
 import { obtenerRubricaNoveno } from '@/contenido/rubricasNoveno';
@@ -41,12 +42,12 @@ const referenciaPrograma = [
 ];
 
 const seccionesPortal = [
+  ['unidades', 'Unidades'],
   ['fundamentacion', 'Fundamentación'],
   ['programa', 'Programa'],
   ['uso', 'Cómo utilizarlo'],
   ['dua', 'DUA'],
   ['ia', 'IA y ética'],
-  ['unidades', 'Unidades'],
 ] as const;
 
 export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
@@ -54,7 +55,8 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
   const [copiado, setCopiado] = useState<string | null>(null);
   const [promptsEditados, setPromptsEditados] = useState<Record<string, string>>({});
   const [complejidadPorCapsula, setComplejidadPorCapsula] = useState<Record<string, NivelComplejidadId>>({});
-  const [seccionActiva, setSeccionActiva] = useState('fundamentacion');
+  const [seccionActiva, setSeccionActiva] = useState('unidades');
+  const [tourActivo, setTourActivo] = useState(false);
   const unidad = unidades.find((item) => item.id === unidadId) ?? unidades[0];
   const materiales = unidad.capsulas.map((id) => capsulasNovenoPorId.get(id)).filter(Boolean);
   const indiceSeccion = Math.max(0, seccionesPortal.findIndex(([id]) => id === seccionActiva));
@@ -106,7 +108,10 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
   const claseSeccion = (id: string) => (seccionActiva === id ? 'portal-docente-panel' : 'hidden');
 
   return (
-    <main className="fondo-programacion-educativa min-h-screen text-slate-900">
+    <main
+      className="fondo-programacion-educativa min-h-screen text-slate-900"
+      style={{ backgroundImage: `url(${logoSrc.replace('logoedytic.jpg', 'imagenes/fondo-programacion-educativa.png')})` }}
+    >
       <header className="border-b border-sky-100 bg-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-5 md:px-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -240,6 +245,24 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
             </div>
             <p className="text-sm text-slate-500">Selecciona una unidad para ver sus materiales.</p>
           </div>
+          
+          {/* Quick Guide Alert */}
+          <div className="mt-4 rounded-xl border border-sky-100 bg-sky-50/50 p-4 print:hidden">
+            <div className="flex gap-3">
+              <div className="mt-0.5 text-[#0069aa]"><Info size={18} /></div>
+              <div className="flex-1">
+                <h4 className="font-bold text-slate-900 text-sm">¿Cómo funciona esta planificación?</h4>
+                <div className="mt-1 text-xs text-slate-600 leading-relaxed space-y-1">
+                  <p>1. <strong>Selecciona una unidad</strong> de la progresión sugerida a continuación para ver su material.</p>
+                  <p>2. Usa los botones de acción rápida para <strong>Previsualizar</strong>, copiar el <strong>Iframe para CREA</strong> o descargar la <strong>Ficha PDF</strong>.</p>
+                  <p>3. Expande las pestañas colapsables inferiores si necesitas <strong>Personalizar la complejidad (con IA)</strong> o revisar la <strong>Secuencia didáctica extendida</strong>.</p>
+                </div>
+                <button type="button" onClick={() => setTourActivo(true)} className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-[#0069aa] px-3 py-1.5 text-xs font-bold text-white transition hover:bg-[#005487]">
+                  Iniciar tutorial interactivo 🚀
+                </button>
+              </div>
+            </div>
+          </div>
 
           <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
             {unidades.map((item) => (
@@ -262,7 +285,7 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
 
             <div className="mt-6 space-y-3">
               <h4 className="font-black text-slate-950">Materiales preparados</h4>
-              {materiales.map((capsula) => {
+              {materiales.map((capsula, index) => {
                 if (!capsula) return null;
                 const variantes = variantesTecnologicasNoveno[capsula.id] ?? [];
                 const prompt = promptsEditados[capsula.id] ?? crearPromptTutorCapsula(capsula);
@@ -280,77 +303,84 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
                         <p className="mt-1 text-sm leading-6 text-slate-600">{capsula.sintesis}</p>
                         <p className="mt-2 text-sm font-semibold text-slate-700">Consigna: {nivelSeleccionado.consigna}</p>
                       </div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div id={index === 0 ? "tour-acciones" : undefined} className="grid grid-cols-3 gap-2">
                         <a href={urlCapsula(capsula.id)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-sky-100 bg-white px-3 py-2 text-xs font-bold text-[#0069aa]"><Eye size={14} />Previsualizar</a>
                         <button type="button" onClick={() => copiarIframe(capsula.id, capsula.titulo)} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0069aa] px-3 py-2 text-xs font-bold text-white"><Copy size={14} />{copiado === `iframe-${capsula.id}` ? 'Copiado' : 'Iframe'}</button>
                         <a href={urlCapsula(capsula.id, true)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-orange-100 bg-white px-3 py-2 text-xs font-bold text-[#a65300]"><Printer size={14} />PDF</a>
                       </div>
                     </div>
 
-                    <section className="mt-4 rounded-lg border border-emerald-100 bg-emerald-50 p-3">
-                      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                        <div>
-                          <p className="text-xs font-black uppercase text-emerald-700">Complejidad para CREA</p>
-                          <h6 className="mt-1 font-black text-emerald-950">Selecciona qué versión compartirá esta cápsula</h6>
-                          <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.foco}</p>
-                        </div>
-                        <div className="grid gap-2 sm:grid-cols-3 lg:min-w-[420px]">
-                          {nivelesComplejidad.map((nivel) => (
-                            <button
-                              key={nivel.id}
-                              type="button"
-                              onClick={() => setComplejidadPorCapsula((actuales) => ({ ...actuales, [capsula.id]: nivel.id }))}
-                              className={`rounded-lg border px-3 py-2 text-left text-xs font-bold transition ${
-                                complejidad === nivel.id
-                                  ? 'border-emerald-700 bg-emerald-700 text-white'
-                                  : 'border-emerald-100 bg-white text-emerald-900 hover:border-emerald-300'
-                              }`}
-                              aria-pressed={complejidad === nivel.id}
-                            >
-                              {nivel.etiqueta}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_0.8fr]">
-                        <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Consigna:</strong> {nivelSeleccionado.consigna}</p>
-                        <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Evidencia:</strong> {nivelSeleccionado.evidencia}</p>
-                      </div>
-                      <p className="mt-2 text-xs font-semibold text-emerald-900">
-                        Los botones Previsualizar, Iframe y PDF usan ahora el nivel {etiquetasNivelComplejidad[complejidad].toLowerCase()}.
-                      </p>
-                    </section>
-
-                    <div className="mt-4 grid gap-3 lg:grid-cols-2">
-                      <details className="rounded-lg border border-sky-100 bg-sky-50 p-3">
-                        <summary className="cursor-pointer font-bold text-[#0069aa]">Tres formas de realizar la misma actividad</summary>
-                        <div className="mt-4 space-y-4">
-                          {variantes.map((variante) => (
-                            <section key={variante.tecnologia} className="border-t border-sky-100 pt-3">
-                              <h6 className="font-black text-slate-900">{variante.tecnologia}</h6>
-                              <p className="mt-1 text-xs leading-5 text-slate-600">{variante.explicacion}</p>
-                              <pre className="mt-2 max-w-full overflow-x-auto rounded-lg bg-slate-950 p-3 text-xs leading-5 text-sky-100"><code>{variante.codigo}</code></pre>
-                            </section>
-                          ))}
+                    <div id={index === 0 ? "tour-personalizar" : undefined} className="space-y-4 mt-4">
+                      <details className="rounded-lg border border-emerald-100 bg-emerald-50 p-3 print:hidden">
+                        <summary className="cursor-pointer font-bold text-emerald-800 select-none hover:text-emerald-955">
+                          ⚙️ Personalizar complejidad (Nivel para previsualización e iframe)
+                        </summary>
+                        <div className="mt-3 pt-3 border-t border-emerald-200">
+                          <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                            <div>
+                              <p className="text-xs font-black uppercase text-emerald-700">Complejidad para CREA</p>
+                              <h6 className="mt-1 font-black text-emerald-955">Selecciona qué versión compartirá esta cápsula</h6>
+                              <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.foco}</p>
+                            </div>
+                            <div className="grid gap-2 sm:grid-cols-3 lg:min-w-[420px]">
+                              {nivelesComplejidad.map((nivel) => (
+                                <button
+                                  key={nivel.id}
+                                  type="button"
+                                  onClick={() => setComplejidadPorCapsula((actuales) => ({ ...actuales, [capsula.id]: nivel.id }))}
+                                  className={`rounded-lg border px-3 py-2 text-left text-xs font-bold transition ${
+                                    complejidad === nivel.id
+                                      ? 'border-emerald-700 bg-emerald-700 text-white'
+                                      : 'border-emerald-100 bg-white text-emerald-900 hover:border-emerald-300'
+                                  }`}
+                                  aria-pressed={complejidad === nivel.id}
+                                >
+                                  {nivel.etiqueta}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_0.8fr]">
+                            <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Consigna:</strong> {nivelSeleccionado.consigna}</p>
+                            <p className="rounded-lg bg-white p-3 text-sm leading-6 text-slate-700"><strong>Evidencia:</strong> {nivelSeleccionado.evidencia}</p>
+                          </div>
+                          <p className="mt-2 text-xs font-semibold text-emerald-900">
+                            Los botones Previsualizar, Iframe y PDF usan ahora el nivel {etiquetasNivelComplejidad[complejidad].toLowerCase()}.
+                          </p>
                         </div>
                       </details>
 
-                      <details className="rounded-lg border border-violet-100 bg-violet-50 p-3">
-                        <summary className="cursor-pointer font-bold text-violet-900">Prompt de tutoría ética y reflexiva</summary>
-                        <p className="mt-3 text-xs leading-5 text-violet-900">Protege la autoría del estudiante, ofrece pistas graduales y exige explicar y verificar lo producido.</p>
-                        <label className="mt-3 block text-xs font-bold text-violet-950" htmlFor={`prompt-${capsula.id}`}>Prompt editable</label>
-                        <textarea id={`prompt-${capsula.id}`} value={prompt} onChange={(event) => setPromptsEditados((actuales) => ({ ...actuales, [capsula.id]: event.target.value }))} rows={12} className="mt-2 w-full resize-y rounded-lg border border-violet-100 bg-white p-3 text-xs leading-5 text-slate-700 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200" />
-                        <button type="button" onClick={() => copiarPrompt(capsula.id, prompt)} className="mt-3 inline-flex items-center gap-2 rounded-lg bg-violet-800 px-3 py-2 text-xs font-bold text-white">
-                          <Lightbulb size={14} />
-                          {copiado === `prompt-${capsula.id}` ? 'Prompt copiado' : 'Copiar prompt'}
-                        </button>
-                      </details>
+                      <div className="grid gap-3 lg:grid-cols-2">
+                        <details className="rounded-lg border border-sky-100 bg-sky-50 p-3">
+                          <summary className="cursor-pointer font-bold text-[#0069aa]">Tres formas de realizar la misma actividad</summary>
+                          <div className="mt-4 space-y-4">
+                            {variantes.map((variante) => (
+                              <section key={variante.tecnologia} className="border-t border-sky-100 pt-3">
+                                <h6 className="font-black text-slate-900">{variante.tecnologia}</h6>
+                                <p className="mt-1 text-xs leading-5 text-slate-600">{variante.explicacion}</p>
+                                <pre className="mt-2 max-w-full overflow-x-auto rounded-lg bg-slate-950 p-3 text-xs leading-5 text-sky-100"><code>{variante.codigo}</code></pre>
+                              </section>
+                            ))}
+                          </div>
+                        </details>
+
+                        <details className="rounded-lg border border-violet-100 bg-violet-50 p-3">
+                          <summary className="cursor-pointer font-bold text-violet-900">Prompt de tutoría ética y reflexiva</summary>
+                          <p className="mt-3 text-xs leading-5 text-violet-900">Protege la autoría del estudiante, ofrece pistas graduales y exige explicar y verificar lo producido.</p>
+                          <label className="mt-3 block text-xs font-bold text-violet-955" htmlFor={`prompt-${capsula.id}`}>Prompt editable</label>
+                          <textarea id={`prompt-${capsula.id}`} value={prompt} onChange={(event) => setPromptsEditados((actuales) => ({ ...actuales, [capsula.id]: event.target.value }))} rows={12} className="mt-2 w-full resize-y rounded-lg border border-violet-100 bg-white p-3 text-xs leading-5 text-slate-700 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200" />
+                          <button type="button" onClick={() => copiarPrompt(capsula.id, prompt)} className="mt-3 inline-flex items-center gap-2 rounded-lg bg-violet-800 px-3 py-2 text-xs font-bold text-white">
+                            <Lightbulb size={14} />
+                            {copiado === `prompt-${capsula.id}` ? 'Prompt copiado' : 'Copiar prompt'}
+                          </button>
+                        </details>
+                      </div>
+                      {rubrica && (
+                        <div className="mt-4">
+                          <RubricaAnaliticaNoveno rubrica={rubrica} compacta editable />
+                        </div>
+                      )}
                     </div>
-                    {rubrica && (
-                      <div className="mt-4">
-                        <RubricaAnaliticaNoveno rubrica={rubrica} compacta editable />
-                      </div>
-                    )}
                   </article>
                 );
               })}
@@ -367,6 +397,7 @@ export default function PortalDocenteNoveno({ logoSrc }: { logoSrc: string }) {
       <footer className="border-t border-sky-100 bg-white px-4 py-4 text-center text-xs font-semibold text-slate-500">
         Recurso Educativo Abierto para docentes · Programación EBI · 9.º año
       </footer>
+      <TourDocente activo={tourActivo} onClose={() => setTourActivo(false)} grado="9no" />
     </main>
   );
 }

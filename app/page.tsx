@@ -999,15 +999,15 @@ Autoevaluación
     if (ejemplo) return <SecuenciaEjemploReact paginas={ejemplo.paginas} baseAssets={baseAssets} volverHref={`?grado=${grado}`} />;
   }
 
-  if (grado === '7mo') {
+  if (!esVistaAlumno && grado === '7mo') {
     return <PortalDocenteSeptimo logoSrc={assetPath('/logoedytic.jpg')} />;
   }
 
-  if (grado === '8vo') {
+  if (!esVistaAlumno && grado === '8vo') {
     return <PortalDocenteOctavo logoSrc={assetPath('/logoedytic.jpg')} />;
   }
 
-  if (grado === '9no') {
+  if (!esVistaAlumno && grado === '9no') {
     return <PortalDocenteNoveno logoSrc={assetPath('/logoedytic.jpg')} />;
   }
 
@@ -1051,7 +1051,7 @@ Autoevaluación
                   </button>
                 ))}
               </div>
-              <div className="inline-flex rounded-xl border border-sky-100 bg-sky-50 p-1">
+              <div id="tour-grados" className="inline-flex rounded-xl border border-sky-100 bg-sky-50 p-1">
                 {grados.map((g) => (
                   <button
                     key={g}

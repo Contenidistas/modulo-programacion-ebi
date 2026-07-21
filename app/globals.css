@@ -27,7 +27,7 @@ body {
 
 .fondo-programacion-educativa {
   background-color: #f7fbff;
-  background-image: url("/imagenes/fondo-programacion-educativa.png");
+  /* background-image is set dynamically via style prop in components to support basePath */
   background-position: top center;
   background-repeat: repeat-y;
   background-size: min(1920px, 100vw) auto;
@@ -483,5 +483,53 @@ html[data-alto-contraste="true"] .fondo-programacion-educativa {
 
   .contenido-tema img {
     max-height: 12cm;
+  }
+}
+
+/* Guided Tour Onboarding Styles */
+.tour-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(1px);
+  z-index: 9999;
+}
+
+.tour-card {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 440px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  z-index: 10000;
+  padding: 18px;
+  animation: tour-card-entrada 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tour-highlight {
+  position: relative;
+  z-index: 9990 !important;
+  box-shadow: 0 0 0 4px #f7941d, 0 0 24px 8px rgba(247, 148, 29, 0.5) !important;
+  border-color: #f7941d !important;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+@keyframes tour-card-entrada {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

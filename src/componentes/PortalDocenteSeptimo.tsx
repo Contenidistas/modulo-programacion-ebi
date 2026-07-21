@@ -1,13 +1,14 @@
 'use client';
 
 /* eslint-disable @next/next/no-img-element */
-import { CheckCircle2, ExternalLink, Printer } from 'lucide-react';
+import { CheckCircle2, ExternalLink, Printer, Info } from 'lucide-react';
 import { useState } from 'react';
 import MaterialCapsulaDocente from '@/componentes/MaterialCapsulaDocente';
 import ControlesAccesibilidad from '@/componentes/ControlesAccesibilidad';
 import UnidadCompletaDocente from '@/componentes/UnidadCompletaDocente';
 import MetadatosRea from '@/componentes/MetadatosRea';
 import DeclaratoriaUsoIA from '@/componentes/DeclaratoriaUsoIA';
+import TourDocente from '@/componentes/TourDocente';
 import { capsulasSeptimoPorId } from '@/contenido/capsulasSeptimo';
 import { crearNivelesComplejidad, type NivelComplejidadId } from '@/contenido/nivelesComplejidadNoveno';
 import {
@@ -16,17 +17,18 @@ import {
 } from '@/contenido/constructorPensamientoSeptimo';
 
 const seccionesPortal = [
+  ['unidades', 'Unidades'],
   ['fundamentacion', 'Fundamentación'],
   ['programa', 'Programa'],
   ['uso', 'Cómo utilizarlo'],
   ['dua', 'DUA'],
   ['ia', 'IA y ética'],
-  ['unidades', 'Unidades'],
 ] as const;
 
 export default function PortalDocenteSeptimo({ logoSrc }: { logoSrc: string }) {
   const [unidadId, setUnidadId] = useState(unidadesSeptimo[0].id);
-  const [seccionActiva, setSeccionActiva] = useState('fundamentacion');
+  const [seccionActiva, setSeccionActiva] = useState('unidades');
+  const [tourActivo, setTourActivo] = useState(false);
   const [complejidadPorCapsula, setComplejidadPorCapsula] = useState<Record<string, NivelComplejidadId>>({});
   const unidad = unidadesSeptimo.find((item) => item.id === unidadId) ?? unidadesSeptimo[0];
   const capsula = capsulasSeptimoPorId.get(`7-${unidad.id}`);
@@ -44,7 +46,10 @@ export default function PortalDocenteSeptimo({ logoSrc }: { logoSrc: string }) {
   const claseSeccion = (id: string) => (seccionActiva === id ? 'portal-docente-panel' : 'hidden');
 
   return (
-    <main className="fondo-programacion-educativa min-h-screen text-slate-900">
+    <main
+      className="fondo-programacion-educativa min-h-screen text-slate-900"
+      style={{ backgroundImage: `url(${logoSrc.replace('logoedytic.jpg', 'imagenes/fondo-programacion-educativa.png')})` }}
+    >
       <header className="border-b border-sky-100 bg-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-5 md:px-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -87,50 +92,96 @@ export default function PortalDocenteSeptimo({ logoSrc }: { logoSrc: string }) {
 
         <section id="unidades" className={`${claseSeccion('unidades')} border-b-0`}>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs font-black uppercase text-[#c66b00]">Progresión sugerida</p><h2 className="mt-1 text-2xl font-black text-[#0069aa]">Unidades de 7.º</h2></div><p className="text-sm text-slate-500">Todas las unidades incluyen cuatro momentos configurables.</p></div>
-          <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">{unidadesSeptimo.map((item) => <button key={item.id} type="button" onClick={() => setUnidadId(item.id)} aria-pressed={unidad.id === item.id} className={`min-w-0 rounded-lg border p-3 text-left transition ${unidad.id === item.id ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300'}`}><span className={`text-xs font-black uppercase ${unidad.id === item.id ? 'text-sky-100' : 'text-[#c66b00]'}`}>Unidad {item.orden}</span><span className="mt-1 block break-words text-sm font-black leading-5">{item.titulo}</span></button>)}</div>
+          
+          {/* Quick Guide Alert */}
+          <div className="mt-4 rounded-xl border border-sky-100 bg-sky-50/50 p-4 print:hidden">
+            <div className="flex gap-3">
+              <div className="mt-0.5 text-[#0069aa]"><Info size={18} /></div>
+              <div className="flex-1">
+                <h4 className="font-bold text-slate-900 text-sm">¿Cómo funciona esta planificación?</h4>
+                <div className="mt-1 text-xs text-slate-600 leading-relaxed space-y-1">
+                  <p>1. <strong>Selecciona una unidad</strong> de la progresión sugerida a continuación para ver su material.</p>
+                  <p>2. Usa los botones de acción rápida para <strong>Previsualizar</strong>, copiar el <strong>Iframe para CREA</strong> o descargar la <strong>Ficha PDF</strong>.</p>
+                  <p>3. Expande las pestañas colapsables inferiores si necesitas <strong>Personalizar la complejidad (con IA)</strong> o revisar la <strong>Secuencia didáctica extendida</strong>.</p>
+                </div>
+                <button type="button" onClick={() => setTourActivo(true)} className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-[#0069aa] px-3 py-1.5 text-xs font-bold text-white transition hover:bg-[#005487]">
+                  Iniciar tutorial interactivo 🚀
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="tour-unidades" className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">{unidadesSeptimo.map((item) => <button key={item.id} type="button" onClick={() => setUnidadId(item.id)} aria-pressed={unidad.id === item.id} className={`min-w-0 rounded-lg border p-3 text-left transition ${unidad.id === item.id ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-sky-300'}`}><span className={`text-xs font-black uppercase ${unidad.id === item.id ? 'text-sky-100' : 'text-[#c66b00]'}`}>Unidad {item.orden}</span><span className="mt-1 block break-words text-sm font-black leading-5">{item.titulo}</span></button>)}</div>
 
           <div className="mt-6 border-t-4 border-[#0069aa] bg-white py-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div><p className="text-xs font-black uppercase text-[#c66b00]">Unidad {unidad.orden}</p><h3 className="mt-1 text-xl font-black text-slate-950">{unidad.titulo}</h3><p className="mt-2 max-w-3xl leading-7 text-slate-700">{unidad.proposito}</p></div><span className="h-fit rounded-full border border-sky-100 bg-sky-50 px-3 py-1 text-xs font-bold text-[#0069aa]">{unidad.tiempo}</span></div>
             <dl className="mt-5 grid gap-4 border-y border-sky-100 py-5 sm:grid-cols-2 lg:grid-cols-4"><div><dt className="text-xs font-black uppercase text-slate-500">Aprendizajes previos</dt><dd className="mt-1 text-sm leading-6 text-slate-700">{unidad.previos}</dd></div><div><dt className="text-xs font-black uppercase text-slate-500">Dificultad frecuente</dt><dd className="mt-1 text-sm leading-6 text-slate-700">{unidad.dificultad}</dd></div><div><dt className="text-xs font-black uppercase text-slate-500">Evidencia</dt><dd className="mt-1 text-sm leading-6 text-slate-700">{unidad.evidencia}</dd></div><div><dt className="text-xs font-black uppercase text-slate-500">Metodología</dt><dd className="mt-1 text-sm leading-6 text-slate-700">{unidad.metodologia}</dd></div></dl>
             <div className="mt-4 flex flex-wrap gap-2">{unidad.conceptos.map((concepto) => <span key={concepto} className="rounded-md border border-emerald-100 bg-emerald-50 px-2 py-1 text-xs font-bold text-emerald-800">{concepto}</span>)}</div>
 
-            {capsula && nivelSeleccionado && (
-              <div className="mt-5 rounded-lg border border-sky-100 bg-sky-50 p-4">
-                <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                  <div>
-                    <p className="text-xs font-black uppercase text-[#c66b00]">Complejidad para CREA</p>
-                    <h4 className="mt-1 font-black text-slate-950">Selecciona qué versión recibirá el estudiante</h4>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{nivelSeleccionado.foco}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {nivelesComplejidad.map((nivel) => (
-                      <button key={nivel.id} type="button" onClick={() => setComplejidadPorCapsula((actual) => ({ ...actual, [capsula.id]: nivel.id }))} aria-pressed={complejidad === nivel.id} className={`rounded-lg border px-3 py-2 text-xs font-black transition ${complejidad === nivel.id ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-sky-200 bg-white text-[#0069aa] hover:border-[#0069aa]'}`}>
-                        {nivel.etiqueta}
-                      </button>
-                    ))}
-                  </div>
+            {capsula && (
+              <div className="mt-6 space-y-4">
+                {/* 1. Main Material Card */}
+                <div id="tour-acciones">
+                  <MaterialCapsulaDocente key={capsula.id} capsula={capsula} grado="7mo" complejidad={complejidad} />
                 </div>
-                <div className="mt-4 grid gap-3 md:grid-cols-[1.2fr_0.8fr]">
-                  <div className="rounded-lg bg-white p-3">
-                    <p className="text-xs font-black uppercase text-slate-500">Consigna ajustada</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.consigna}</p>
-                  </div>
-                  <div className="rounded-lg bg-white p-3">
-                    <p className="text-xs font-black uppercase text-slate-500">Evidencia esperada</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.evidencia}</p>
-                  </div>
+
+                {/* 2. Collapsible Customization and Sequence */}
+                <div id="tour-personalizar" className="space-y-4">
+                  {/* 2. Collapsible Complexity Selector & Customization */}
+                  {nivelSeleccionado && (
+                    <details className="rounded-xl border border-sky-100 bg-sky-50 p-4 print:hidden">
+                      <summary className="cursor-pointer font-bold text-[#0069aa] select-none hover:text-[#005487]">
+                        ⚙️ Personalizar cápsula (Nivel de complejidad y ajustes de IA)
+                      </summary>
+                      <div className="mt-4 pt-4 border-t border-sky-200">
+                        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                          <div>
+                            <p className="text-xs font-black uppercase text-[#c66b00]">Complejidad para CREA</p>
+                            <h4 className="mt-1 font-black text-slate-950">Selecciona qué versión recibirá el estudiante</h4>
+                            <p className="mt-1 text-sm leading-6 text-slate-600">{nivelSeleccionado.foco}</p>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {nivelesComplejidad.map((nivel) => (
+                              <button key={nivel.id} type="button" onClick={() => setComplejidadPorCapsula((actual) => ({ ...actual, [capsula.id]: nivel.id }))} aria-pressed={complejidad === nivel.id} className={`rounded-lg border px-3 py-2 text-xs font-black transition ${complejidad === nivel.id ? 'border-[#0069aa] bg-[#0069aa] text-white' : 'border-sky-200 bg-white text-[#0069aa] hover:border-[#0069aa]'}`}>
+                                {nivel.etiqueta}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="mt-4 grid gap-3 md:grid-cols-[1.2fr_0.8fr]">
+                          <div className="rounded-lg bg-white p-3">
+                            <p className="text-xs font-black uppercase text-slate-500">Consigna ajustada</p>
+                            <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.consigna}</p>
+                          </div>
+                          <div className="rounded-lg bg-white p-3">
+                            <p className="text-xs font-black uppercase text-slate-500">Evidencia esperada</p>
+                            <p className="mt-1 text-sm leading-6 text-slate-700">{nivelSeleccionado.evidencia}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  )}
+
+                  {/* 3. Collapsible Complete Didactic Sequence */}
+                  <details className="rounded-xl border border-emerald-100 bg-emerald-50 p-4 print:hidden">
+                    <summary className="cursor-pointer font-bold text-emerald-800 select-none hover:text-emerald-955">
+                      📋 Ver Secuencia Didáctica Completa y Evaluación (Cuatro momentos y Práctica formativa)
+                    </summary>
+                    <div className="mt-4 pt-4 border-t border-emerald-200">
+                      <div className="rounded-xl bg-white p-4 shadow-sm">
+                        <UnidadCompletaDocente key={`completa-${capsula.id}`} capsula={capsula} grado="7mo" />
+                      </div>
+                    </div>
+                  </details>
                 </div>
               </div>
             )}
-
-            {capsula && <MaterialCapsulaDocente key={capsula.id} capsula={capsula} grado="7mo" complejidad={complejidad} />}
-            {capsula && <UnidadCompletaDocente key={`completa-${capsula.id}`} capsula={capsula} grado="7mo" />}
 
           </div>
         </section>
       </div>
       <MetadatosRea grado="7mo" />
       <footer className="border-t border-sky-100 bg-white px-4 py-4 text-center text-xs font-semibold text-slate-500">Recurso Educativo Abierto para docentes · Programación EBI · 7.º año</footer>
+      <TourDocente activo={tourActivo} onClose={() => setTourActivo(false)} grado="7mo" />
     </main>
   );
 }

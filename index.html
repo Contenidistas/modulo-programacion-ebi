@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Módulo Integral de Programación para Ciencias de la Computación (7°, 8° y 9° EBI). Recurso educativo abierto, interactivo, accesible y exportable como paquete SCORM para CREA (Ceibal).">
+<meta name="author" content="Prof. Esp. Santiago Hernández">
+<meta name="theme-color" content="#0f2444">
+<title>Módulo Integral de Programación · Ciencias de la Computación (7°, 8° y 9° EBI)</title>
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/jszip.min.js"></script>
+<script defer src="assets/scorm.js"></script>
+<script defer src="assets/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido principal</a>
+
+<!-- TOPBAR ACCESIBLE -->
+<header class="topbar">
+  <div class="top-inner">
+    <a href="#inicio" class="brand" aria-label="Módulo de Programación, ir al inicio">
+      <img class="brand-logo" src="assets/logo-edytic.jpg" alt="Logo de EDyTIC">
+      <span>
+        EDyTIC <strong>Módulo de Programación</strong>
+        <small>Ciencias de la Computación · 7°, 8° y 9° EBI (ANEP / Ceibal)</small>
+      </span>
+    </a>
+    <div class="top-actions" role="group" aria-label="Controles de accesibilidad y exportación">
+      <button type="button" class="utility utility-cta" id="btn-top-scorm" title="Descargar paquete SCORM 1.2 listo para subir a CREA">
+        <span aria-hidden="true">⬇</span> <span class="utility-label">Descargar SCORM</span>
+      </button>
+      <button type="button" class="utility" id="size-toggle" aria-pressed="false" title="Alternar tamaño de texto ampliado (DUA)">
+        <span aria-hidden="true">A+</span> <span class="utility-label">Texto</span>
+      </button>
+      <button type="button" class="utility" id="contrast-toggle" aria-pressed="false" title="Alternar alto contraste (WCAG AAA)">
+        <span aria-hidden="true">◐</span> <span class="utility-label">Contraste</span>
+      </button>
+      <button type="button" class="utility" id="narrate-toggle" aria-pressed="false" title="Escuchar el contenido principal con síntesis de voz">
+        <span aria-hidden="true">♫</span> <span class="utility-label">Escuchar</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="site-shell">
+  <!-- SIDEBAR DE NAVEGACIÓN -->
+  <aside class="sidebar" aria-label="Índice temático">
+    <div class="sidebar-sticky">
+      <div class="sidebar-eyebrow">RECURSO EDUCATIVO INTEGRAL</div>
+      <div class="sidebar-title">Ciencias de la Computación</div>
+      <nav aria-label="Secciones del módulo">
+        <ol class="nav-list">
+          <li><a href="#inicio" aria-current="location"><span class="nav-dot">01</span>Presentación</a></li>
+          <li><a href="#fundamentos"><span class="nav-dot">02</span>Pensamiento computacional</a></li>
+          <li><a href="#historia"><span class="nav-dot">03</span>Hitos de la programación</a></li>
+          <li><a href="#caso-central"><span class="nav-dot">04</span>El caso: Votación escolar</a></li>
+          <li><a href="#pseudocodigo"><span class="nav-dot">05</span>Solución en pseudocódigo</a></li>
+          <li><a href="#scratch"><span class="nav-dot">06</span>Solución en Scratch (bloques)</a></li>
+          <li><a href="#makecode"><span class="nav-dot">07</span>Robótica con micro:bit</a></li>
+          <li><a href="#textual"><span class="nav-dot">08</span>Programación textual (Python/JS)</a></li>
+          <li><a href="#simulador"><span class="nav-dot">09</span>Simulador interactivo en vivo</a></li>
+          <li><a href="#profundizacion"><span class="nav-dot">10</span>Conceptos avanzados (7°-9°)</a></li>
+          <li><a href="#evaluacion"><span class="nav-dot">11</span>Evaluación formativa (CREA)</a></li>
+          <li><a href="#exportacion"><span class="nav-dot">12</span>Descarga SCORM y GitHub</a></li>
+          <li><a href="#creditos"><span class="nav-dot">13</span>Autoría, DUA y licencia</a></li>
+        </ol>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="dot-status" aria-hidden="true"></span>
+        <span id="tracking-label">Seguimiento de aprendizaje activo</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido" tabindex="-1">
+
+    <!-- 01. PRESENTACIÓN / HERO -->
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-pill">PROGRAMA OFICIAL ANEP</span>
+          <span>CIENCIAS DE LA COMPUTACIÓN · 7°, 8° Y 9° EBI</span>
+        </div>
+        <h1 id="hero-title">Aprender a <em>programar</em> pensando soluciones reales</h1>
+        <p class="lead">
+          Un espacio interactivo, progresivo y situado que integra los fundamentos del pensamiento computacional, el análisis de problemas cotidianos, la programación por bloques, la computación física y el paso a la programación textual.
+        </p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#caso-central">Explorar el caso de votación <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="#simulador">Ir al simulador en vivo</a>
+          <a class="button ghost" href="#exportacion">Descargar SCORM</a>
+        </div>
+        <div class="hero-meta">
+          <span>⏱ 45–60 min (modular)</span>
+          <span>🎯 7°, 8° y 9° EBI (Tramos 5 y 6)</span>
+          <span>✓ Evaluación formativa autocorregida</span>
+          <span>♿ Accesible (DUA / WCAG 2.1)</span>
+          <span>📦 Exportable a CREA (Schoology)</span>
+        </div>
+      </div>
+
+      <!-- Arte conceptual: De la idea al resultado -->
+      <div class="hero-art" aria-label="Diagrama didáctico: De la necesidad humana a la solución computacional" role="img">
+        <div class="art-kicker"><span class="art-green"></span> DEL PROBLEMA AL PROGRAMA EJECUTABLE</div>
+        <div class="art-block idea">
+          <span class="art-num">01 · SITUACIÓN DE LA VIDA REAL</span>
+          <strong>La clase necesita elegir democráticamente: ¿Trabajo Grupal o Individual?</strong>
+        </div>
+        <div class="art-connector" aria-hidden="true">↓ Descomposición y abstracción</div>
+        <div class="art-block code">
+          <span class="art-num">02 · ALGORITMO Y ESTRUCTURAS</span>
+          <code>
+            <span class="kw">SI</span> votosA &gt; votosB <span class="kw">ENTONCES</span><br>
+            &nbsp;&nbsp;<span class="str">MOSTRAR "Gana Opción A"</span><br>
+            <span class="kw">SINO</span><br>
+            &nbsp;&nbsp;<span class="str">MOSTRAR "Gana Opción B"</span>
+          </code>
+        </div>
+        <div class="art-connector" aria-hidden="true">↓ Ejecución en Bloques, micro:bit o Código</div>
+        <div class="art-block output">
+          <span class="art-num">03 · RESULTADO COMPROBABLE</span>
+          <strong>Decisión tomada con datos transparentes y sin errores 🚀</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS Y METODOLOGÍA -->
+    <section class="section block" aria-labelledby="goals-title">
+      <div class="section-lead">
+        <span class="section-number">ENFOQUE PEDAGÓGICO</span>
+        <h2 id="goals-title">¿Qué vas a construir y comprender en este recurso?</h2>
+        <p>Alineado con el marco curricular de Ciencias de la Computación, la metodología activa privilegia el Aprendizaje Basado en Problemas (ABP), el pensamiento crítico y el error constructivo mediante la depuración (debugging).</p>
+      </div>
+      <div class="outcomes">
+        <article>
+          <span class="outcome-icon" aria-hidden="true">🧠</span>
+          <h3>Pensamiento computacional</h3>
+          <p>Descomponer problemas, reconocer patrones, abstraer lo esencial y diseñar algoritmos secuenciales, selectivos e iterativos.</p>
+        </article>
+        <article>
+          <span class="outcome-icon" aria-hidden="true">🔄</span>
+          <h3>Transición progresiva</h3>
+          <p>Comenzar con la lógica pura en pseudocódigo y bloques visuales (Scratch, MakeCode) y transitar hacia la programación textual (Python, JavaScript).</p>
+        </article>
+        <article>
+          <span class="outcome-icon" aria-hidden="true">⚡</span>
+          <h3>Computación física e interactiva</h3>
+          <p>Manipular hardware tangible (micro:bit con botones y matriz de LEDs) y experimentar cómo el software dialoga con el mundo real.</p>
+        </article>
+      </div>
+
+      <!-- Audio de bienvenida del Prof. Santiago Hernández -->
+      <div class="audio-card">
+        <div class="audio-header">
+          <div>
+            <span class="audio-badge">AUDIO DIDÁCTICO</span>
+            <div class="audio-title">Introducción al Módulo de Programación</div>
+            <div class="audio-author">Prof. Esp. Santiago Hernández · Grabación original eXeLearning</div>
+          </div>
+        </div>
+        <audio class="audio-player" controls preload="metadata" src="assets/audio/01-introduccion.webm">
+          Tu navegador no soporta el elemento de audio. Descargá el archivo desde <a href="assets/audio/01-introduccion.webm">este enlace</a>.
+        </audio>
+        <details class="support">
+          <summary>Ver transcripción y lectura facilitada del audio</summary>
+          <div class="support-body">
+            <p><strong>Transcripción del profesor:</strong> <em>"Con el apoyo de este recurso el estudiante podrá iniciar su camino en el mundo de la programación. Se parte de una base teórica, con demostraciones específicas sobre un problema determinado y luego se plantea una extensión del problema inicial donde es requerido aplicar lo aprendido en la fase inicial."</em></p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 02. FUNDAMENTOS Y PENSAMIENTO COMPUTACIONAL -->
+    <section class="section block" id="fundamentos" aria-labelledby="fund-title">
+      <div class="section-lead">
+        <span class="section-number">02 / COMPRENDER</span>
+        <h2 id="fund-title">Los cuatro pilares del pensamiento computacional</h2>
+        <p>El pensamiento computacional no consiste en pensar como una máquina, sino en aprender a formular problemas y diseñar soluciones para que puedan ser ejecutadas por un procesador de información (Wing, 2011; Bocconi et al., 2017).</p>
+      </div>
+
+      <div class="concept-grid">
+        <article class="concept">
+          <div class="concept-index">01</div>
+          <h3>Descomposición</h3>
+          <p>Dividir un problema grande o complejo en partes más pequeñas y manejables.</p>
+          <div class="concept-example">Ej.: En una votación: 1) ingresar votos, 2) contarlos, 3) comparar y mostrar el ganador.</div>
+        </article>
+        <article class="concept">
+          <div class="concept-index">02</div>
+          <h3>Reconocimiento de patrones</h3>
+          <p>Identificar similitudes, repeticiones y regularidades entre diferentes situaciones.</p>
+          <div class="concept-example">Ej.: Cada vez que alguien vota por A o por B, siempre se ejecuta la misma acción: sumar 1 a un contador.</div>
+        </article>
+        <article class="concept">
+          <div class="concept-index">03</div>
+          <h3>Abstracción</h3>
+          <p>Centrarse en la información relevante e ignorar los detalles accesorios o innecesarios.</p>
+          <div class="concept-example">Ej.: No importa el color de ropa de los alumnos, solo su elección concreta ("A" o "B").</div>
+        </article>
+        <article class="concept">
+          <div class="concept-index">04</div>
+          <h3>Algoritmos</h3>
+          <p>Diseñar un conjunto de pasos ordenados, finitos y sin ambigüedades para resolver el problema.</p>
+          <div class="concept-example">Ej.: Inicio → Inicializar contadores → Leer votos → Comparar → Mostrar resultado → Fin.</div>
+        </article>
+        <article class="concept">
+          <div class="concept-index">05</div>
+          <h3>Algoritmo vs. Programa</h3>
+          <p>El algoritmo es la estrategia conceptual; el programa es la traducción a un lenguaje que el computador ejecuta.</p>
+          <div class="concept-example">Un mismo algoritmo puede programarse en Scratch, en Python o en JavaScript.</div>
+        </article>
+        <article class="concept">
+          <div class="concept-index">06</div>
+          <h3>Depuración (Debugging)</h3>
+          <p>El proceso sistemático de buscar, aislar y corregir errores cuando el resultado obtenido difiere del esperado.</p>
+          <div class="concept-example">Ej.: ¿Qué pasa si la votación termina empatada? El algoritmo debe contemplar ese caso.</div>
+        </article>
+      </div>
+
+      <div class="insight">
+        <div class="insight-mark" aria-hidden="true">✦</div>
+        <div>
+          <strong>Una distinción central para el aula</strong>
+          <p>Aprender Ciencias de la Computación no es memorizar la sintaxis de un lenguaje particular, sino desarrollar la capacidad analítica para estructurar ideas lógicas, anticipar comportamientos y resolver problemas con creatividad y rigor ético.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. HISTORIA DE LA COMPUTACIÓN -->
+    <section class="section block" id="historia" aria-labelledby="history-title">
+      <div class="section-lead">
+        <span class="section-number">03 / CONTEXTUALIZAR</span>
+        <h2 id="history-title">Hitos de la programación y diversidad en la ciencia</h2>
+        <p>A lo largo de la historia, las herramientas computacionales evolucionaron para dar respuesta a necesidades humanas. Visibilizar los aportes de mujeres y hombres es fundamental para desmantelar estereotipos de género en la tecnología (ANEP / DUA).</p>
+      </div>
+
+      <ol class="timeline">
+        <li>
+          <time datetime="1843">1843</time>
+          <div>
+            <h3>Ada Lovelace: La primera programadora</h3>
+            <p>Escribió y publicó el primer algoritmo destinado a ser procesado por una máquina (la Máquina Analítica de Charles Babbage). Vio que las computadoras podían manipular no solo números, sino cualquier entidad representada mediante símbolos (como la música o las imágenes).</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="1945">1945–1950</time>
+          <div>
+            <h3>Las pioneras de ENIAC y Grace Hopper</h3>
+            <p>Las seis programadoras de la ENIAC (Kay McNulty, Betty Jennings, Betty Snyder, Marlyn Wescoff, Fran Bilas y Ruth Lichterman) crearon las bases de la programación práctica. Años más tarde, Grace Hopper diseñó el primer compilador y popularizó el término <em>bug</em> y la necesidad de lenguajes comprensibles por personas (origen de COBOL).</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="1970">1970–1980</time>
+          <div>
+            <h3>Seymour Papert y el lenguaje Logo</h3>
+            <p>En el MIT, Papert creó la filosofía del <em>construccionismo</em>: los estudiantes aprenden mejor cuando construyen objetos significativos. Con la tortuga de Logo, introdujo a las infancias en la geometría y la algoritmia manipulable, antecedente directo de la robótica educativa y Scratch.</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="1990">1990–2005</time>
+          <div>
+            <h3>Python, JavaScript y la Web Abierta</h3>
+            <p>Guido van Rossum creó Python con el foco en la legibilidad y simplicidad sintáctica. Brendan Eich creó JavaScript para dotar de vida interactiva a la Web. Ambos se convirtieron en estándares globales de desarrollo y educación.</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2007">2007–Hoy</time>
+          <div>
+            <h3>Scratch, micro:bit e Inteligencia Artificial</h3>
+            <p>El Lifelong Kindergarten del MIT lanzó Scratch, revolucionando la enseñanza mediante bloques visuales encajables. Con la llegada de placas como micro:bit (Ceibal) y herramientas de aprendizaje automático (Teachable Machine), programar hoy abarca desde el software hasta el hardware físico y la IA.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 04. EL CASO CENTRAL: VOTACIÓN DEMOCRÁTICA EN EL AULA -->
+    <section class="section block" id="caso-central" aria-labelledby="case-title">
+      <div class="section-lead">
+        <span class="section-number">04 / ANALIZAR Y MODELAR</span>
+        <h2 id="case-title">El caso central: Sistema de votación democrática en el aula</h2>
+        <p>A partir de una situación cotidiana escolar, modelamos y construimos una solución integral en cuatro tecnologías diferentes: pseudocódigo, Scratch, micro:bit y programación textual.</p>
+      </div>
+
+      <div class="curriculum-callout">
+        <h4>Situación problemática real:</h4>
+        <p>Un docente le da a elegir a su clase entre dos modalidades para realizar una tarea evaluativa: <strong>Opción A: Trabajo Individual</strong> o <strong>Opción B: Trabajo Grupal</strong>. Para ordenar la discusión y garantizar un proceso democrático y transparente, se propone construir un programa informático que registre los votos de cada estudiante y determine cuál es la opción ganadora.</p>
+      </div>
+
+      <!-- Audio de explicación de la actividad de Santiago Hernández -->
+      <div class="audio-card">
+        <div class="audio-header">
+          <div>
+            <span class="audio-badge">AUDIO DE LA ACTIVIDAD</span>
+            <div class="audio-title">Explicación del problema de votación</div>
+            <div class="audio-author">Prof. Esp. Santiago Hernández · Grabación original eXeLearning</div>
+          </div>
+        </div>
+        <audio class="audio-player" controls preload="metadata" src="assets/audio/02-explicacion-actividad.webm">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+        <details class="support">
+          <summary>Ver transcripción y lectura facilitada</summary>
+          <div class="support-body">
+            <p><strong>Resumen facilitado:</strong></p>
+            <ul>
+              <li>Se presenta un problema real en el que hay que elegir una opción entre dos posibles.</li>
+              <li>Se debe hacer una votación entre un grupo de personas.</li>
+              <li>La opción con más votos gana.</li>
+              <li>Se debe crear un programa que realice la votación paso a paso.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="small-heading">Descomposición del problema en 4 fases metodológicas:</h3>
+      <ol class="steps">
+        <li>
+          <strong>Fase 1: Definir las Entradas de datos</strong>
+          <span>¿Cómo interactúa el usuario? Mediante botones en pantalla (Scratch), botones físicos (micro:bit) o teclado en consola (Python).</span>
+        </li>
+        <li>
+          <strong>Fase 2: Definir y crear las Variables</strong>
+          <span>¿Dónde se guarda la información? Creamos variables numéricas enteras (<code>opcionA</code> y <code>opcionB</code>) inicializadas en 0 que actuarán como acumuladores.</span>
+        </li>
+        <li>
+          <strong>Fase 3: Programar las Estructuras de Control</strong>
+          <span>¿Qué lógica se aplica? Eventos de suma (<code>opcionA = opcionA + 1</code>) y una estructura condicional selectiva (<code>SI opcionA &gt; opcionB ENTONCES...</code>).</span>
+        </li>
+        <li>
+          <strong>Fase 4: Probar, depurar y evaluar la solución</strong>
+          <span>¿Qué sucede si empatan? ¿Qué pasa si ingresan una opción no válida? Probar límites, detectar fallas y mejorar el programa de manera incremental.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 05. IMPLEMENTACIÓN 1: PSEUDOCÓDIGO -->
+    <section class="section block" id="pseudocodigo" aria-labelledby="pseudo-title">
+      <div class="section-lead">
+        <span class="section-number">05 / SOLUCIÓN 1</span>
+        <h2 id="pseudo-title">Modelado en pseudocódigo y ejecución algorítmica</h2>
+        <p>El pseudocódigo permite planificar y comprender la estructura lógica de la solución sin preocuparse todavía por la sintaxis estricta de un lenguaje de programación específico.</p>
+      </div>
+
+      <!-- Audio de algoritmo inicial de Santiago Hernández -->
+      <div class="audio-card">
+        <div class="audio-header">
+          <div>
+            <span class="audio-badge">AUDIO DIDÁCTICO</span>
+            <div class="audio-title">Análisis paso a paso del algoritmo inicial</div>
+            <div class="audio-author">Prof. Esp. Santiago Hernández · Grabación original eXeLearning</div>
+          </div>
+        </div>
+        <audio class="audio-player" controls preload="metadata" src="assets/audio/03-algoritmo-inicial.webm">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
+
+      <div class="language-panel">
+        <div class="language-content">
+          <span class="code-caption">ALGORITMO EN PSEUDOCÓDIGO ESTRUCTURADO (PSeInt / Estándar)</span>
+<pre><code>Algoritmo VotacionClase
+   // Paso 1: Definición e inicialización de variables
+   Definir opcionA, opcionB Como Entero
+   Definir voto Como Caracter
+   
+   opcionA &lt;- 0   // Acumulador de votos para Trabajo Individual
+   opcionB &lt;- 0   // Acumulador de votos para Trabajo Grupal
+   
+   // Paso 2: Entrada de datos
+   Escribir "Ingresar voto: digite 'A' para Individual o 'B' para Grupal:"
+   Leer voto
+   
+   // Paso 3: Estructura selectiva para contar el voto
+   Si Mayusculas(voto) = "A" Entonces
+      opcionA &lt;- opcionA + 1
+   Sino
+      Si Mayusculas(voto) = "B" Entonces
+         opcionB &lt;- opcionB + 1
+      Sino
+         Escribir "Voto inválido: no suma puntos."
+      FinSi
+   FinSi
+   
+   // Paso 4: Comparación final para determinar el resultado
+   Si opcionA &gt; opcionB Entonces
+      Escribir "La opción ganadora es la A (Trabajo Individual)"
+   Sino
+      Si opcionB &gt; opcionA Entonces
+         Escribir "La opción ganadora es la B (Trabajo Grupal)"
+      Sino
+         Escribir "¡Empate! Ambas opciones obtuvieron la misma cantidad de votos."
+      FinSi
+   FinSi
+FinAlgoritmo</code></pre>
+        </div>
+      </div>
+
+      <!-- Galería de apoyo visual: Solución Inicial y Ejecución animada -->
+      <div class="gallery-grid">
+        <article class="gallery-item">
+          <img src="assets/media/SolucionInicial.png" alt="Diagrama de solución inicial en pseudocódigo del autor" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Figura 1: Representación algorítmica inicial</strong>
+            <span>Estructura secuencial con declaración de tipos de datos enteros, caracteres y condicional simple.</span>
+          </div>
+        </article>
+        <article class="gallery-item">
+          <img src="assets/media/algoritmo_ejecucion_paso_a_paso_f3.png" alt="Captura de la ejecución animada paso a paso" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Figura 2: Verificación de ejecución paso a paso</strong>
+            <span>Seguimiento de variables en memoria durante la ejecución de las ramas condicionales.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06. IMPLEMENTACIÓN 2: SCRATCH (BLOQUES) -->
+    <section class="section block" id="scratch" aria-labelledby="scratch-title">
+      <div class="section-lead">
+        <span class="section-number">06 / SOLUCIÓN 2</span>
+        <h2 id="scratch-title">Programación visual por bloques con Scratch (7° y 8° EBI)</h2>
+        <p>En Scratch, la votación cobra vida mediante objetos interactivos (sprites) en el escenario: dos botones para votar y un botón central para calcular el resultado final.</p>
+      </div>
+
+      <!-- Audio de Scratch de Santiago Hernández -->
+      <div class="audio-card">
+        <div class="audio-header">
+          <div>
+            <span class="audio-badge">AUDIO DIDÁCTICO</span>
+            <div class="audio-title">Programación de los objetos y variables en Scratch</div>
+            <div class="audio-author">Prof. Esp. Santiago Hernández · Grabación original eXeLearning</div>
+          </div>
+        </div>
+        <audio class="audio-player" controls preload="metadata" src="assets/audio/04-programa-scratch.webm">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item">
+          <img src="assets/media/scratch_01_establecer_objetos_f3.png" alt="Paso 1: Establecer y dibujar los objetos botón A, botón B y botón resultado en Scratch" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 1: Establecer los objetos en el escenario</strong>
+            <span>Se crean tres objetos visuales: Botón A (Opción Individual), Botón B (Opción Grupal) y Botón Resultado (Calcular Ganador).</span>
+          </div>
+        </article>
+        <article class="gallery-item">
+          <img src="assets/media/scratch_02_definir_variables_f3.png" alt="Paso 2: Creación de variables opcionA y opcionB en el panel de variables de Scratch" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 2: Definir las variables en el panel</strong>
+            <span>Se crean dos variables de alcance global: <code>opcionA</code> y <code>opcionB</code>, marcadas para ser visibles en pantalla durante la votación.</span>
+          </div>
+        </article>
+        <article class="gallery-item">
+          <img src="assets/media/scratch_03_programar_objetos_f3.png" alt="Paso 3: Programación de bloques al presionar cada objeto y botón resultado" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 3: Programar eventos y condiciones</strong>
+            <span>Cada botón suma 1 a su respectiva variable al hacer clic. El botón de resultado evalúa la condición de mayor y hace que el personaje anuncie al ganador.</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="language-panel">
+        <div class="language-content">
+          <span class="code-caption">ESTRUCTURA DE BLOQUES EQUIVALENTE EN SCRATCH</span>
+          <div class="scratch-blocks">
+            <div class="scratch-block sb-event">al presionar bandera verde</div>
+            <div class="scratch-block sb-data">fijar [opcionA v] a [0]</div>
+            <div class="scratch-block sb-data">fijar [opcionB v] a [0]</div>
+            <div style="height: 10px;"></div>
+            <div class="scratch-block sb-event">al hacer clic en este objeto (Botón Opción A)</div>
+            <div class="scratch-block sb-data">cambiar [opcionA v] por (1)</div>
+            <div class="scratch-block sb-looks">decir [¡Voto registrado para Opción A!] por (1) segundos</div>
+            <div style="height: 10px;"></div>
+            <div class="scratch-block sb-event">al hacer clic en este objeto (Botón Resultado)</div>
+            <div class="scratch-block sb-control">si &lt;(opcionA) &gt; (opcionB)&gt; entonces</div>
+            <div class="scratch-block sb-looks" style="margin-left:20px;">decir [¡Opción A es la ganadora!] por (3) segundos</div>
+            <div class="scratch-block sb-control">si no</div>
+            <div class="scratch-block sb-control" style="margin-left:20px;">si &lt;(opcionB) &gt; (opcionA)&gt; entonces</div>
+            <div class="scratch-block sb-looks" style="margin-left:40px;">decir [¡Opción B es la ganadora!] por (3) segundos</div>
+            <div class="scratch-block sb-control" style="margin-left:20px;">si no</div>
+            <div class="scratch-block sb-looks" style="margin-left:40px;">decir [¡Empate exacto! Reintentar votación] por (3) segundos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. IMPLEMENTACIÓN 3: MAKECODE / MICRO:BIT (COMPUTACIÓN FÍSICA) -->
+    <section class="section block" id="makecode" aria-labelledby="makecode-title">
+      <div class="section-lead">
+        <span class="section-number">07 / SOLUCIÓN 3</span>
+        <h2 id="makecode-title">Robótica educativa y computación física con micro:bit</h2>
+        <p>Aplicar el pensamiento computacional al mundo tangible permite experimentar la interacción entre el código y los sensores físicos de la placa micro:bit de Ceibal (Valverde et al., 2015).</p>
+      </div>
+
+      <!-- Audio de MakeCode de Santiago Hernández -->
+      <div class="audio-card">
+        <div class="audio-header">
+          <div>
+            <span class="audio-badge">AUDIO DIDÁCTICO</span>
+            <div class="audio-title">Programación física con la placa micro:bit en MakeCode</div>
+            <div class="audio-author">Prof. Esp. Santiago Hernández · Grabación original eXeLearning</div>
+          </div>
+        </div>
+        <audio class="audio-player" controls preload="metadata" src="assets/audio/05-programa-makecode.webm">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item">
+          <img src="assets/media/makecode_01_definir_entradas_f3.png" alt="Paso 1: Configurar eventos de botones A y B en MakeCode" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 1: Entradas físicas tangibles</strong>
+            <span>Se utilizan los botones físicos A y B de la placa micro:bit para capturar la entrada directa de cada estudiante.</span>
+          </div>
+        </article>
+        <article class="gallery-item">
+          <img src="assets/media/makecode_02_entradas_microbit_f3.png" alt="Paso 2: Inicializar variables y sumar votos en MakeCode" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 2: Variables y acumulación</strong>
+            <span>Al pulsar el botón A se incrementa la variable <code>opcionA</code>; al pulsar el botón B se incrementa <code>opcionB</code>.</span>
+          </div>
+        </article>
+        <article class="gallery-item">
+          <img src="assets/media/makecode_03_resultado_ab_f3.png" alt="Paso 3: Botón A+B y despliegue del resultado en la matriz de LEDs" loading="lazy">
+          <div class="gallery-caption">
+            <strong>Paso 3: Botón combinado A+B y matriz LED</strong>
+            <span>Al presionar simultáneamente A+B se compara cuál tiene más votos y la pantalla de 25 LEDs despliega la letra ganadora.</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Matriz LED simulada de micro:bit -->
+      <div class="microbit-visual" aria-label="Simulación gráfica de la pantalla de 25 LEDs de la placa micro:bit">
+        <div style="font-size:0.75rem; letter-spacing:0.1em; color:#a1a1aa; font-weight:800;">SIMULADOR MATRIZ LED MICRO:BIT (5x5)</div>
+        <div class="led-matrix" role="img" aria-label="Matriz de 5 por 5 diodos emisores de luz">
+          <div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div>
+          <div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div>
+          <div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel on"></div><div class="led-pixel"></div><div class="led-pixel"></div>
+          <div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div>
+          <div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div><div class="led-pixel"></div>
+        </div>
+        <div style="font-size:0.78rem; color:#d4d4d8;">Al pulsar "Calcular Ganador" en el simulador inferior, la matriz dibujará la letra de la opción vencedora.</div>
+      </div>
+    </section>
+
+    <!-- 08. IMPLEMENTACIÓN 4: PROGRAMACIÓN TEXTUAL (PYTHON, JAVASCRIPT Y WEB) -->
+    <section class="section block" id="textual" aria-labelledby="textual-title">
+      <div class="section-lead">
+        <span class="section-number">08 / SOLUCIÓN 4</span>
+        <h2 id="textual-title">Transición a programación textual (8° y 9° EBI)</h2>
+        <p>El programa de 8° y 9° EBI promueve la transición desde lenguajes de bloques hacia lenguajes textuales (Python y JavaScript), comprendiendo estructuras equivalentes, funciones modulares y desarrollo web accesible.</p>
+      </div>
+
+      <!-- Video 1: Consola -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video controls preload="metadata" poster="assets/media/consola_poster.png">
+            <source src="assets/media/consola.mp4" type="video/mp4">
+            Tu navegador no admite reproducción de video MP4.
+          </video>
+        </div>
+        <div class="video-info">
+          <div>
+            <h4>Demostración en video 1: Ejecución en consola textual</h4>
+            <p>Grabación técnica del Prof. Santiago Hernández mostrando la interacción por terminal, entrada de datos y depuración paso a paso.</p>
+          </div>
+          <span class="badge" style="background:#3b82f6;color:#fff;padding:4px 10px;border-radius:4px;">MP4 · 2.0 MB</span>
+        </div>
+      </div>
+
+      <!-- Video 2: Vista Web -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video controls preload="metadata" poster="assets/media/vista1_poster.png">
+            <source src="assets/media/vista1.mp4" type="video/mp4">
+            Tu navegador no admite reproducción de video MP4.
+          </video>
+        </div>
+        <div class="video-info">
+          <div>
+            <h4>Demostración en video 2: Integración web y manipulación del DOM</h4>
+            <p>Demostración práctica de cómo el mismo algoritmo se conecta a una interfaz web interactiva con HTML, CSS y eventos en JavaScript.</p>
+          </div>
+          <span class="badge" style="background:#10b981;color:#fff;padding:4px 10px;border-radius:4px;">MP4 · 1.9 MB</span>
+        </div>
+      </div>
+
+      <!-- Comparador de código textual: Python vs JavaScript -->
+      <div class="language-panel">
+        <div class="tabbar" role="tablist" aria-label="Comparación sintáctica Python y JavaScript">
+          <button id="tab-py" type="button" role="tab" aria-selected="true" tabindex="0" data-lang="py">Python (Consola y Script)</button>
+          <button id="tab-js-code" type="button" role="tab" aria-selected="false" tabindex="-1" data-lang="js-code">JavaScript (Web y DOM)</button>
+        </div>
+
+        <div id="panel-py" class="language-content" role="tabpanel" aria-labelledby="tab-py">
+          <span class="code-caption">IMPLEMENTACIÓN MODULAR EN PYTHON 3</span>
+<pre><code># Módulo de Votación Democrática en Python (8° y 9° EBI)
+
+def registrar_votacion(alumnos_totales=25):
+    votos_a = 0
+    votos_b = 0
+    
+    print(f"--- INICIO DE VOTACIÓN ({alumnos_totales} estudiantes) ---")
+    
+    for i in range(1, alumnos_totales + 1):
+        voto = input(f"Estudiante #{i}: ¿Vota por A (Individual) o B (Grupal)? ").strip().upper()
+        
+        if voto == "A":
+            votos_a += 1
+        elif voto == "B":
+            votos_b += 1
+        else:
+            print("Entrada no válida; voto registrado como en blanco.")
+            
+    return votos_a, votos_b
+
+def determinar_ganador(a, b):
+    print("\n--- RESULTADO FINAL ---")
+    print(f"Votos Opción A (Individual): {a}")
+    print(f"Votos Opción B (Grupal): {b}")
+    
+    if a > b:
+        return "¡Ganó la Opción A! Se trabajará de forma Individual."
+    elif b > a:
+        return "¡Ganó la Opción B! Se trabajará de forma Grupal."
+    else:
+        return "¡Empate exacto! Se requiere una ronda de desempate."
+
+# Ejecución principal
+if __name__ == "__main__":
+    v_a, v_b = registrar_votacion(alumnos_totales=5)
+    resultado = determinar_ganador(v_a, v_b)
+    print(resultado)</code></pre>
+        </div>
+
+        <div id="panel-js-code" class="language-content" role="tabpanel" aria-labelledby="tab-js-code" hidden>
+          <span class="code-caption">IMPLEMENTACIÓN INTERACTIVA EN JAVASCRIPT (DOM)</span>
+<pre><code>// Módulo de Votación en JavaScript para Entornos Web (9° EBI)
+
+const estadoVotacion = {
+  votosA: 0,
+  votosB: 0,
+  historial: []
+};
+
+// Función modular con parámetros
+function votar(opcion) {
+  if (opcion === 'A') {
+    estadoVotacion.votosA++;
+  } else if (opcion === 'B') {
+    estadoVotacion.votosB++;
+  }
+  
+  estadoVotacion.historial.push({
+    opcion: opcion,
+    fecha: new Date().toISOString()
+  });
+  
+  actualizarPantalla();
+}
+
+function calcularGanador(a, b) {
+  if (a > b) return { ganador: 'A', mensaje: 'Gana Trabajo Individual' };
+  if (b > a) return { ganador: 'B', mensaje: 'Gana Trabajo Grupal' };
+  return { ganador: 'EMPATE', mensaje: 'Empate exacto de votos' };
+}
+
+// Conexión con eventos del DOM
+document.getElementById('btn-votar-a').addEventListener('click', () => votar('A'));
+document.getElementById('btn-votar-b').addEventListener('click', () => votar('B'));
+document.getElementById('btn-resultado').addEventListener('click', () => {
+  const res = calcularGanador(estadoVotacion.votosA, estadoVotacion.votosB);
+  alert(`Resultado: ${res.mensaje}`);
+});</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09. SIMULADOR INTERACTIVO CENTRAL EN VIVO -->
+    <section class="section block" id="simulador" aria-labelledby="sim-title">
+      <div class="section-lead">
+        <span class="section-number">09 / EXPERIMENTAR</span>
+        <h2 id="sim-title">Laboratorio interactivo: Simulador de la máquina de votación</h2>
+        <p>Probá en vivo cómo cambian las variables en memoria, cómo se evalúan las condiciones y cómo responde cada nivel educativo del programa de Ciencias de la Computación.</p>
+      </div>
+
+      <div class="simulator-box">
+        <div class="simulator-header">
+          <div>
+            <h3 style="margin:0 0 4px;font-size:1.25rem;">Consola de votación escolar interactiva</h3>
+            <span style="font-size:0.82rem;color:var(--muted);">Simulación en tiempo real con inspector de memoria y sincronización de código</span>
+          </div>
+          <div class="mode-selector" role="group" aria-label="Nivel curricular del simulador">
+            <button type="button" class="mode-btn active" data-mode="7">7° EBI (Básico)</button>
+            <button type="button" class="mode-btn" data-mode="8">8° EBI (Desempate/Bucle)</button>
+            <button type="button" class="mode-btn" data-mode="9">9° EBI (Modular/Datos)</button>
+          </div>
+        </div>
+
+        <!-- Información de modo -->
+        <p id="mode-info-7" class="curriculum-callout" style="margin-top:0;">
+          <strong>Nivel 7° EBI:</strong> Estructura selectiva básica <code>si-sino</code> simple. Cada clic incrementa el acumulador.
+        </p>
+        <p id="mode-info-8" class="curriculum-callout" style="margin-top:0;" hidden>
+          <strong>Nivel 8° EBI:</strong> Estructura anidada con detección inteligente de empate y tope de alumnos de la clase.
+        </p>
+        <p id="mode-info-9" class="curriculum-callout" style="margin-top:0;" hidden>
+          <strong>Nivel 9° EBI:</strong> Llamada modular a función de orden superior <code>calcularGanador(a, b)</code> con registro de datos estructurados.
+        </p>
+
+        <!-- Tarjetas de votación -->
+        <div class="sim-grid">
+          <div class="vote-card" id="card-vote-a">
+            <span class="badge" style="background:var(--blue-light);color:var(--blue);padding:3px 8px;border-radius:4px;">OPCIÓN A</span>
+            <h4>Trabajo Individual</h4>
+            <div class="vote-count" id="sim-count-a">0</div>
+            <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px;">Variable en memoria: <code>opcionA</code></p>
+            <button type="button" class="btn-vote btn-vote-a" id="btn-vote-a">
+              <span aria-hidden="true">+1</span> Votar Opción A
+            </button>
+          </div>
+
+          <div class="vote-card" id="card-vote-b">
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);padding:3px 8px;border-radius:4px;">OPCIÓN B</span>
+            <h4>Trabajo Grupal</h4>
+            <div class="vote-count" id="sim-count-b">0</div>
+            <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px;">Variable en memoria: <code>opcionB</code></p>
+            <button type="button" class="btn-vote btn-vote-b" id="btn-vote-b">
+              <span aria-hidden="true">+1</span> Votar Opción B
+            </button>
+          </div>
+        </div>
+
+        <!-- Controles centrales -->
+        <div class="sim-controls">
+          <button type="button" class="btn-result" id="btn-result">
+            <span aria-hidden="true">⚖️</span> Calcular Ganador (A+B)
+          </button>
+          <button type="button" class="btn-reset" id="btn-reset-sim">
+            <span aria-hidden="true">↺</span> Reiniciar Votación
+          </button>
+        </div>
+
+        <!-- Banner de resultado -->
+        <div id="sim-output-banner" class="sim-output-banner" role="status" aria-live="polite"></div>
+
+        <!-- Inspector de variables en vivo -->
+        <div class="sim-inspector">
+          <div class="inspector-title">INSPECTOR DE VARIABLES EN MEMORIA (DEBUGGER EN VIVO)</div>
+          <div class="inspector-grid">
+            <div class="inspector-stat">
+              <small>votosA (entero)</small>
+              <strong id="sim-count-a-stat">0</strong>
+            </div>
+            <div class="inspector-stat">
+              <small>votosB (entero)</small>
+              <strong id="sim-count-b-stat">0</strong>
+            </div>
+            <div class="inspector-stat">
+              <small>totalVotos (A + B)</small>
+              <strong id="sim-total">0</strong>
+            </div>
+            <div class="inspector-stat">
+              <small>últimoVotoRegistrado</small>
+              <strong id="sim-last-vote">Ninguno</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Código reactivo sincronizado -->
+        <div class="sim-code-sync">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.75rem;color:#94a3b8;font-weight:750;">
+            <span>LÍNEA EN EJECUCIÓN (TRACE LÓGICO)</span>
+            <span>PSEUDOCÓDIGO REACTIVO</span>
+          </div>
+          <pre><code><span id="sync-line-init" class="code-line active">// 1. Inicialización en memoria: opcionA = 0; opcionB = 0;</span>
+<span id="sync-line-add-a" class="code-line">// 2. Al pulsar A: opcionA &lt;- opcionA + 1</span>
+<span id="sync-line-add-b" class="code-line">// 3. Al pulsar B: opcionB &lt;- opcionB + 1</span>
+<span id="sync-line-eval" class="code-line">// 4. Evaluación: SI opcionA &gt; opcionB ENTONCES gana A SINO SI opcionB &gt; opcionA ENTONCES gana B SINO Empate</span></code></pre>
+        </div>
+      </div>
+
+      <!-- Laboratorio secundario: Temperatura y condicionales -->
+      <div class="section-lead" style="margin-top:40px;">
+        <span class="section-number">EXPERIMENTO COMPLEMENTARIO</span>
+        <h3>Laboratorio de decisión condicional: temperatura y reglas</h3>
+        <p>Deslizá la temperatura y observá cómo la computadora bifurca el flujo de ejecución evaluando una expresión lógica booleana.</p>
+      </div>
+      <div class="lab-grid">
+        <div class="lab-controls">
+          <div class="lab-chip">SIMULADOR REACTIVO</div>
+          <label for="temp-range" class="range-title">
+            Temperatura del día
+            <output id="temp-value" for="temp-range">25 °C</output>
+          </label>
+          <input type="range" min="0" max="40" step="1" id="temp-range" value="25">
+          <div class="range-end"><span>0 °C</span><span>40 °C</span></div>
+          <div class="rule">
+            <span>REGLA LÓGICA BOOLEANA</span>
+            <strong>SI temperatura &gt;= 30 ENTONCES hidratación extra SINO hidratación habitual.</strong>
+          </div>
+          <div class="lab-result" id="lab-result" role="status" aria-live="polite">
+            <span>RESULTADO DE LA CONDICIÓN</span>
+            <strong id="lab-message">Hidratate normalmente durante el día.</strong>
+            <p id="lab-explain">25 es menor que 30: no se cumple la condición, se ejecuta la alternativa "sino".</p>
+          </div>
+        </div>
+        <div class="lab-code">
+          <div class="code-top">
+            <span>ALGORITMO CONDICIONAL</span>
+            <span aria-hidden="true">● ● ●</span>
+          </div>
+          <pre><code>LEER temperatura
+
+<span id="line-if" class="code-row active">SI temperatura &gt;= 30 ENTONCES</span>
+<span id="line-hot" class="code-row">   MOSTRAR "Llevá agua extra y protector"</span>
+SINO
+<span id="line-cold" class="code-row active">   MOSTRAR "Hidratate normalmente"</span>
+FIN SI</code></pre>
+          <p class="lab-code-foot" style="margin:0;font-size:0.78rem;color:#94a3b8;">El resaltado verde indica qué rama del árbol de decisiones está activa según la entrada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PROFUNDIZACIÓN Y CONCEPTOS AVANZADOS (7°, 8° Y 9° EBI) -->
+    <section class="section block" id="profundizacion" aria-labelledby="advanced-title">
+      <div class="section-lead">
+        <span class="section-number">10 / PROFUNDIZAR</span>
+        <h2 id="advanced-title">Conceptos avanzados y articulación curricular (7°, 8° y 9° EBI)</h2>
+        <p>A medida que los estudiantes avanzan de grado, los problemas requieren mayor estructura: anidación de condicionales, bucles repetitivos, modularización mediante funciones, bases de datos y reflexión sobre IA y ciudadanía digital.</p>
+      </div>
+
+      <div class="preview-list">
+        <details open>
+          <summary>Estructuras de control anidadas e iterativas (8° EBI)</summary>
+          <div class="preview-body">
+            <p><strong>El problema del empate:</strong> Un condicional simple <code>SI-SINO</code> solo contempla dos caminos. Si los votos son iguales (ej.: 10 a 10), el programa diría erróneamente que ganó la opción B. Para solucionarlo, se requiere un <strong>condicional anidado</strong>:</p>
+<pre><code>SI votosA &gt; votosB ENTONCES
+   MOSTRAR "Ganó Opción A"
+SINO
+   SI votosB &gt; votosA ENTONCES
+      MOSTRAR "Ganó Opción B"
+   SINO
+      MOSTRAR "¡Empate exacto!"
+   FIN SI
+FIN SI</code></pre>
+            <p><strong>Bucles repetitivos:</strong> En vez de copiar el código 25 veces para 25 alumnos, usamos un bucle <code>PARA i = 1 HASTA 25 HACER</code> o un bucle <code>MIENTRAS no_termino HACER</code>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Modularidad y funciones con parámetros y retorno (9° EBI)</summary>
+          <div class="preview-body">
+            <p>Una <strong>función</strong> es un bloque de código reutilizable con un nombre descriptivo. Puede recibir datos de entrada (<em>parámetros</em>) y producir un dato de salida (<em>retorno</em>).</p>
+<pre><code>// Definición modular
+function calcularGanador(votosA, votosB) {
+  if (votosA &gt; votosB) return "A";
+  if (votosB &gt; votosA) return "B";
+  return "EMPATE";
+}
+
+// Invocación limpia
+let resultado = calcularGanador(14, 11);
+console.log("El ganador es: " + resultado); // "El ganador es: A"</code></pre>
+            <p><strong>Ventajas pedagógicas:</strong> Facilita la división de tareas en equipo (desarrollo colaborativo), simplifica la depuración y evita duplicar código.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Testing y depuración sistemática de errores (8° y 9° EBI)</summary>
+          <div class="preview-body">
+            <p>Probar software no es solo hacer clic al azar; implica diseñar <strong>casos de prueba</strong> que desafíen los límites del sistema:</p>
+            <ul>
+              <li><strong>Errores de sintaxis:</strong> La computadora no comprende la instrucción (ej.: olvidar cerrar un paréntesis o comilla).</li>
+              <li><strong>Errores en tiempo de ejecución (runtime):</strong> El programa falla mientras corre (ej.: dividir entre cero).</li>
+              <li><strong>Errores lógicos (semánticos):</strong> El programa corre sin caerse, pero da un resultado incorrecto (ej.: usar <code>&gt;</code> en vez de <code>&gt;=</code>, o no contemplar el empate).</li>
+            </ul>
+            <p><strong>Pruebas de frontera:</strong> Probar con 0 votos, con 1 voto de diferencia, con empate y con valores inesperados (como letras en campos numéricos).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Bases de datos y persistencia de información (8° y 9° EBI)</summary>
+          <div class="preview-body">
+            <p>En el simulador, al recargar la página los votos vuelven a 0 porque están en la memoria volátil (RAM). Para que un sistema sea útil en el mundo real, los datos deben guardarse en una <strong>base de datos</strong>:</p>
+            <ul>
+              <li><strong>Tablas y Registros:</strong> Cada fila representa un voto individual emitido.</li>
+              <li><strong>Campos:</strong> <code>id_voto</code> (entero único), <code>opcion</code> (caracter), <code>marca_tiempo</code> (fecha/hora).</li>
+              <li><strong>Validación de entrada:</strong> Comprobar que nadie vote dos veces y que el dato sea exactamente "A" o "B", garantizando la integridad de la información.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Inteligencia Artificial vs. Programación Tradicional (7°, 8° y 9° EBI)</summary>
+          <div class="preview-body">
+            <p><strong>¿Cómo se diferencia un algoritmo tradicional de un modelo de IA?</strong></p>
+            <ul>
+              <li><strong>Programación tradicional:</strong> La persona programa <em>reglas explícitas</em> + datos $\rightarrow$ la computadora produce <em>respuestas</em> (ej.: nuestra regla <code>si votosA &gt; votosB</code>).</li>
+              <li><strong>Machine Learning (IA):</strong> La computadora recibe <em>datos de ejemplo</em> + <em>respuestas conocidas</em> $\rightarrow$ y aprende por sí misma a reconocer <em>patrones</em>.</li>
+            </ul>
+            <p><strong>Sesgos algorítmicos y ética:</strong> Si un modelo de IA se entrena con datos históricos sesgados o incompletos, reproducirá y amplificará injusticias. Por ello, en Ciencias de la Computación se fomenta una mirada crítica sobre la procedencia de los datos y el rol ético de quien crea tecnología (UNESCO, 2021).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Ciudadanía digital, ciberseguridad y sustentabilidad ambiental (ANEP / AGESIC)</summary>
+          <div class="preview-body">
+            <p>En concordancia con las pautas de AGESIC y la Ley 18.331 de Uruguay:</p>
+            <ul>
+              <li><strong>Privacidad y Huella Digital:</strong> Conocer qué permisos otorgamos a las aplicaciones y cómo protegemos nuestra información sensible.</li>
+              <li><strong>Ciberseguridad:</strong> Identificación de ataques comunes (phishing, ransomware, suplantación de identidad) y buenas prácticas en gestión de credenciales seguras y autenticación de dos factores.</li>
+              <li><strong>Sustentabilidad y Obsolescencia:</strong> Comprender el ciclo de vida del hardware, la obsolescencia programada y la importancia de la reparación, reutilización y gestión adecuada de la basura electrónica (e-waste).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 11. EVALUACIÓN FORMATIVA AUTOCORREGIDA (INTEGRACIÓN CREA) -->
+    <section class="section block" id="evaluacion" aria-labelledby="quiz-title">
+      <div class="section-lead">
+        <span class="section-number">11 / COMPROBAR</span>
+        <h2 id="quiz-title">Comprobá lo aprendido: Evaluación formativa interactiva</h2>
+        <p>Seis preguntas estratégicas que abarcan desde los conceptos iniciales hasta la lógica de desempate, modularidad y ciudadanía digital. Podés reintentar sin penalización; el objetivo es afianzar tu comprensión metacognitiva.</p>
+      </div>
+
+      <form id="quiz-form" novalidate>
+        <!-- Pregunta 1 -->
+        <fieldset class="question" data-question="q1">
+          <legend><span class="question-index">01</span> ¿Cuál es la diferencia fundamental entre un algoritmo y un programa?</legend>
+          <label><input type="radio" name="q1" value="a"><span>El algoritmo es la estrategia lógica de pasos para resolver el problema; el programa es la expresión ejecutable en un lenguaje concreto.</span></label>
+          <label><input type="radio" name="q1" value="b"><span>Un algoritmo solo puede programarse en bloques visuales; los programas solo en texto.</span></label>
+          <label><input type="radio" name="q1" value="c"><span>No hay ninguna diferencia; son exactamente la misma palabra en distintos idiomas.</span></label>
+          <p class="feedback" id="feedback-q1" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <!-- Pregunta 2 -->
+        <fieldset class="question" data-question="q2">
+          <legend><span class="question-index">02</span> ¿Por qué Ada Lovelace es reconocida históricamente en las Ciencias de la Computación?</legend>
+          <label><input type="radio" name="q2" value="a"><span>Porque inventó el primer ratón y teclado para computadoras personales en 1980.</span></label>
+          <label><input type="radio" name="q2" value="b"><span>Porque en 1843 publicó el primer algoritmo concebido para ser ejecutado por una máquina de cálculo programable.</span></label>
+          <label><input type="radio" name="q2" value="c"><span>Porque fundó las primeras empresas de redes sociales en Internet.</span></label>
+          <p class="feedback" id="feedback-q2" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <!-- Pregunta 3 -->
+        <fieldset class="question" data-question="q3">
+          <legend><span class="question-index">03</span> En la instrucción <code>opcionA = opcionA + 1</code>, ¿qué acción computacional se está realizando?</legend>
+          <label><input type="radio" name="q3" value="a"><span>Una ecuación matemática donde la variable siempre vale cero.</span></label>
+          <label><input type="radio" name="q3" value="b"><span>Una reasignación donde la variable actúa como acumulador o contador, sumando 1 a su valor previo.</span></label>
+          <label><input type="radio" name="q3" value="c"><span>Una comparación lógica booleana para saber si son iguales.</span></label>
+          <p class="feedback" id="feedback-q3" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <!-- Pregunta 4 -->
+        <fieldset class="question" data-question="q4">
+          <legend><span class="question-index">04</span> Si una votación escolar termina con igual cantidad de votos para A y para B, ¿qué estructura se necesita para detectarlo correctamente?</legend>
+          <label><input type="radio" name="q4" value="a"><span>Un condicional anidado (si a &gt; b ... sino si b &gt; a ... sino empate).</span></label>
+          <label><input type="radio" name="q4" value="b"><span>Un condicional simple (si-sino) porque siempre una opción debe ganar obligatoriamente.</span></label>
+          <label><input type="radio" name="q4" value="c"><span>Ninguna estructura; las computadoras detectan los empates sin necesidad de programarlos.</span></label>
+          <p class="feedback" id="feedback-q4" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <!-- Pregunta 5 -->
+        <fieldset class="question" data-question="q5">
+          <legend><span class="question-index">05</span> ¿Qué ventaja principal ofrece modularizar un programa en funciones independientes?</legend>
+          <label><input type="radio" name="q5" value="a"><span>Hace que el programa sea más largo y difícil de leer para que nadie lo copie.</span></label>
+          <label><input type="radio" name="q5" value="b"><span>Elimina la necesidad de probar y buscar errores en el software.</span></label>
+          <label><input type="radio" name="q5" value="c"><span>Permite reutilizar código, simplificar las pruebas unitarias y organizar responsabilidades claras.</span></label>
+          <p class="feedback" id="feedback-q5" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <!-- Pregunta 6 -->
+        <fieldset class="question" data-question="q6">
+          <legend><span class="question-index">06</span> Desde la perspectiva de Ciudadanía Digital (AGESIC / ANEP), ¿por qué las Ciencias de la Computación no son neutras?</legend>
+          <label><input type="radio" name="q6" value="a"><span>Porque conllevan decisiones éticas sobre la privacidad de las personas, sesgos en los datos de IA y sostenibilidad del planeta.</span></label>
+          <label><input type="radio" name="q6" value="b"><span>Porque los lenguajes de programación solo funcionan en determinados países.</span></label>
+          <label><input type="radio" name="q6" value="c"><span>Porque la tecnología sustituye por completo la capacidad de pensamiento de las personas.</span></label>
+          <p class="feedback" id="feedback-q6" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <div class="quiz-actions">
+          <button class="button primary" type="submit">Corregir respuestas</button>
+          <button class="button ghost" type="button" id="reset-quiz">Volver a intentarlo</button>
+        </div>
+
+        <div class="quiz-summary" id="quiz-summary" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      </form>
+    </section>
+
+    <!-- 12. EXPORTACIÓN SCORM PARA CREA Y PUBLICACIÓN EN GITHUB -->
+    <section class="section block" id="exportacion" aria-labelledby="export-title">
+      <div class="section-lead">
+        <span class="section-number">12 / DESPLIEGUE Y EXPORTACIÓN</span>
+        <h2 id="export-title">Exportación SCORM 1.2 para CREA y despliegue en GitHub Pages</h2>
+        <p>Este recurso está diseñado para funcionar en la web abierta y también como un paquete SCORM 1.2 autocontenido listo para ser integrado en la plataforma CREA (Schoology de Ceibal).</p>
+      </div>
+
+      <div class="export-card">
+        <h3>Descargar el paquete SCORM 1.2 para CREA</h3>
+        <p>Al presionar el botón inferior se genera un archivo ZIP que contiene el manifiesto normativo <code>imsmanifest.xml</code>, los estilos, videos MP4, audios DUA y scripts de comunicación con la libreta de calificaciones de CREA.</p>
+        
+        <div style="margin:20px 0;">
+          <button type="button" class="button primary" id="btn-download-scorm" style="font-size:1.05rem;padding:14px 28px;">
+            <span aria-hidden="true">⬇</span> Descargar paquete SCORM 1.2 (.zip)
+          </button>
+          <a class="button ghost" href="scorm-modulo-programacion.zip" download style="margin-left:8px;">
+            Descarga directa de respaldo (.zip)
+          </a>
+        </div>
+
+        <div class="export-steps">
+          <div class="export-step">
+            <span>1</span>
+            <strong>Descargar el ZIP</strong>
+            <p>Hacé clic en el botón de descarga para obtener el paquete comprimido SCORM 1.2 en tu computadora.</p>
+          </div>
+          <div class="export-step">
+            <span>2</span>
+            <strong>Subir a CREA</strong>
+            <p>En tu curso de CREA (Ceibal), seleccioná <em>Agregar Contenido</em> → <em>Agregar archivo / enlace / herramienta externa</em> → <em>Paquete SCORM</em>.</p>
+          </div>
+          <div class="export-step">
+            <span>3</span>
+            <strong>Calificación automática</strong>
+            <p>CREA reconocerá el estándar SCORM 1.2; el cuestionario formativo registrará el avance y calificación en la libreta docente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="support" style="margin-top:24px;">
+        <summary>Guía rápida: Cómo publicar este recurso en GitHub Pages</summary>
+        <div class="support-body">
+          <ol style="padding-left:20px;line-height:1.8;">
+            <li>Creá un nuevo repositorio en tu cuenta de <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> (por ejemplo: <code>modulo-programacion-edytic</code>).</li>
+            <li>Subí todos los archivos de esta carpeta (incluyendo <code>index.html</code>, la carpeta <code>assets/</code> y el archivo <code>.nojekyll</code>).</li>
+            <li>En tu repositorio en GitHub, entrá a <strong>Settings</strong> → <strong>Pages</strong>.</li>
+            <li>En <em>Branch</em>, seleccioná <strong>main</strong> (o <strong>master</strong>) y la carpeta <strong>/ (root)</strong>, luego hacé clic en <strong>Save</strong>.</li>
+            <li>¡Listo! En pocos segundos tu recurso estará publicado en una URL pública (ejemplo: <code>https://tu-usuario.github.io/modulo-programacion-edytic/</code>) accesible para todos tus estudiantes.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. AUTORÍA, DUA Y LICENCIA -->
+    <section class="section block" id="creditos" aria-labelledby="credits-title">
+      <div class="section-lead">
+        <span class="section-number">13 / AUTORÍA Y MARCO</span>
+        <h2 id="credits-title">Autoría, Diseño Universal para el Aprendizaje y Licencia</h2>
+      </div>
+
+      <div class="preview-list">
+        <details open>
+          <summary>Autoría y contexto institucional</summary>
+          <div class="preview-body">
+            <p><strong>Autor del recurso:</strong> Prof. Esp. Santiago Hernández.</p>
+            <p><strong>Espacio de desarrollo:</strong> EDyTIC · Recursos educativos abiertos para Ciencias de la Computación.</p>
+            <p><strong>Marco curricular:</strong> Programas de Ciencias de la Computación de 7°, 8° y 9° Educación Básica Integrada (EBI) - ANEP / DGES / Ceibal (Uruguay).</p>
+          </div>
+        </details>
+
+        <details open>
+          <summary>Principios del Diseño Universal para el Aprendizaje (DUA - CAST 2024)</summary>
+          <div class="preview-body">
+            <ul>
+              <li><strong>Múltiples formas de representación:</strong> Información en texto, pseudocódigo, diagramas visuales, audios grabados por el autor, videos explicativos y simuladores interactivos.</li>
+              <li><strong>Múltiples formas de acción y expresión:</strong> Posibilidad de experimentar con controles táctiles o de teclado, verificar hipótesis en tiempo real y responder preguntas con retroalimentación inmediata.</li>
+              <li><strong>Múltiples formas de implicación:</strong> Aprendizaje situado en una problemática democrática real del aula, desafíos opcionales y autonomía sin penalización por error.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details open>
+          <summary>Declaratoria de uso ético de Inteligencia Artificial</summary>
+          <div class="preview-body">
+            <p>Este recurso fue desarrollado por el autor integrando herramientas de inteligencia artificial como asistentes técnicos para tareas de prototipado web, formateo accesible, optimización de medios y empaquetado SCORM. Las decisiones pedagógicas, la fundamentación didáctica, la selección de contenidos, los audios, videos y la alineación curricular con los programas de ANEP son de autoría y validación del Prof. Esp. Santiago Hernández.</p>
+          </div>
+        </details>
+
+        <details open>
+          <summary>Licencia de distribución libre Creative Commons</summary>
+          <div class="preview-body">
+            <p>Este recurso se distribuye bajo una licencia <strong>Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</strong>.</p>
+            <p>Se permite compartir, copiar, distribuir y adaptar la obra siempre que se cite la autoría original, no se haga un uso comercial y se distribuya bajo la misma licencia.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Glosario rápido -->
+      <h3 class="small-heading">Glosario pedagógico de Ciencias de la Computación</h3>
+      <dl class="glossary">
+        <div>
+          <dt>Algoritmo</dt>
+          <dd>Conjunto ordenado, finito y preciso de operaciones que permite resolver un problema o tomar una decisión.</dd>
+        </div>
+        <div>
+          <dt>Acumulador / Contador</dt>
+          <dd>Variable numérica que incrementa o acumula valores a lo largo de la ejecución del programa (ej.: <code>votos = votos + 1</code>).</dd>
+        </div>
+        <div>
+          <dt>Estructura selectiva (Condicional)</dt>
+          <dd>Instrucción que evalúa una condición booleana (verdadera o falsa) para bifurcar el flujo de ejecución (<code>si-sino</code>).</dd>
+        </div>
+        <div>
+          <dt>Función modular</dt>
+          <dd>Bloque de instrucciones nombrado que recibe argumentos de entrada y devuelve un resultado procesado.</dd>
+        </div>
+        <div>
+          <dt>Depuración (Debugging)</dt>
+          <dd>Metodología reflexiva para localizar, diagnosticar y corregir anomalías lógicas o sintácticas en el código.</dd>
+        </div>
+        <div>
+          <dt>Computación física</dt>
+          <dd>Interacción tangible entre software y hardware mediante sensores (botones, luz, temperatura) y actuadores (LEDs, motores).</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p><strong>Módulo Integral de Programación · Ciencias de la Computación</strong></p>
+      <p>Recurso Educativo Abierto alineado a 7°, 8° y 9° EBI de la Educación Básica Integrada (ANEP - Uruguay). Diseñado para publicación web en GitHub Pages y exportación SCORM 1.2 para la plataforma CREA (Ceibal).</p>
+      <p>Autor: <strong>Prof. Esp. Santiago Hernández</strong> · Proyecto EDyTIC · Licencia Creative Commons CC BY-NC-SA 4.0</p>
+      <div class="footer-links">
+        <a href="#inicio">Volver arriba ↑</a>
+        <a href="#simulador">Simulador en vivo</a>
+        <a href="#evaluacion">Evaluación formativa</a>
+        <a href="#exportacion">Descargar SCORM</a>
+        <a href="#creditos">Autoría y Licencia</a>
+      </div>
+      <p id="screenreader-status" class="visually-hidden" aria-live="polite"></p>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="com.edytic.cienciascomputacion.programacion" version="1.2"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.imsglobal.org/xsd/imsmd_rootv1p2p2 imsmd_rootv1p2p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="org_edytic_modulo_prog">
+    <organization identifier="org_edytic_modulo_prog">
+      <title>Módulo de Programación · Ciencias de la Computación (7°, 8° y 9° EBI)</title>
+      <item identifier="item_modulo_programacion" identifierref="res_modulo_programacion" isvisible="true">
+        <title>Módulo de Programación - EDyTIC (ANEP / Ceibal)</title>
+        <adlcp:masteryscore>70</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="res_modulo_programacion" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="assets/styles.css"/>
+      <file href="assets/main.js"/>
+      <file href="assets/scorm.js"/>
+      <file href="assets/jszip.min.js"/>
+      <file href="assets/logo-edytic.jpg"/>
+      <file href="assets/audio/01-introduccion.webm"/>
+      <file href="assets/audio/02-explicacion-actividad.webm"/>
+      <file href="assets/audio/03-algoritmo-inicial.webm"/>
+      <file href="assets/audio/04-programa-scratch.webm"/>
+      <file href="assets/audio/05-programa-makecode.webm"/>
+      <file href="assets/media/SolucionInicial.png"/>
+      <file href="assets/media/consola.mp4"/>
+      <file href="assets/media/vista1.mp4"/>
+      <file href="assets/media/consola_poster.png"/>
+      <file href="assets/media/vista1_poster.png"/>
+      <file href="assets/media/scratch_01_establecer_objetos_f1.png"/>
+      <file href="assets/media/scratch_01_establecer_objetos_f2.png"/>
+      <file href="assets/media/scratch_01_establecer_objetos_f3.png"/>
+      <file href="assets/media/scratch_02_definir_variables_f1.png"/>
+      <file href="assets/media/scratch_02_definir_variables_f2.png"/>
+      <file href="assets/media/scratch_02_definir_variables_f3.png"/>
+      <file href="assets/media/scratch_03_programar_objetos_f1.png"/>
+      <file href="assets/media/scratch_03_programar_objetos_f2.png"/>
+      <file href="assets/media/scratch_03_programar_objetos_f3.png"/>
+      <file href="assets/media/makecode_01_definir_entradas_f1.png"/>
+      <file href="assets/media/makecode_01_definir_entradas_f2.png"/>
+      <file href="assets/media/makecode_01_definir_entradas_f3.png"/>
+      <file href="assets/media/makecode_02_entradas_microbit_f1.png"/>
+      <file href="assets/media/makecode_02_entradas_microbit_f2.png"/>
+      <file href="assets/media/makecode_02_entradas_microbit_f3.png"/>
+      <file href="assets/media/makecode_03_resultado_ab_f1.png"/>
+      <file href="assets/media/makecode_03_resultado_ab_f2.png"/>
+      <file href="assets/media/makecode_03_resultado_ab_f3.png"/>
+      <file href="assets/media/algoritmo_ejecucion_paso_a_paso_f1.png"/>
+      <file href="assets/media/algoritmo_ejecucion_paso_a_paso_f2.png"/>
+      <file href="assets/media/algoritmo_ejecucion_paso_a_paso_f3.png"/>
+    </resource>
+  </resources>
+</manifest>
